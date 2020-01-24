@@ -6,11 +6,11 @@ import SearchPage from "./pages/Search";
 import NotFound from "./pages/NotFound";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+// import "./App.css";
 
 const App = () => {
   const [searchString, setSearchString] = useState("");
-
-  const mealItem = {
+  const mealDef = {
     meals: [
       {
         idMeal: "52837",
@@ -69,24 +69,48 @@ const App = () => {
       }
     ]
   };
+  const [mealItem, setMeal] = useState(mealDef);
+  const URI = "https://www.themealdb.com/api/json/v1/1/random.php";
+
+  const getMeal = () => {
+    fetch(URI)
+      .then(response => response.json())
+      .then(mealItem => setMeal(mealItem));
+  };
+
+  // const { mealItem } = meal;
 
   const handleChange = ev => {
     const { value } = ev.target;
     setSearchString(value);
   };
 
+  const handleClick = () => {
+    getMeal();
+  };
+
   return (
     <Router>
-      <Navbar searchString={searchString} handleChange={handleChange} />
+      <Navbar
+        searchString={searchString}
+        handleChange={handleChange}
+        handleClick={handleClick}
+      />
       <Switch>
-        <Route exact path="/" component={HomePage} />
+        <Route
+          exact
+          path="/"
+          render={props => (
+            <HomePage {...props} getMeal={getMeal} handleClick={handleClick} />
+          )}
+        />
         <Route
           exact
           path="/meal"
           render={props => <MealPage {...props} meal={mealItem} />}
         />
         <Route exact path="/search" component={SearchPage} />
-        {/* We'll have to input searchString somewhere */}
+        {/* We'll have to input searchResults somewhere */}
         <Route component={NotFound} />
       </Switch>
       <Footer />

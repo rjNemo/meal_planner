@@ -4,9 +4,9 @@ import IngredientList from "../components/IngredientList";
 import Recipe from "../components/Recipe";
 
 const MealPage = props => {
-  const meal = props.meal.meals[0];
+  let meal = props.meal.meals[0];
 
-  const {
+  let {
     strMeal,
     strMealThumb,
     strYoutube,
@@ -15,7 +15,7 @@ const MealPage = props => {
     strInstructions
   } = meal;
 
-  const item = {
+  let item = {
     mealName: strMeal,
     imgAddress: strMealThumb,
     videoAddress: strYoutube,
@@ -23,13 +23,14 @@ const MealPage = props => {
     mealArea: strArea
   };
 
-  // Please improve this code …
   let ingredientList = [];
   var i;
   for (i = 1; i <= 20; i++) {
     var strIng = `strIngredient${i}`;
     var strMes = `strMeasure${i}`;
-    ingredientList.push([meal[strIng], meal[strMes]]);
+    if (meal[strIng] !== "") {
+      ingredientList.push([meal[strIng], meal[strMes]]);
+    }
   }
 
   return (
@@ -39,9 +40,6 @@ const MealPage = props => {
         <div className="col s6">
           <IngredientList ingredients={ingredientList} />
         </div>
-        {/* <p>
-        {meal["strIngredient9"]}: {meal["strMeasure9"]}
-      </p> */}
         <div className="col s6">
           <Recipe recipe={strInstructions} />
         </div>

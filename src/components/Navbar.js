@@ -19,7 +19,7 @@ const Navbar = props => {
             />
           </div>
           <div className="col s4">
-            <RandomButton />
+            <RandomButton handleClick={props.handleClick} />
           </div>
         </div>
       </div>
