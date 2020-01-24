@@ -47,9 +47,7 @@ Free meal planner for cooks short on ideas! (like me …)
   - Turkish
   - Unknown
   - Vietnamese
-
-* Cocktail selection
-
+- Cocktail selection
 - Create a profile and save your favourite meals
 - Notation system: know what are the most loved meals
 - Suggestions based on what your personal taste
@@ -64,9 +62,7 @@ Free meal planner for cooks short on ideas! (like me …)
 ## Technical Stack
 
 - `React` client on the front-end
-
-* [Material UI](https://material-ui.com/) component librairy for styling
-
+- [Material UI](https://material-ui.com/) component librairy for styling
 - Public API: [TheMealDb](https://www.themealdb.com/api.php) and [TheCocktailDb](https://www.thecocktaildb.com/api.php)
 - Hosting: anywhere
 
@@ -76,5 +72,4 @@ Free meal planner for cooks short on ideas! (like me …)
 
 - WebApp
 - Random meal suggestion
-
-* Search by name: you're look for a recipe? Ours are easy to make and Yummy!
+- Search by name: you're look for a recipe? Ours are easy to make and Yummy!
