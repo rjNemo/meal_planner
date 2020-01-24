@@ -4,9 +4,9 @@ import IngredientList from "../components/IngredientList";
 import Recipe from "../components/Recipe";
 
 const MealPage = props => {
-  let meal = props.meal.meals[0];
+  const meal = props.meal.meals[0];
 
-  let {
+  const {
     strMeal,
     strMealThumb,
     strYoutube,
@@ -15,7 +15,7 @@ const MealPage = props => {
     strInstructions
   } = meal;
 
-  let item = {
+  const item = {
     mealName: strMeal,
     imgAddress: strMealThumb,
     videoAddress: strYoutube,
@@ -35,12 +35,12 @@ const MealPage = props => {
 
   return (
     <div className="container">
-      <MealPresentation meal={item} />
       <div className="row">
         <div className="col s6">
-          <IngredientList ingredients={ingredientList} />
+          <MealPresentation meal={item} />
         </div>
         <div className="col s6">
+          <IngredientList ingredients={ingredientList} />
           <Recipe recipe={strInstructions} />
         </div>
       </div>

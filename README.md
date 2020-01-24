@@ -72,4 +72,4 @@ Free meal planner for cooks short on ideas! (like me …)
 
 - WebApp
 - Random meal suggestion
-- Search by name: you're look for a recipe? Ours are easy to make and Yummy!
+- Search by name: you're looking for a recipe? Ours are easy to make and yummy!

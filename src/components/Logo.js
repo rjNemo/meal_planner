@@ -5,7 +5,7 @@ const Logo = () => {
   return (
     <Link to="/" class="brand-logo">
       <span role="img" aria-label="cookie">
-        🍪
+        🍪 Chef's Planner
       </span>
     </Link>
   );

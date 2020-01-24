@@ -7,9 +7,8 @@ const Navbar = props => {
   return (
     <nav>
       <div className="nav-wrapper">
-        {/* <div className="container"> */}
         <div className="row">
-          <div className="col s2">
+          <div className="col s3">
             <Logo />
           </div>
           <div className="col s6">
@@ -18,12 +17,11 @@ const Navbar = props => {
               handleChange={props.handleChange}
             />
           </div>
-          <div className="col s4">
+          <div className="col s3">
             <RandomButton handleClick={props.handleClick} />
           </div>
         </div>
       </div>
-      {/* </div>   */}
     </nav>
   );
 };

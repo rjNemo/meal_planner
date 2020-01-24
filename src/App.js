@@ -6,10 +6,11 @@ import SearchPage from "./pages/Search";
 import NotFound from "./pages/NotFound";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-// import "./App.css";
+import "./App.css";
 
 const App = () => {
   const [searchString, setSearchString] = useState("");
+  // Find a better alternative …
   const mealDef = {
     meals: [
       {
@@ -77,8 +78,6 @@ const App = () => {
       .then(response => response.json())
       .then(mealItem => setMeal(mealItem));
   };
-
-  // const { mealItem } = meal;
 
   const handleChange = ev => {
     const { value } = ev.target;
