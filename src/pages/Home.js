@@ -9,9 +9,11 @@ export default class HomePage extends Component {
   }
   render() {
     return (
-      <div>
-        <h1>Get a daily suggestion from the Chef</h1>
-        <RandomButton />
+      <div className="section">
+        <div className="container center-align">
+          <h1>Get a daily suggestion from the Chef</h1>
+          <RandomButton />
+        </div>
       </div>
     );
   }

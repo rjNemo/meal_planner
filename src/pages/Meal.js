@@ -33,13 +33,19 @@ const MealPage = props => {
   }
 
   return (
-    <div>
+    <div className="container">
       <MealPresentation meal={item} />
-      <IngredientList ingredients={ingredientList} />
-      {/* <p>
+      <div className="row">
+        <div className="col s6">
+          <IngredientList ingredients={ingredientList} />
+        </div>
+        {/* <p>
         {meal["strIngredient9"]}: {meal["strMeasure9"]}
       </p> */}
-      <Recipe recipe={strInstructions} />
+        <div className="col s6">
+          <Recipe recipe={strInstructions} />
+        </div>
+      </div>
     </div>
   );
 };

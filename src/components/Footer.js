@@ -4,10 +4,14 @@ import GitHubLink from "./GitHubLink";
 
 const Footer = () => {
   return (
-    <div className="Footer">
-      <CopyrightText />
-      <GitHubLink />
-    </div>
+    <footer class="page-footer">
+      <div class="footer-copyright">
+        <div class="container">
+          <CopyrightText />
+          <GitHubLink />
+        </div>
+      </div>
+    </footer>
   );
 };
 

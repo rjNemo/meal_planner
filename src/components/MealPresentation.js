@@ -9,17 +9,24 @@ const MealPresentation = props => {
     mealArea
   } = props.meal;
   return (
-    <div className="mealPresentation">
-      <h1>{mealName}</h1>
-      <img src={imgAddress} alt={mealName} />
-      <a href={videoAddress} target="blank">
-        See in video
-      </a>
-      {/* <video width="" height="" controls autoplay>
+    <div className="row">
+      <div className="col s12">
+        <h1>{mealName}</h1>
+        <div className="col s8">
+          <img src={imgAddress} alt={mealName} height="320" />
+        </div>
+        <div className="col s4">
+          <ul>
+            <li>
+              <a href={videoAddress} target="blank">
+                See in video
+              </a>
+            </li>
+            {/* <video width="" height="" controls autoplay>
         <source src={videoAddress} type="video/mp4" />
         Your browser does not support the video tag.
       </video> */}
-      {/* <iframe
+            {/* <iframe
         title="video"
         width="560"
         height="315"
@@ -28,10 +35,16 @@ const MealPresentation = props => {
         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
         allowfullscreen
       ></iframe> */}
-      <ul>
-        <li>{mealCategory}</li>
-        <li>{mealArea}</li>
-      </ul>
+
+            <li>
+              <b>Category:</b> {mealCategory}
+            </li>
+            <li>
+              <b>Origin:</b> {mealArea}
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
   );
 };

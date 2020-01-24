@@ -5,14 +5,26 @@ import RandomButton from "./RandomButton";
 
 const Navbar = props => {
   return (
-    <div className="Navbar">
-      <Logo />
-      <SearchBar
-        searchString={props.searchString}
-        handleChange={props.handleChange}
-      />
-      <RandomButton />
-    </div>
+    <nav>
+      <div className="nav-wrapper">
+        {/* <div className="container"> */}
+        <div className="row">
+          <div className="col s2">
+            <Logo />
+          </div>
+          <div className="col s6">
+            <SearchBar
+              searchString={props.searchString}
+              handleChange={props.handleChange}
+            />
+          </div>
+          <div className="col s4">
+            <RandomButton />
+          </div>
+        </div>
+      </div>
+      {/* </div>   */}
+    </nav>
   );
 };
 
