@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import HomePage from "./pages/Home";
 import MealPage from "./pages/Meal";
 import SearchPage from "./pages/Search";
+import CategoryListPage from "./pages/CategoryList";
 import NotFound from "./pages/NotFound";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -10,6 +11,7 @@ import "./App.css";
 
 const App = () => {
   const [searchString, setSearchString] = useState("");
+  const [categories, setCategories] = useState({ categories: [] });
   // Find a better alternative …
   const mealDef = {
     meals: [
@@ -20,7 +22,7 @@ const App = () => {
         strCategory: "Pasta",
         strArea: "Italian",
         strInstructions:
-          "Cook the pasta following pack instructions. Heat the oil in a non-stick frying pan and cook the onion, garlic and chilli for 3-4 mins to soften. Stir in the tomato pur\u00e9e and cook for 1 min, then add the pilchards with their sauce. Cook, breaking up the fish with a wooden spoon, then add the olives and continue to cook for a few more mins.\r\n\r\nDrain the pasta and add to the pan with 2-3 tbsp of the cooking water. Toss everything together well, then divide between plates and serve, scattered with Parmesan.",
+          "Cook the pasta following pack instructions.\r\n\r\nHeat the oil in a non-stick frying pan and cook the onion, garlic and chilli for 3-4 mins to soften. Stir in the tomato pur\u00e9e and cook for 1 min, then add the pilchards with their sauce. Cook, breaking up the fish with a wooden spoon, then add the olives and continue to cook for a few more mins.\r\n\r\nDrain the pasta and add to the pan with 2-3 tbsp of the cooking water. Toss everything together well, then divide between plates and serve, scattered with Parmesan.",
         strMealThumb:
           "https://www.themealdb.com/images/media/meals/vvtvtr1511180578.jpg",
         strTags: null,
@@ -71,12 +73,26 @@ const App = () => {
     ]
   };
   const [mealItem, setMeal] = useState(mealDef);
-  const URI = "https://www.themealdb.com/api/json/v1/1/random.php";
+
+  const createURI = keyword => {
+    const ROOT = "https://www.themealdb.com/api/json/v1/1/";
+    return `${ROOT}${keyword}.php`;
+  };
 
   const getMeal = () => {
-    fetch(URI)
+    const URI = createURI("random");
+    getFromAPI(URI, setMeal);
+  };
+
+  const getCategories = () => {
+    const URI = createURI("categories");
+    getFromAPI(URI, setCategories);
+  };
+
+  const getFromAPI = (uri, set) => {
+    fetch(uri)
       .then(response => response.json())
-      .then(mealItem => setMeal(mealItem));
+      .then(data => set(data));
   };
 
   const handleChange = ev => {
@@ -84,29 +100,31 @@ const App = () => {
     setSearchString(value);
   };
 
-  const handleClick = () => {
-    getMeal();
-  };
-
   return (
     <Router>
       <Navbar
         searchString={searchString}
         handleChange={handleChange}
-        handleClick={handleClick}
+        handleClick={getMeal}
+        getCategories={getCategories}
       />
       <Switch>
         <Route
           exact
           path="/"
-          render={props => (
-            <HomePage {...props} getMeal={getMeal} handleClick={handleClick} />
-          )}
+          render={props => <HomePage {...props} handleClick={getMeal} />}
         />
         <Route
           exact
           path="/meal"
           render={props => <MealPage {...props} meal={mealItem} />}
+        />
+        <Route
+          exact
+          path="/categories"
+          render={props => (
+            <CategoryListPage {...props} categories={categories} />
+          )}
         />
         <Route exact path="/search" component={SearchPage} />
         {/* We'll have to input searchResults somewhere */}

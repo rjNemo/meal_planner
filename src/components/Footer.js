@@ -4,9 +4,9 @@ import GitHubLink from "./GitHubLink";
 
 const Footer = () => {
   return (
-    <footer class="page-footer">
-      <div class="footer-copyright">
-        <div class="container">
+    <footer className="page-footer">
+      <div className="footer-copyright">
+        <div className="container">
           <CopyrightText />
           <GitHubLink />
         </div>

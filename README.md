@@ -72,4 +72,10 @@ Free meal planner for cooks short on ideas! (like me …)
 
 - WebApp
 - Random meal suggestion
+- List of meals by categories
 - Search by name: you're looking for a recipe? Ours are easy to make and yummy!
+
+## TO DO
+
+- write a createURI() function which generates the URI with a keyword as argument
+- fetch categories on categories link Click

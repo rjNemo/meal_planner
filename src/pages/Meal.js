@@ -28,7 +28,7 @@ const MealPage = props => {
   for (i = 1; i <= 20; i++) {
     var strIng = `strIngredient${i}`;
     var strMes = `strMeasure${i}`;
-    if (meal[strIng] !== "") {
+    if (meal[strIng] !== "" && meal[strIng] !== null) {
       ingredientList.push([meal[strIng], meal[strMes]]);
     }
   }

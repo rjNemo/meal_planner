@@ -5,7 +5,7 @@ const RandomButton = props => {
   return (
     <Link to="/meal">
       <button
-        class="waves-effect waves-light btn-large"
+        className="waves-effect waves-light btn-small"
         onClick={props.handleClick}
       >
         Random Recipe
