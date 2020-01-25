@@ -7,7 +7,7 @@ import CategoryListPage from "./pages/CategoryList";
 import NotFound from "./pages/NotFound";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import "./App.css";
+import "./index.css";
 
 const App = () => {
   const [searchString, setSearchString] = useState("");
@@ -72,7 +72,7 @@ const App = () => {
       }
     ]
   };
-  const [mealItem, setMeal] = useState(mealDef);
+  const [meal, setMeal] = useState(mealDef);
 
   const createURI = keyword => {
     const ROOT = "https://www.themealdb.com/api/json/v1/1/";
@@ -80,17 +80,16 @@ const App = () => {
   };
 
   const getMeal = () => {
-    const URI = createURI("random");
-    getFromAPI(URI, setMeal);
+    getFromAPI("random", setMeal);
   };
 
   const getCategories = () => {
-    const URI = createURI("categories");
-    getFromAPI(URI, setCategories);
+    getFromAPI("categories", setCategories);
   };
 
-  const getFromAPI = (uri, set) => {
-    fetch(uri)
+  const getFromAPI = (keyword, set) => {
+    const URI = createURI(keyword);
+    fetch(URI)
       .then(response => response.json())
       .then(data => set(data));
   };
@@ -117,7 +116,7 @@ const App = () => {
         <Route
           exact
           path="/meal"
-          render={props => <MealPage {...props} meal={mealItem} />}
+          render={props => <MealPage {...props} meal={meal} />}
         />
         <Route
           exact
@@ -128,7 +127,9 @@ const App = () => {
         />
         <Route exact path="/search" component={SearchPage} />
         {/* We'll have to input searchResults somewhere */}
-        <Route component={NotFound} />
+        <Route
+          render={props => <NotFound {...props} handleClick={getMeal} />}
+        />
       </Switch>
       <Footer />
     </Router>

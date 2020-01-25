@@ -62,7 +62,7 @@ Free meal planner for cooks short on ideas! (like me …)
 ## Technical Stack
 
 - `React` client on the front-end
-- [Material UI](https://material-ui.com/) component librairy for styling
+- [Materialize](https://materializecss.com) CSS librairy for styling
 - Public API: [TheMealDb](https://www.themealdb.com/api.php) and [TheCocktailDb](https://www.thecocktaildb.com/api.php)
 - Hosting: anywhere
 
@@ -76,6 +76,3 @@ Free meal planner for cooks short on ideas! (like me …)
 - Search by name: you're looking for a recipe? Ours are easy to make and yummy!
 
 ## TO DO
-
-- write a createURI() function which generates the URI with a keyword as argument
-- fetch categories on categories link Click

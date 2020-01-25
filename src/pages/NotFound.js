@@ -1,16 +1,21 @@
-import React, { Component } from "react";
+import React from "react";
+import RandomButton from "../components/RandomButton";
 
-export default class NotFoundPage extends Component {
-  constructor(props) {
-    super(props);
-    this.initState = {};
-    this.state = this.initState;
-  }
-  render() {
-    return (
-      <div>
-        <p>404 Not Found</p>
+const NotFoundPage = props => {
+  return (
+    <div className="section">
+      <div className="container center-align">
+        <h1>Wrong Way!</h1>
+        <img
+          src="https://images.otstatic.com/prod/26153735/2/large.jpg"
+          alt="404 not found"
+        />
+        <div className="row">
+          <RandomButton handleClick={props.handleClick} />
+        </div>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
+
+export default NotFoundPage;
