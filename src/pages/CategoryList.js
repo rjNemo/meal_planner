@@ -1,20 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
 import CategoryEntry from "../components/CategoryEntry";
 
 const CategoryListPage = props => {
-  //   const { categories } = props;
   const categories = props.categories.categories;
-  //   if (categories.length > 0) {
+  const { getCategories } = props;
 
-  //   }
-  //   const { strCategory } = categories;
+  useEffect(() => {
+    getCategories();
+  }, []);
+
   return (
     <div className="section">
       <div className="container">
-        <h1>The Chef's meal categories</h1>
+        <h1>The Chef's Meal Categories</h1>
         <ul>
           {categories.map((category, i) => (
-            <CategoryEntry key={i} category={category} />
+            <CategoryEntry i={i} category={category} />
           ))}
         </ul>
       </div>

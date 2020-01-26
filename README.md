@@ -76,3 +76,5 @@ Free meal planner for cooks short on ideas! (like me …)
 - Search by name: you're looking for a recipe? Ours are easy to make and yummy!
 
 ## TO DO
+
+- put a preloader

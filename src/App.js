@@ -4,12 +4,15 @@ import HomePage from "./pages/Home";
 import MealPage from "./pages/Meal";
 import SearchPage from "./pages/Search";
 import CategoryListPage from "./pages/CategoryList";
+import CategoryPage from "./pages/Category";
 import NotFound from "./pages/NotFound";
 import Navbar from "./components/Navbar";
+import SearchBar from "./components/SearchBar";
 import Footer from "./components/Footer";
 import "./index.css";
 
 const App = () => {
+  // const [isLoading, setIsLoading] = useState(true); For Preloader
   const [searchString, setSearchString] = useState("");
   const [categories, setCategories] = useState({ categories: [] });
   // Find a better alternative …
@@ -74,21 +77,28 @@ const App = () => {
   };
   const [meal, setMeal] = useState(mealDef);
 
-  const createURI = keyword => {
-    const ROOT = "https://www.themealdb.com/api/json/v1/1/";
-    return `${ROOT}${keyword}.php`;
+  const createURI = (keyword, filter) => {
+    if (filter === null) {
+      const ROOT = "https://www.themealdb.com/api/json/v1/1/";
+      return `${ROOT}${keyword}.php`;
+    } else {
+      const ROOT = "https://www.themealdb.com/api/json/v1/1/filter.php?c=";
+      return `${ROOT}${keyword}`;
+    }
   };
 
   const getMeal = () => {
+    // setIsLoading(true);
     getFromAPI("random", setMeal);
+    // setIsLoading(false);
   };
 
   const getCategories = () => {
     getFromAPI("categories", setCategories);
   };
 
-  const getFromAPI = (keyword, set) => {
-    const URI = createURI(keyword);
+  const getFromAPI = (keyword, set, filter = null) => {
+    const URI = createURI(keyword, filter);
     fetch(URI)
       .then(response => response.json())
       .then(data => set(data));
@@ -101,12 +111,10 @@ const App = () => {
 
   return (
     <Router>
-      <Navbar
-        searchString={searchString}
-        handleChange={handleChange}
-        handleClick={getMeal}
-        getCategories={getCategories}
-      />
+      <Navbar handleClick={getMeal} />
+      <div className="container">
+        <SearchBar searchString={searchString} handleChange={handleChange} />
+      </div>
       <Switch>
         <Route
           exact
@@ -116,15 +124,33 @@ const App = () => {
         <Route
           exact
           path="/meal"
-          render={props => <MealPage {...props} meal={meal} />}
+          render={props => (
+            <MealPage
+              {...props}
+              meal={meal}
+              getMeal={getMeal}
+              // isLoading={isLoading}
+            />
+          )}
         />
         <Route
           exact
           path="/categories"
           render={props => (
-            <CategoryListPage {...props} categories={categories} />
+            <CategoryListPage
+              {...props}
+              categories={categories}
+              getCategories={getCategories}
+            />
           )}
         />
+        <Route path="/categories/:strCategory">
+          <CategoryPage getFromAPI={getFromAPI} setMeal={setMeal} />
+        </Route>
+
+        <Route path="/categories/:strCategory/:strMeal">
+          <MealPage meal={meal} getMeal={getMeal} />
+        </Route>
         <Route exact path="/search" component={SearchPage} />
         {/* We'll have to input searchResults somewhere */}
         <Route

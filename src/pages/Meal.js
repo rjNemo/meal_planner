@@ -1,10 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import MealPresentation from "../components/MealPresentation";
 import IngredientList from "../components/IngredientList";
 import Recipe from "../components/Recipe";
+// import PreLoader from "../components/PreLoader";
 
 const MealPage = props => {
   const meal = props.meal.meals[0];
+  const { getMeal } = props;
+
+  useEffect(() => {
+    getMeal();
+  }, []);
 
   const {
     strMeal,
@@ -33,6 +39,9 @@ const MealPage = props => {
     }
   }
 
+  // const page =
+
+  // return isLoading ? <PreLoader /> : page;
   return (
     <div className="container">
       <div className="row">
