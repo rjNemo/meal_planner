@@ -13,7 +13,7 @@ const CategoryEntry = props => {
   return (
     <div className="row">
       <Link to={`${url}/${strCategory}`}>
-        <li key={props.i}>
+        <li>
           <img src={strCategoryThumb} alt={strCategory} />
           <h3>{strCategory}</h3> {strCategoryDescription}
         </li>

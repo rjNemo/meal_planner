@@ -67,7 +67,7 @@ Free meal planner for cooks short on ideas! (like me …)
 - `React` client on the front-end
 - [Materialize](https://materializecss.com) CSS librairy for styling
 - Public API: [TheMealDb](https://www.themealdb.com/api.php) and [TheCocktailDb](https://www.thecocktaildb.com/api.php)
-- Hosting: anywhere
+- Hosting: [Render](https://render.com/)
 
 ## Versions
 

@@ -166,7 +166,6 @@ const App = () => {
           <SearchPage
             searchString={searchString}
             searchResults={searchResults}
-            // getSearchResults={getSearchResults}
           />
         </Route>
         <Route path="/:idMeal">

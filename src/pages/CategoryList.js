@@ -15,7 +15,7 @@ const CategoryListPage = props => {
         <h1>The Chef's Meal Categories</h1>
         <ul>
           {categories.map((category, i) => (
-            <CategoryEntry i={i} category={category} />
+            <CategoryEntry key={i} category={category} />
           ))}
         </ul>
       </div>

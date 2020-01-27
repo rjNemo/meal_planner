@@ -5,7 +5,6 @@ const SearchPage = props => {
   const { meals } = props.searchResults;
   const { searchString } = props;
 
-  // console.log(meals[0]);
   return (
     <div className="container">
       <h1>Search Results for: {searchString} </h1>
