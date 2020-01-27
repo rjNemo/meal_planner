@@ -12,10 +12,11 @@ import Footer from "./components/Footer";
 import "./index.css";
 
 const App = () => {
-  // const [isLoading, setIsLoading] = useState(true); For Preloader
+  // State Hooks
   const [searchString, setSearchString] = useState("");
   const [categories, setCategories] = useState({ categories: [] });
-  // Find a better alternative …
+  // const [isLoading, setIsLoading] = useState(true); For Preloader
+  // Default meal object. TODO: Find a better alternative …
   const mealDef = {
     meals: [
       {
@@ -77,41 +78,48 @@ const App = () => {
   };
   const [meal, setMeal] = useState(mealDef);
 
-  const createURI = (keyword, filter) => {
-    if (filter === null) {
-      const ROOT = "https://www.themealdb.com/api/json/v1/1/";
+  // Fetch API functions
+  const createURI = (keyword, option) => {
+    const ROOT = "https://www.themealdb.com/api/json/v1/1/";
+    if (option === null) {
       return `${ROOT}${keyword}.php`;
-    } else {
-      const ROOT = "https://www.themealdb.com/api/json/v1/1/filter.php?c=";
-      return `${ROOT}${keyword}`;
+    } else if (option === "filter") {
+      return `${ROOT}${option}.php?c=${keyword}`;
+    } else if (option === "lookup") {
+      return `${ROOT}${option}.php?i=${keyword}`;
     }
   };
+  const getFromAPI = (keyword, set, option = null) => {
+    const URI = createURI(keyword, option);
+    fetch(URI)
+      .then(response => response.json())
+      .then(data => set(data));
+  };
 
-  const getMeal = () => {
+  // Fetch wrappers for each use
+  const getRandomMeal = () => {
     // setIsLoading(true);
     getFromAPI("random", setMeal);
     // setIsLoading(false);
+  };
+
+  const getMeal = id => {
+    getFromAPI(id, setMeal, "lookup");
   };
 
   const getCategories = () => {
     getFromAPI("categories", setCategories);
   };
 
-  const getFromAPI = (keyword, set, filter = null) => {
-    const URI = createURI(keyword, filter);
-    fetch(URI)
-      .then(response => response.json())
-      .then(data => set(data));
-  };
-
   const handleChange = ev => {
     const { value } = ev.target;
     setSearchString(value);
   };
+  const buttonUrl = "/random";
 
   return (
     <Router>
-      <Navbar handleClick={getMeal} />
+      <Navbar handleClick={getRandomMeal} buttonUrl={buttonUrl} />
       <div className="container">
         <SearchBar searchString={searchString} handleChange={handleChange} />
       </div>
@@ -119,16 +127,22 @@ const App = () => {
         <Route
           exact
           path="/"
-          render={props => <HomePage {...props} handleClick={getMeal} />}
+          render={props => (
+            <HomePage
+              {...props}
+              handleClick={getRandomMeal}
+              buttonUrl={buttonUrl}
+            />
+          )}
         />
         <Route
           exact
-          path="/meal"
+          path={buttonUrl}
           render={props => (
             <MealPage
               {...props}
               meal={meal}
-              getMeal={getMeal}
+              getMeal={getRandomMeal}
               // isLoading={isLoading}
             />
           )}
@@ -144,17 +158,21 @@ const App = () => {
             />
           )}
         />
-        <Route path="/categories/:strCategory">
-          <CategoryPage getFromAPI={getFromAPI} setMeal={setMeal} />
+        <Route path="/categories/:strCategory/">
+          <CategoryPage
+            getFromAPI={getFromAPI}
+            getMeal={getMeal}
+            setMeal={setMeal}
+            meal={meal}
+          />
         </Route>
-
-        <Route path="/categories/:strCategory/:strMeal">
+        <Route path="/:idMeal">
           <MealPage meal={meal} getMeal={getMeal} />
         </Route>
         <Route exact path="/search" component={SearchPage} />
         {/* We'll have to input searchResults somewhere */}
         <Route
-          render={props => <NotFound {...props} handleClick={getMeal} />}
+          render={props => <NotFound {...props} handleClick={getRandomMeal} />}
         />
       </Switch>
       <Footer />

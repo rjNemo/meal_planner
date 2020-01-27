@@ -15,7 +15,10 @@ const Navbar = props => {
               <Link to="/categories">Categories</Link>
             </li>
             <li>
-              <RandomButton handleClick={props.handleClick} />
+              <RandomButton
+                handleClick={props.handleClick}
+                url={props.buttonUrl}
+              />
             </li>
           </ul>
         </div>

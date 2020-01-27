@@ -2,14 +2,16 @@ import React, { useEffect } from "react";
 import MealPresentation from "../components/MealPresentation";
 import IngredientList from "../components/IngredientList";
 import Recipe from "../components/Recipe";
+import { useParams } from "react-router-dom";
 // import PreLoader from "../components/PreLoader";
 
 const MealPage = props => {
   const meal = props.meal.meals[0];
   const { getMeal } = props;
+  const { idMeal } = useParams();
 
   useEffect(() => {
-    getMeal();
+    idMeal === null ? getMeal() : getMeal(idMeal);
   }, []);
 
   const {

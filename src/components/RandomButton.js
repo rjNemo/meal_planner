@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const RandomButton = props => {
   return (
-    <Link to="/meal">
+    <Link to={props.url}>
       <button
         className="waves-effect waves-light btn-small"
         onClick={props.handleClick}

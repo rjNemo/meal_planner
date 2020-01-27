@@ -6,7 +6,7 @@ const HomePage = props => {
     <div className="section background">
       <div className="container center-align">
         <h1>The Chef's Meal Suggestions</h1>
-        <RandomButton handleClick={props.handleClick} />
+        <RandomButton handleClick={props.handleClick} url={props.buttonUrl} />
       </div>
     </div>
   );
