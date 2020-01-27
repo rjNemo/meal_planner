@@ -15,6 +15,7 @@ const App = () => {
   // State Hooks
   const [searchString, setSearchString] = useState("");
   const [categories, setCategories] = useState({ categories: [] });
+  const [searchResults, setSearchResults] = useState({ meals: [] });
   // const [isLoading, setIsLoading] = useState(true); For Preloader
   // Default meal object. TODO: Find a better alternative …
   const mealDef = {
@@ -87,8 +88,11 @@ const App = () => {
       return `${ROOT}${option}.php?c=${keyword}`;
     } else if (option === "lookup") {
       return `${ROOT}${option}.php?i=${keyword}`;
+    } else if (option === "search") {
+      return `${ROOT}${option}.php?s=${keyword}`;
     }
   };
+
   const getFromAPI = (keyword, set, option = null) => {
     const URI = createURI(keyword, option);
     fetch(URI)
@@ -111,6 +115,10 @@ const App = () => {
     getFromAPI("categories", setCategories);
   };
 
+  const getSearchResults = () => {
+    getFromAPI(searchString, setSearchResults, "search");
+  };
+
   const handleChange = ev => {
     const { value } = ev.target;
     setSearchString(value);
@@ -121,42 +129,30 @@ const App = () => {
     <Router>
       <Navbar handleClick={getRandomMeal} buttonUrl={buttonUrl} />
       <div className="container">
-        <SearchBar searchString={searchString} handleChange={handleChange} />
+        <SearchBar
+          searchString={searchString}
+          handleChange={handleChange}
+          onSubmit={getSearchResults}
+        />
       </div>
       <Switch>
-        <Route
-          exact
-          path="/"
-          render={props => (
-            <HomePage
-              {...props}
-              handleClick={getRandomMeal}
-              buttonUrl={buttonUrl}
-            />
-          )}
+        <Route exact path="/">
+          <HomePage handleClick={getRandomMeal} buttonUrl={buttonUrl} />
+        </Route>
+        <Route exact path={buttonUrl}>
+          <MealPage
+            meal={meal}
+            getMeal={getRandomMeal}
+            // isLoading={isLoading}
+          />
+        </Route>
         />
-        <Route
-          exact
-          path={buttonUrl}
-          render={props => (
-            <MealPage
-              {...props}
-              meal={meal}
-              getMeal={getRandomMeal}
-              // isLoading={isLoading}
-            />
-          )}
-        />
-        <Route
-          exact
-          path="/categories"
-          render={props => (
-            <CategoryListPage
-              {...props}
-              categories={categories}
-              getCategories={getCategories}
-            />
-          )}
+        <Route exact path="/categories">
+          <CategoryListPage
+            categories={categories}
+            getCategories={getCategories}
+          />
+        </Route>
         />
         <Route path="/categories/:strCategory/">
           <CategoryPage
@@ -166,13 +162,19 @@ const App = () => {
             meal={meal}
           />
         </Route>
+        <Route exact path="/search">
+          <SearchPage
+            searchString={searchString}
+            searchResults={searchResults}
+            // getSearchResults={getSearchResults}
+          />
+        </Route>
         <Route path="/:idMeal">
           <MealPage meal={meal} getMeal={getMeal} />
         </Route>
-        <Route exact path="/search" component={SearchPage} />
-        {/* We'll have to input searchResults somewhere */}
-        <Route
-          render={props => <NotFound {...props} handleClick={getRandomMeal} />}
+        <Route>
+          <NotFound handleClick={getRandomMeal} />
+        </Route>
         />
       </Switch>
       <Footer />

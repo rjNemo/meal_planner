@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import CategoryEntry from "../components/CategoryEntry";
 
 const CategoryListPage = props => {
-  const categories = props.categories.categories;
+  const { categories } = props.categories;
   const { getCategories } = props;
 
   useEffect(() => {

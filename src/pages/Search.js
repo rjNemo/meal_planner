@@ -1,18 +1,18 @@
-import React, { Component } from "react";
-import SearchResultList from "../components/SearchResultList";
+import React from "react";
+import SearchResult from "../components/SearchResult";
 
-export default class SearchPage extends Component {
-  constructor(props) {
-    super(props);
-    this.initState = {};
-    this.state = this.initState;
-  }
-  render() {
-    return (
-      <div>
-        <h1>Search Results</h1>
-        <SearchResultList />
-      </div>
-    );
-  }
-}
+const SearchPage = props => {
+  const { meals } = props.searchResults;
+  const { searchString } = props;
+
+  // console.log(meals[0]);
+  return (
+    <div className="container">
+      <h1>Search Results for: {searchString} </h1>
+      {meals.map((meal, i) => (
+        <SearchResult i={i} meal={meal} />
+      ))}
+    </div>
+  );
+};
+export default SearchPage;

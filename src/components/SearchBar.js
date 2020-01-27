@@ -1,15 +1,31 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const SearchBar = props => {
   return (
-    <input
-      type="text"
-      name="search"
-      value={props.searchString}
-      placeholder="Search a recipe"
-      onChange={props.handleChange}
-      //{onSubmit={props.handleSubmit}
-    />
+    <div className="row">
+      <input
+        className="input-field col s9"
+        type="text"
+        name="search"
+        value={props.searchString}
+        placeholder="Search a recipe"
+        onChange={props.handleChange}
+      />
+      <Link to="/search">
+        <button
+          className="btn waves-effect waves-light right"
+          type="submit"
+          name="searchButton"
+          value="Search"
+          onClick={props.onSubmit}
+        >
+          {" "}
+          Search
+          <i class="material-icons right">send</i>
+        </button>
+      </Link>
+    </div>
   );
 };
 export default SearchBar;

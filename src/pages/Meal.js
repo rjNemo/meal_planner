@@ -47,10 +47,10 @@ const MealPage = props => {
   return (
     <div className="container">
       <div className="row">
-        <div className="col s6">
+        <div className="col s12 m6">
           <MealPresentation meal={item} />
         </div>
-        <div className="col s6">
+        <div className="col s12 m6">
           <IngredientList ingredients={ingredientList} />
           <Recipe recipe={strInstructions} />
         </div>
