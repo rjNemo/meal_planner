@@ -78,4 +78,3 @@ Free meal planner for cooks short on ideas! (like me …)
 ## TO DO
 
 - put a preloader
-- on mealPage add link to catergory and origin

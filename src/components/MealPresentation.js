@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const MealPresentation = props => {
   const {
@@ -36,7 +37,11 @@ const MealPresentation = props => {
       ></iframe> */}
 
               <li>
-                <b>Category:</b> {mealCategory}
+                <b>Category: </b> {mealCategory} (
+                <Link to={`/categories/${mealCategory}`}>
+                  See every {mealCategory} recipes
+                </Link>
+                )
               </li>
               <li>
                 <b>Origin:</b> {mealArea}
