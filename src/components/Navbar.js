@@ -19,6 +19,7 @@ const Navbar = props => {
                 <RandomButton
                   handleClick={props.handleClick}
                   url={props.buttonUrl}
+                  size="small"
                 />
               </li>
             </ul>

@@ -18,3 +18,7 @@ div {
   background-image: url(./images/Chef.svg);
   /* width: 100%; */
 }
+
+logo {
+  font-family: "Marck Script", cursive;
+}

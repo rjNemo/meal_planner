@@ -82,6 +82,6 @@ Free meal planner for cooks short on ideas! (like me …)
 ## TO DO
 
 - put a preloader
-- change favicon
 - visual styling
 - route bad request to notFOund (exple: /categories/string)
+- add sidenav on mobile

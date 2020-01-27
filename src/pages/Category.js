@@ -31,9 +31,16 @@ const CategoryPage = props => {
         {meals.meals.map((meal, i) => (
           <li key={i}>
             <Link to={`/${meal.idMeal}`}>
-              {/* <Link to="/"> */}
-              <img src={meal.strMealThumb} alt={meal.strMeal} />
-              <h3>{meal.strMeal}</h3>
+              <div className="row">
+                <div className="col s12 m6">
+                  <div className="card ">
+                    <div className="card-image">
+                      <img src={meal.strMealThumb} alt={meal.strMeal} />
+                      <span className="card-title">{meal.strMeal}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </Link>
           </li>
         ))}

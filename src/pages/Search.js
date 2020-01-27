@@ -8,9 +8,11 @@ const SearchPage = props => {
   return (
     <div className="container">
       <h1>Search Results for: {searchString} </h1>
-      {meals.map((meal, i) => (
-        <SearchResult i={i} meal={meal} />
-      ))}
+      <ul>
+        {meals.map((meal, i) => (
+          <SearchResult key={i} meal={meal} />
+        ))}
+      </ul>
     </div>
   );
 };

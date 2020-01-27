@@ -11,14 +11,25 @@ const CategoryEntry = props => {
   const { url } = useRouteMatch();
 
   return (
-    <div className="row">
-      <Link to={`${url}/${strCategory}`}>
-        <li>
-          <img src={strCategoryThumb} alt={strCategory} />
-          <h3>{strCategory}</h3> {strCategoryDescription}
-        </li>
-      </Link>
-    </div>
+    <Link to={`${url}/${strCategory}`}>
+      <li>
+        <div className="row">
+          <div className="col s12">
+            <div className="card horizontal">
+              <div className="card-image">
+                <img src={strCategoryThumb} alt={strCategory} />
+                <span className="card-title red-text">{strCategory}</span>
+              </div>
+              <div className="card-stacked">
+                <div className="card-content black-text">
+                  <p>{strCategoryDescription}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+    </Link>
   );
 };
 

@@ -6,14 +6,25 @@ const SearchResult = props => {
   const { idMeal, strMeal, strMealThumb } = meal;
 
   return (
-    <div className="row">
-      <Link to={`${idMeal}`}>
-        <li key={props.i}>
-          <img src={strMealThumb} alt={strMeal} />
-          <h3>{strMeal}</h3>
-        </li>
-      </Link>
-    </div>
+    <Link to={`${idMeal}`}>
+      <li>
+        <div className="row">
+          <div className="col s12 m6">
+            <div className="card ">
+              <div className="card-image">
+                <img src={strMealThumb} alt={strMeal} />
+                <span className="card-title ">{strMeal}</span>
+              </div>
+              {/* <div className="card-stacked">
+              <div className="card-content black-text">
+                <p>{strCategoryDescription}</p>
+              </div>
+            </div> */}
+            </div>
+          </div>
+        </div>
+      </li>
+    </Link>
   );
 };
 

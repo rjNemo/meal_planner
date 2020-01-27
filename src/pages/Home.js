@@ -11,6 +11,7 @@ const HomePage = props => {
             <RandomButton
               handleClick={props.handleClick}
               url={props.buttonUrl}
+              size="large"
             />
           </div>
           <div className="col s12 m6">
