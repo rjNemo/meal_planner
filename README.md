@@ -56,6 +56,7 @@ Free meal planner for cooks short on ideas! (like me …)
 - Recipes in Video
 - Get a full menu (Starter, Main, Dessert + Cocktail)
 - Send a daily suggestion to newsletter
+- History
 
 ## Supports
 
@@ -83,5 +84,5 @@ Free meal planner for cooks short on ideas! (like me …)
 
 - put a preloader
 - visual styling
-- route bad request to notFOund (exple: /categories/string)
+- route bad request to notFOund (exple: /categories/string, when search results is null)
 - add sidenav on mobile

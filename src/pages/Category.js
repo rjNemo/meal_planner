@@ -36,7 +36,10 @@ const CategoryPage = props => {
                   <div className="card ">
                     <div className="card-image">
                       <img src={meal.strMealThumb} alt={meal.strMeal} />
-                      <span className="card-title">{meal.strMeal}</span>
+                      {/* <span className="card-title">{meal.strMeal}</span> */}
+                    </div>
+                    <div class="card-content">
+                      <h4>{meal.strMeal}</h4>
                     </div>
                   </div>
                 </div>

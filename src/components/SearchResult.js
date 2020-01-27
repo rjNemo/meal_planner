@@ -13,7 +13,10 @@ const SearchResult = props => {
             <div className="card ">
               <div className="card-image">
                 <img src={strMealThumb} alt={strMeal} />
-                <span className="card-title ">{strMeal}</span>
+                {/* <span className="card-title ">{strMeal}</span> */}
+              </div>
+              <div class="card-content">
+                <h4>{strMeal}</h4>
               </div>
               {/* <div className="card-stacked">
               <div className="card-content black-text">

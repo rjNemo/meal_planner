@@ -18,10 +18,11 @@ const CategoryEntry = props => {
             <div className="card horizontal">
               <div className="card-image">
                 <img src={strCategoryThumb} alt={strCategory} />
-                <span className="card-title red-text">{strCategory}</span>
+                {/* <span className="card-title red-text">{strCategory}</span> */}
               </div>
               <div className="card-stacked">
                 <div className="card-content black-text">
+                  <h4>{strCategory}</h4>
                   <p>{strCategoryDescription}</p>
                 </div>
               </div>
