@@ -3,11 +3,11 @@ import { useParams, Link, useRouteMatch } from "react-router-dom";
 
 const CategoryPage = props => {
   const [meals, setMeals] = useState({ meals: [] });
-  const { getFromAPI } = props;
+  const { getData } = props;
   const { strCategory } = useParams();
 
   const getMeals = () => {
-    getFromAPI(strCategory, setMeals, "filter");
+    getData(strCategory, setMeals, "filter");
   };
 
   useEffect(() => {

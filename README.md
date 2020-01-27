@@ -2,14 +2,14 @@
 
 Free meal planner for cooks short on ideas! (like me …)
 
-[Available on](https://chefs-meal-planner.onrender.com/)
+[v.0.1 Available Here!](https://chefs-meal-planner.onrender.com/)
 
 ## Features
 
-- Random meal suggestion
-- Search by name: you're look for a recipe? Ours are easy to make and Yummy!
+- Random meal suggestion ✓
+- Search by name: you're look for a recipe? Ours are easy to make and Yummy! ✓
 - What's in the fridge ? Choose your main ingredient and get a meal suggestion
-- Choose by category:
+- Choose by category: ✓
   - Beef
   - Breakfast
   - Chicken
@@ -55,10 +55,11 @@ Free meal planner for cooks short on ideas! (like me …)
 - Suggestions based on what your personal taste
 - Recipes in Video
 - Get a full menu (Starter, Main, Dessert + Cocktail)
+- Send a daily suggestion to newsletter
 
 ## Supports
 
-- Web
+- Web ✓
 - Progressive Web App
 - Mobile
 
@@ -71,7 +72,7 @@ Free meal planner for cooks short on ideas! (like me …)
 
 ## Versions
 
-### Features in V.0.1
+### Features in v.0.1
 
 - WebApp
 - Random meal suggestion
@@ -82,3 +83,5 @@ Free meal planner for cooks short on ideas! (like me …)
 
 - put a preloader
 - change favicon
+- visual styling
+- route bad request to notFOund (exple: /categories/string)

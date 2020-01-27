@@ -93,7 +93,7 @@ const App = () => {
     }
   };
 
-  const getFromAPI = (keyword, set, option = null) => {
+  const getData = (keyword, set, option = null) => {
     const URI = createURI(keyword, option);
     fetch(URI)
       .then(response => response.json())
@@ -103,20 +103,20 @@ const App = () => {
   // Fetch wrappers for each use
   const getRandomMeal = () => {
     // setIsLoading(true);
-    getFromAPI("random", setMeal);
+    getData("random", setMeal);
     // setIsLoading(false);
   };
 
   const getMeal = id => {
-    getFromAPI(id, setMeal, "lookup");
+    getData(id, setMeal, "lookup");
   };
 
   const getCategories = () => {
-    getFromAPI("categories", setCategories);
+    getData("categories", setCategories);
   };
 
   const getSearchResults = () => {
-    getFromAPI(searchString, setSearchResults, "search");
+    getData(searchString, setSearchResults, "search");
   };
 
   const handleChange = ev => {
@@ -156,7 +156,7 @@ const App = () => {
         />
         <Route path="/categories/:strCategory/">
           <CategoryPage
-            getFromAPI={getFromAPI}
+            getData={getData}
             getMeal={getMeal}
             setMeal={setMeal}
             meal={meal}

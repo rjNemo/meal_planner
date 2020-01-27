@@ -10,19 +10,11 @@ body {
   flex-direction: column;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
-}
-
-main {
-  flex: 1 0 auto;
-}
-
 div {
   white-space: pre-wrap;
 }
 
 .background {
-  background-image: url(./images/parallax1.jpg);
+  background-image: url(./images/Chef.svg);
+  /* width: 100%; */
 }
