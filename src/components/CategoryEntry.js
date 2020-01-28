@@ -11,6 +11,7 @@ const CategoryEntry = props => {
   const { url } = useRouteMatch();
 
   return (
+    // <CardEntry item={meal} />
     <Link to={`${url}/${strCategory}`}>
       <li>
         <div className="row">
