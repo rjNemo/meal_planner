@@ -83,6 +83,6 @@ Free meal planner for cooks short on ideas! (like me …)
 ## TO DO
 
 - put a preloader
-- visual styling
 - route bad request to notFOund (exple: /categories/string, when search results is null)
 - add sidenav on mobile
+- contact form

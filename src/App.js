@@ -1,5 +1,10 @@
 import React, { useState } from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect
+} from "react-router-dom";
 import HomePage from "./pages/Home";
 import MealPage from "./pages/Meal";
 import SearchPage from "./pages/Search";
@@ -12,11 +17,10 @@ import Footer from "./components/Footer";
 import "./index.css";
 
 const App = () => {
-  // State Hooks
   const [searchString, setSearchString] = useState("");
   const [categories, setCategories] = useState({ categories: [] });
   const [searchResults, setSearchResults] = useState({ meals: [] });
-  // const [isLoading, setIsLoading] = useState(true); For Preloader
+  // const [isLoading, setIsLoading] = useState(true); //For Preloader
   // Default meal object. TODO: Find a better alternative …
   const mealDef = {
     meals: [
@@ -79,7 +83,6 @@ const App = () => {
   };
   const [meal, setMeal] = useState(mealDef);
 
-  // Fetch API functions
   const createURI = (keyword, option) => {
     const ROOT = "https://www.themealdb.com/api/json/v1/1/";
     if (option === null) {
@@ -100,11 +103,8 @@ const App = () => {
       .then(data => set(data));
   };
 
-  // Fetch wrappers for each use
   const getRandomMeal = () => {
-    // setIsLoading(true);
     getData("random", setMeal);
-    // setIsLoading(false);
   };
 
   const getMeal = id => {
@@ -123,6 +123,7 @@ const App = () => {
     const { value } = ev.target;
     setSearchString(value);
   };
+
   const buttonUrl = "/random";
 
   return (
@@ -146,14 +147,14 @@ const App = () => {
             // isLoading={isLoading}
           />
         </Route>
-        />
+
         <Route exact path="/categories">
           <CategoryListPage
             categories={categories}
             getCategories={getCategories}
           />
         </Route>
-        />
+
         <Route path="/categories/:strCategory/">
           <CategoryPage
             getData={getData}
@@ -168,13 +169,16 @@ const App = () => {
             searchResults={searchResults}
           />
         </Route>
+
+        <Route path="/404">
+          <NotFound handleClick={getRandomMeal} />
+        </Route>
         <Route path="/:idMeal">
           <MealPage meal={meal} getMeal={getMeal} />
         </Route>
-        <Route>
-          <NotFound handleClick={getRandomMeal} />
+        <Route path="*">
+          <Redirect to="/404" />
         </Route>
-        />
       </Switch>
       <Footer />
     </Router>

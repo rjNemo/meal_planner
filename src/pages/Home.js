@@ -8,11 +8,7 @@ const HomePage = props => {
         <div className="row">
           <div className="col s12 m6">
             <h1>The Chef's Meal Suggestions</h1>
-            <RandomButton
-              handleClick={props.handleClick}
-              url={props.buttonUrl}
-              size="large"
-            />
+            <RandomButton url={props.buttonUrl} size="large" />
           </div>
           <div className="col s12 m6">
             <img
