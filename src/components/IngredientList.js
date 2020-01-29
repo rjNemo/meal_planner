@@ -4,14 +4,22 @@ export const IngredientList = props => {
   const { ingredients } = props;
   return (
     <div className="ingredientList">
-      <h3>Ingredients</h3>
-      <ul>
-        {ingredients.map((ing, i) => (
-          <li key={i}>
-            <b>{ing[0]}:</b> {ing[1]}
-          </li>
-        ))}
-      </ul>
+      <table className="striped highlight responsive-table">
+        <thead>
+          <tr>
+            <th>Ingredient</th>
+            <th>Quantity</th>
+          </tr>
+        </thead>
+        <tbody>
+          {ingredients.map((ing, i) => (
+            <tr key={i}>
+              <td>{ing[0]}</td>
+              <td>{ing[1]}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 };

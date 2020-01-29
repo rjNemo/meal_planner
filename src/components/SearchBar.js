@@ -16,7 +16,7 @@ export const SearchBar = props => {
           />
           <Link to="/search">
             <button
-              className="btn-floating waves-effect waves-light  right  "
+              className="btn-floating waves-effect waves-light"
               type="submit"
               name="searchButton"
               value="Search"

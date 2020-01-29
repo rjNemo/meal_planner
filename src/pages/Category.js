@@ -16,7 +16,7 @@ export const CategoryPage = props => {
 
   return (
     <div className="container">
-      <h1>Chef's {strCategory} Recipes</h1>
+      <h1 className="logo">Chef's {strCategory} Recipes</h1>
       {meals.meals === null ? (
         <Redirect to="/404" />
       ) : (
@@ -27,7 +27,7 @@ export const CategoryPage = props => {
               <Link to={`/${meal.idMeal}`}>
                 <div className="row">
                   <div className="col s12 m6">
-                    <div className="card ">
+                    <div className="card hoverable">
                       <div className="card-image">
                         <img src={meal.strMealThumb} alt={meal.strMeal} />
                       </div>

@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 
 export const Logo = () => {
   return (
-    <div className="logo">
+    <div>
       <Link to="/" className="brand-logo">
         <span role="img" aria-label="cookie">
-          👩‍🍳 Chef's
+          👩‍🍳 <span className="logo">Chef's</span>
         </span>
       </Link>
     </div>

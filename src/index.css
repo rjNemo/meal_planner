@@ -8,6 +8,7 @@ body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
+  /* background-color: #fafafa; */
 }
 
 div {
@@ -21,4 +22,5 @@ div {
 
 .logo {
   font-family: "Marck Script", cursive;
+  text-decoration: underline;
 }

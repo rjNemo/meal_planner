@@ -50,9 +50,9 @@ export const MealPage = props => {
           </div>
           <div className="col s12 m6">
             <IngredientList ingredients={ingredientList} />
-            <Recipe recipe={strInstructions} />
           </div>
         </div>
+        <Recipe recipe={strInstructions} />
       </div>
     );
   } else {

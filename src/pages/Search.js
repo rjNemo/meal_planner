@@ -10,7 +10,7 @@ export const SearchPage = props => {
 
   return (
     <div className="container">
-      <h1>Search Results for: {searchString} </h1>
+      <h1 className="logo">Results for: {searchString}</h1>
       {meals[0] === undefined ? (
         <div className="center-align">
           <p>

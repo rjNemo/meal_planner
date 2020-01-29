@@ -8,7 +8,7 @@ export const CardEntry = props => {
       <li>
         <div className="row">
           <div className="col s12 m6">
-            <div className="card ">
+            <div className="card hoverable">
               <div className="card-image">
                 <img src={strMealThumb} alt={strMeal} />
               </div>

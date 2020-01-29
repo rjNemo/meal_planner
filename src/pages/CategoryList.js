@@ -12,7 +12,7 @@ export const CategoryListPage = props => {
   return (
     <div className="section">
       <div className="container">
-        <h1>The Chef's Meal Categories</h1>
+        <h1 className="logo">Chef's Categories</h1>
         <ul>
           {categories.map((category, i) => (
             <CategoryEntry key={i} category={category} />
