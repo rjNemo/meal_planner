@@ -84,5 +84,7 @@ Free meal planner for cooks short on ideas! (like me …)
 
 - put a preloader
 - route bad request to notFOund (exple: /categories/string, when search results is null)
+  - Use ErrorBoundaries component ?
 - add sidenav on mobile
 - contact form
+- override Router with scoll to top function

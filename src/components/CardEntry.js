@@ -12,7 +12,7 @@ const CardEntry = props => {
               <div className="card-image">
                 <img src={strMealThumb} alt={strMeal} />
               </div>
-              <div class="card-content">
+              <div className="card-content">
                 <h4>{strMeal}</h4>
               </div>
             </div>

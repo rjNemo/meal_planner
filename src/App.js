@@ -169,7 +169,6 @@ const App = () => {
             searchResults={searchResults}
           />
         </Route>
-
         <Route path="/404">
           <NotFound handleClick={getRandomMeal} />
         </Route>
