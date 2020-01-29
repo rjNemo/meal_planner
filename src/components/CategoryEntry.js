@@ -12,7 +12,7 @@ const CategoryEntry = props => {
 
   return (
     // <CardEntry item={meal} />
-    <Link to={`${url}/${strCategory}`}>
+    <Link to={`${url}${strCategory}`}>
       <li>
         <div className="row">
           <div className="col s12">

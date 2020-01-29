@@ -1,8 +1,8 @@
 import React from "react";
-import CopyrightText from "./CopyrightText";
-import GitHubLink from "./GitHubLink";
+import { CopyrightText } from "./CopyrightText";
+import { GitHubLink } from "./GitHubLink";
 
-const Footer = () => {
+export const Footer = () => {
   return (
     <footer className="page-footer">
       <div className="footer-copyright">
@@ -14,5 +14,3 @@ const Footer = () => {
     </footer>
   );
 };
-
-export default Footer;

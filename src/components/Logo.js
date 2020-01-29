@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Logo = () => {
+export const Logo = () => {
   return (
     <div className="logo">
       <Link to="/" className="brand-logo">
@@ -12,5 +12,3 @@ const Logo = () => {
     </div>
   );
 };
-
-export default Logo;

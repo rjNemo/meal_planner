@@ -1,7 +1,7 @@
 import React from "react";
-import SearchResult from "../components/SearchResult";
+import { SearchResult } from "../components/SearchResult";
 
-const SearchPage = props => {
+export const SearchPage = props => {
   let { meals } = props.searchResults;
   const { searchString } = props;
   if (meals === null) {
@@ -12,7 +12,17 @@ const SearchPage = props => {
     <div className="container">
       <h1>Search Results for: {searchString} </h1>
       {meals[0] === undefined ? (
-        <p> Nothing ! Create a component to illustrate emptiness</p>
+        <div className="center-align">
+          <p>
+            No results to display, instead there is a picture of my breakfast.
+          </p>
+          <img
+            src={require("../images/breakfast.svg")}
+            alt="Nothing here!"
+            width="70%"
+          />
+          <p></p>
+        </div>
       ) : (
         <ul>
           {meals.map((meal, i) => (
@@ -23,4 +33,3 @@ const SearchPage = props => {
     </div>
   );
 };
-export default SearchPage;

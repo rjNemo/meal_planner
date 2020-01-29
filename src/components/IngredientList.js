@@ -1,6 +1,6 @@
 import React from "react";
 
-const IngredientList = props => {
+export const IngredientList = props => {
   const { ingredients } = props;
   return (
     <div className="ingredientList">
@@ -15,4 +15,3 @@ const IngredientList = props => {
     </div>
   );
 };
-export default IngredientList;

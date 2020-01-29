@@ -1,6 +1,6 @@
 import React from "react";
 
-const GitHubLink = () => {
+export const GitHubLink = () => {
   return (
     <a
       className="grey-text text-lighten-4 right"
@@ -12,5 +12,3 @@ const GitHubLink = () => {
     </a>
   );
 };
-
-export default GitHubLink;

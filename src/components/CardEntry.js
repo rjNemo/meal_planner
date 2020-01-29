@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const CardEntry = props => {
+export const CardEntry = props => {
   const { idMeal, strMeal, strMealThumb } = props.item;
   return (
     <Link to={`${idMeal}`}>
@@ -22,4 +22,3 @@ const CardEntry = props => {
     </Link>
   );
 };
-export default CardEntry;

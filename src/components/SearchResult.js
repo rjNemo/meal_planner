@@ -1,9 +1,7 @@
 import React from "react";
-import CardEntry from "./CardEntry";
+import { CardEntry } from "./CardEntry";
 
-const SearchResult = props => {
+export const SearchResult = props => {
   const { meal } = props;
   return <CardEntry item={meal} />;
 };
-
-export default SearchResult;

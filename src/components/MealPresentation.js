@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const MealPresentation = props => {
+export const MealPresentation = props => {
   const {
     mealName,
     imgAddress,
@@ -53,4 +53,3 @@ const MealPresentation = props => {
     </div>
   );
 };
-export default MealPresentation;

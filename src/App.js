@@ -1,41 +1,37 @@
 import React, { useState } from "react";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Redirect
-} from "react-router-dom";
-import HomePage from "./pages/Home";
-import MealPage from "./pages/Meal";
-import SearchPage from "./pages/Search";
-import CategoryListPage from "./pages/CategoryList";
-import CategoryPage from "./pages/Category";
-import NotFound from "./pages/NotFound";
-import Navbar from "./components/Navbar";
-import SearchBar from "./components/SearchBar";
-import Footer from "./components/Footer";
+import { Router } from "./utils/router";
+import { Switch, Route, Redirect } from "react-router-dom";
+import { HomePage } from "./pages/Home";
+import { MealPage } from "./pages/Meal";
+import { SearchPage } from "./pages/Search";
+import { CategoryListPage } from "./pages/CategoryList";
+import { CategoryPage } from "./pages/Category";
+import { NotFoundPage } from "./pages/NotFound";
+import { Navbar } from "./components/Navbar";
+import { SearchBar } from "./components/SearchBar";
+import { Footer } from "./components/Footer";
 import "./index.css";
+import { getData } from "./utils/methods";
 
-const App = () => {
+export const App = () => {
   const [searchString, setSearchString] = useState("");
   const [categories, setCategories] = useState({ categories: [] });
   const [searchResults, setSearchResults] = useState({ meals: [] });
-  // const [isLoading, setIsLoading] = useState(true); //For Preloader
   // Default meal object. TODO: Find a better alternative …
   const mealDef = {
     meals: [
       {
         idMeal: "52837",
-        strMeal: "Pilchard puttanesca",
+        strMeal: "Chef's meal",
         strDrinkAlternate: null,
-        strCategory: "Pasta",
-        strArea: "Italian",
+        strCategory: "yummy",
+        strArea: "Mine",
         strInstructions:
           "Cook the pasta following pack instructions.\r\n\r\nHeat the oil in a non-stick frying pan and cook the onion, garlic and chilli for 3-4 mins to soften. Stir in the tomato pur\u00e9e and cook for 1 min, then add the pilchards with their sauce. Cook, breaking up the fish with a wooden spoon, then add the olives and continue to cook for a few more mins.\r\n\r\nDrain the pasta and add to the pan with 2-3 tbsp of the cooking water. Toss everything together well, then divide between plates and serve, scattered with Parmesan.",
-        strMealThumb:
-          "https://www.themealdb.com/images/media/meals/vvtvtr1511180578.jpg",
+        strMealThumb: require("./images/breakfast.svg"),
+        // "https://www.themealdb.com/images/media/meals/vvtvtr1511180578.jpg",
         strTags: null,
-        strYoutube: "https://www.youtube.com/watch?v=wqZzLAPmr9k",
+        strYoutube: "#",
         strIngredient1: "Spaghetti",
         strIngredient2: "Olive Oil",
         strIngredient3: "Onion",
@@ -83,26 +79,6 @@ const App = () => {
   };
   const [meal, setMeal] = useState(mealDef);
 
-  const createURI = (keyword, option) => {
-    const ROOT = "https://www.themealdb.com/api/json/v1/1/";
-    if (option === null) {
-      return `${ROOT}${keyword}.php`;
-    } else if (option === "filter") {
-      return `${ROOT}${option}.php?c=${keyword}`;
-    } else if (option === "lookup") {
-      return `${ROOT}${option}.php?i=${keyword}`;
-    } else if (option === "search") {
-      return `${ROOT}${option}.php?s=${keyword}`;
-    }
-  };
-
-  const getData = (keyword, set, option = null) => {
-    const URI = createURI(keyword, option);
-    fetch(URI)
-      .then(response => response.json())
-      .then(data => set(data));
-  };
-
   const getRandomMeal = () => {
     getData("random", setMeal);
   };
@@ -129,32 +105,24 @@ const App = () => {
   return (
     <Router>
       <Navbar handleClick={getRandomMeal} buttonUrl={buttonUrl} />
-      <div className="container">
-        <SearchBar
-          searchString={searchString}
-          handleChange={handleChange}
-          onSubmit={getSearchResults}
-        />
-      </div>
+      <SearchBar
+        searchString={searchString}
+        handleChange={handleChange}
+        onSubmit={getSearchResults}
+      />
       <Switch>
         <Route exact path="/">
           <HomePage handleClick={getRandomMeal} buttonUrl={buttonUrl} />
         </Route>
         <Route exact path={buttonUrl}>
-          <MealPage
-            meal={meal}
-            getMeal={getRandomMeal}
-            // isLoading={isLoading}
-          />
+          <MealPage meal={meal} getMeal={getRandomMeal} />
         </Route>
-
         <Route exact path="/categories">
           <CategoryListPage
             categories={categories}
             getCategories={getCategories}
           />
         </Route>
-
         <Route path="/categories/:strCategory/">
           <CategoryPage
             getData={getData}
@@ -170,7 +138,7 @@ const App = () => {
           />
         </Route>
         <Route path="/404">
-          <NotFound handleClick={getRandomMeal} />
+          <NotFoundPage handleClick={getRandomMeal} />
         </Route>
         <Route path="/:idMeal">
           <MealPage meal={meal} getMeal={getMeal} />
@@ -183,5 +151,3 @@ const App = () => {
     </Router>
   );
 };
-
-export default App;

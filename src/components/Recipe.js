@@ -1,6 +1,6 @@
 import React from "react";
 
-const Recipe = props => {
+export const Recipe = props => {
   return (
     <div className="recipe">
       <h3>Instructions</h3>
@@ -8,4 +8,3 @@ const Recipe = props => {
     </div>
   );
 };
-export default Recipe;

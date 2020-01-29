@@ -1,7 +1,7 @@
 import React from "react";
-import RandomButton from "../components/RandomButton";
+import { RandomButton } from "../components/RandomButton";
 
-const HomePage = props => {
+export const HomePage = props => {
   return (
     <div className="section ">
       <div className="container ">
@@ -12,10 +12,7 @@ const HomePage = props => {
           </div>
           <div className="col s12 m6">
             <img
-              // src={require("../images/breakfast.svg")}
-              // src={require("../images/Chef.svg")}
               src={require("../images/healthy_options.svg")}
-              // src={require("../images/special_event.svg")}
               alt="hero_image"
               width="100%"
             />
@@ -25,5 +22,3 @@ const HomePage = props => {
     </div>
   );
 };
-
-export default HomePage;

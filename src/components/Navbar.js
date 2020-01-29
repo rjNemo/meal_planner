@@ -1,10 +1,10 @@
 import React from "react";
-import Logo from "./Logo";
+import { Logo } from "./Logo";
 
-import RandomButton from "./RandomButton";
+import { RandomButton } from "./RandomButton";
 import { Link } from "react-router-dom";
 
-const Navbar = props => {
+export const Navbar = props => {
   return (
     <div className="row">
       <nav>
@@ -70,5 +70,3 @@ const Navbar = props => {
     </div>
   );
 };
-
-export default Navbar;

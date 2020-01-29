@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams, Link, Redirect } from "react-router-dom";
 
-const CategoryPage = props => {
+export const CategoryPage = props => {
   const [meals, setMeals] = useState({ meals: [] });
   const { getData } = props;
   const { strCategory } = useParams();
@@ -24,7 +24,7 @@ const CategoryPage = props => {
           {meals.meals.map((meal, i) => (
             <li key={i}>
               {/* <CardEntry item={meal} /> */}
-              <Link to={`/meal/${meal.idMeal}`}>
+              <Link to={`/${meal.idMeal}`}>
                 <div className="row">
                   <div className="col s12 m6">
                     <div className="card ">
@@ -45,4 +45,3 @@ const CategoryPage = props => {
     </div>
   );
 };
-export default CategoryPage;

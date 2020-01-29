@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import CategoryEntry from "../components/CategoryEntry";
 
-const CategoryListPage = props => {
+export const CategoryListPage = props => {
   const { categories } = props.categories;
   const { getCategories } = props;
 
@@ -22,5 +22,3 @@ const CategoryListPage = props => {
     </div>
   );
 };
-
-export default CategoryListPage;

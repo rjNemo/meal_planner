@@ -1,6 +1,6 @@
 import React from "react";
 
-const CopyrightText = () => {
+export const CopyrightText = () => {
   return (
     <span>
       © 2020 - Chef's - Made with{" "}
@@ -10,5 +10,3 @@ const CopyrightText = () => {
     </span>
   );
 };
-
-export default CopyrightText;

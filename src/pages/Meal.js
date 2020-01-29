@@ -1,11 +1,10 @@
 import React, { useEffect } from "react";
-import MealPresentation from "../components/MealPresentation";
-import IngredientList from "../components/IngredientList";
-import Recipe from "../components/Recipe";
+import { MealPresentation } from "../components/MealPresentation";
+import { IngredientList } from "../components/IngredientList";
+import { Recipe } from "../components/Recipe";
 import { useParams, Redirect } from "react-router-dom";
-// import PreLoader from "../components/PreLoader";
 
-const MealPage = props => {
+export const MealPage = props => {
   const { getMeal } = props;
   const { idMeal } = useParams();
 
@@ -43,7 +42,6 @@ const MealPage = props => {
       }
     }
 
-    // return isLoading ? <PreLoader /> : page;
     return (
       <div className="container">
         <div className="row">
@@ -61,5 +59,3 @@ const MealPage = props => {
     return <Redirect to="/404" />;
   }
 };
-
-export default MealPage;
