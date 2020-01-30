@@ -61,7 +61,7 @@ Free meal planner for cooks short on ideas! (like me …)
 ## Supports
 
 - Web ✓
-- Progressive Web App
+- Progressive Web App ✓
 - Mobile
 
 ## Technical Stack
@@ -80,10 +80,18 @@ Free meal planner for cooks short on ideas! (like me …)
 - List of meals by categories
 - Search by name: you're looking for a recipe? Ours are easy to make and yummy!
 
+### Features in v.0.2
+
+- Progressive Web App
+- User Interface Enhancement
+
 ## TO DO
 
 - put a preloader
-- route bad request to notFOund (exple: /categories/string, when search results is null)
+- redirect after failed fetch request: (history.push('/path'), or write handleFetchResponse function)
+  - https://stackoverflow.com/questions/45089386/what-is-the-best-way-to-redirect-a-page-using-react-router
+  - https://www.henriksommerfeld.se/error-handling-with-fetch/
   - Use ErrorBoundaries component ?
 - add sidenav on mobile
-- contact form
+- accounts v2
+- contact form (with validation)

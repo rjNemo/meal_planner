@@ -15,5 +15,10 @@ export const getData = (keyword, set, option = null) => {
   const URI = createURI(keyword, option);
   fetch(URI)
     .then(response => response.json())
+    .catch(error => console.info(error + "url:" + URI))
     .then(data => set(data));
+};
+
+export const upFirstChar = lower => {
+  return lower.replace(/^\w/, c => c.toUpperCase());
 };

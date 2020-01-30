@@ -27,7 +27,7 @@ export const Navbar = props => {
         </div>
       </nav>
 
-      {/* <ul id="slide-out" class="sidenav">
+      {/* <ul id="slide-out" class="sidenav show-on-small">
         <li>
           <div class="user-view">
             <div class="background">
