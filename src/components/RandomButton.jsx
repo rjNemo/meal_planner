@@ -1,14 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export const RandomButton = props => {
-  const classString = `waves-effect waves-light btn-${props.size}`;
+export const RandomButton = ({ url, size, handleClick }) => {
+  const classString = `waves-effect waves-light btn-${size}`;
   return (
-    <Link to={props.url}>
+    <Link to={url}>
       <button
         // className="waves-effect waves-light btn-small"
         className={classString}
-        onClick={props.handleClick}
+        onClick={handleClick}
       >
         Random Recipe
       </button>

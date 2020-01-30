@@ -71,6 +71,8 @@ Free meal planner for cooks short on ideas! (like me …)
 - [Materialize](https://materializecss.com) CSS librairy for styling
 - Public API: [TheMealDb](https://www.themealdb.com/api.php) and [TheCocktailDb](https://www.thecocktaildb.com/api.php)
 - Hosting: [Render](https://render.com/)
+- Analytics : Google Analytics & Mixpanel
+- Authentication : Firebase or Auth0
 
 ## Versions
 
@@ -90,7 +92,7 @@ Free meal planner for cooks short on ideas! (like me …)
 ## TO DO
 
 - add sidenav on mobile
-- accounts v2
+- accounts v2 (profile page)
 - send message after contact form validation (confirm to sender and msg+info to admin)
 - code cleanup (props and refactoring)
 - put a preloader
@@ -99,3 +101,4 @@ Free meal planner for cooks short on ideas! (like me …)
   - https://www.henriksommerfeld.se/error-handling-with-fetch/
   - Use ErrorBoundaries component ?
 - Back to top button
+- Take a look at some components [here](http://react-materialize.github.io/react-materialize/?path=/story/css-grid--default)

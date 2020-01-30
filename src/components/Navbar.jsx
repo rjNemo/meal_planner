@@ -16,7 +16,6 @@ export const Navbar = props => {
               {links.map((link, i) => (
                 <FooterLink i={i} link={link} />
               ))}
-
               <li>
                 <RandomButton
                   handleClick={props.handleClick}

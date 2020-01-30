@@ -4,8 +4,8 @@ import { Link, useRouteMatch } from "react-router-dom";
 const CategoryEntry = props => {
   const {
     strCategory,
-    strCategoryThumb,
-    strCategoryDescription
+    strCategoryThumb
+    // strCategoryDescription
   } = props.category;
 
   const { url } = useRouteMatch();

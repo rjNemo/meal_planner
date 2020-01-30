@@ -4,7 +4,7 @@ import { IngredientList } from "../components/IngredientList";
 import { Recipe } from "../components/Recipe";
 import { useParams, Redirect } from "react-router-dom";
 
-export const MealPage = props => {
+export const Meal = props => {
   const { getMeal } = props;
   const { idMeal } = useParams();
 

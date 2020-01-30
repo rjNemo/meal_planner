@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Router } from "./utils/router";
 import { Switch, Route, Redirect } from "react-router-dom";
-import { HomePage } from "./pages/Home";
-import { MealPage } from "./pages/Meal";
+import { Home } from "./pages/Home";
+import { Meal } from "./pages/Meal";
 import { SearchPage } from "./pages/Search";
 import { CategoryListPage } from "./pages/CategoryList";
 import { CategoryPage } from "./pages/Category";
@@ -113,10 +113,10 @@ export const App = () => {
       />
       <Switch>
         <Route exact path="/">
-          <HomePage handleClick={getRandomMeal} buttonUrl={buttonUrl} />
+          <Home buttonUrl={buttonUrl} />
         </Route>
         <Route exact path={buttonUrl}>
-          <MealPage meal={meal} getMeal={getRandomMeal} />
+          <Meal meal={meal} getMeal={getRandomMeal} />
         </Route>
         <Route exact path="/categories">
           <CategoryListPage
@@ -145,7 +145,7 @@ export const App = () => {
           <NotFoundPage handleClick={getRandomMeal} />
         </Route>
         <Route path="/:idMeal">
-          <MealPage meal={meal} getMeal={getMeal} />
+          <Meal meal={meal} getMeal={getMeal} />
         </Route>
         <Route path="*">
           <Redirect to="/404" />

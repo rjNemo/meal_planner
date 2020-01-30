@@ -15,10 +15,10 @@ div {
   white-space: pre-wrap;
 }
 
-.background {
-  background-image: url(./images/Chef.svg);
-  /* width: 100%; */
-}
+/* .background {
+  background-image: url(./images/chef.svg);
+  width: 100%; 
+} */
 
 .logo {
   font-family: "Marck Script", cursive;
