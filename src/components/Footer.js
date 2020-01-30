@@ -4,7 +4,7 @@ import { GitHubLink } from "./GitHubLink";
 import { FooterLink } from "./FooterLink";
 
 export const Footer = () => {
-  const links = ["categories", "random"];
+  const links = ["categories", "random", "contact"];
 
   return (
     <footer className="page-footer">

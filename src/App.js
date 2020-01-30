@@ -6,6 +6,7 @@ import { MealPage } from "./pages/Meal";
 import { SearchPage } from "./pages/Search";
 import { CategoryListPage } from "./pages/CategoryList";
 import { CategoryPage } from "./pages/Category";
+import { ContactPage } from "./pages/Contact";
 import { NotFoundPage } from "./pages/NotFound";
 import { Navbar } from "./components/Navbar";
 import { SearchBar } from "./components/SearchBar";
@@ -136,6 +137,9 @@ export const App = () => {
             searchString={searchString}
             searchResults={searchResults}
           />
+        </Route>
+        <Route path="/contact">
+          <ContactPage />
         </Route>
         <Route path="/404">
           <NotFoundPage handleClick={getRandomMeal} />

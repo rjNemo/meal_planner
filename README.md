@@ -52,6 +52,7 @@ Free meal planner for cooks short on ideas! (like me …)
 - Cocktail selection
 - Create a profile and save your favourite meals
 - Notation system: know what are the most loved meals
+- Share recipe with your friends and family
 - Suggestions based on what your personal taste
 - Recipes in Video
 - Get a full menu (Starter, Main, Dessert + Cocktail)
@@ -84,14 +85,17 @@ Free meal planner for cooks short on ideas! (like me …)
 
 - Progressive Web App
 - User Interface Enhancement
+- Contact form
 
 ## TO DO
 
+- add sidenav on mobile
+- accounts v2
+- send message after contact form validation (confirm to sender and msg+info to admin)
+- code cleanup (props and refactoring)
 - put a preloader
 - redirect after failed fetch request: (history.push('/path'), or write handleFetchResponse function)
   - https://stackoverflow.com/questions/45089386/what-is-the-best-way-to-redirect-a-page-using-react-router
   - https://www.henriksommerfeld.se/error-handling-with-fetch/
   - Use ErrorBoundaries component ?
-- add sidenav on mobile
-- accounts v2
-- contact form (with validation)
+- Back to top button

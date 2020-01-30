@@ -2,9 +2,10 @@ import React from "react";
 import { Logo } from "./Logo";
 
 import { RandomButton } from "./RandomButton";
-import { Link } from "react-router-dom";
+import { FooterLink } from "./FooterLink";
 
 export const Navbar = props => {
+  const links = ["categories", "contact"];
   return (
     <div className="row">
       <nav>
@@ -12,9 +13,10 @@ export const Navbar = props => {
           <div className="container">
             <Logo />
             <ul id="nav-mobile" className="right hide-on-med-and-down">
-              <li>
-                <Link to="/categories">Categories</Link>
-              </li>
+              {links.map((link, i) => (
+                <FooterLink i={i} link={link} />
+              ))}
+
               <li>
                 <RandomButton
                   handleClick={props.handleClick}

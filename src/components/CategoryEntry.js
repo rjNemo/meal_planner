@@ -26,7 +26,7 @@ const CategoryEntry = props => {
               </div>
               <div className="card-stacked">
                 <div className="card-content black-text">
-                  <h4 className="logo">{strCategory}</h4>
+                  <h2 className="logo">{strCategory}</h2>
                   {/* <p>{strCategoryDescription}</p> */}
                 </div>
               </div>

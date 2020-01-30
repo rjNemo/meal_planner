@@ -12,7 +12,7 @@ export const MealPresentation = props => {
   return (
     <div className="row">
       <div className="col s12">
-        <div className="card blue-grey darken-1">
+        <div className="card teal darken-1">
           <div className="card-content white-text">
             <span className="card-title">{mealName}</span>
             <img className="responsive-img" src={imgAddress} alt={mealName} />
