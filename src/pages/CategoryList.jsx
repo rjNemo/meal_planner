@@ -7,6 +7,7 @@ export const CategoryListPage = props => {
 
   useEffect(() => {
     getCategories();
+    // eslint-disable-next-line
   }, []);
 
   return (

@@ -12,6 +12,7 @@ export const CategoryPage = props => {
 
   useEffect(() => {
     getMeals();
+    // eslint-disable-next-line
   }, []);
 
   return (

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Router } from "./utils/router";
 import { Switch, Route, Redirect } from "react-router-dom";
+import { useAuth0 } from "./utils/auth0-spa";
 import { Home } from "./pages/Home";
 import { Meal } from "./pages/Meal";
 import { SearchPage } from "./pages/Search";
@@ -13,8 +14,12 @@ import { SearchBar } from "./components/SearchBar";
 import { Footer } from "./components/Footer";
 import "./index.css";
 import { getData } from "./utils/methods";
+import history from "./utils/history";
+import { Profile } from "./pages/Profile";
+import { PrivateRoute } from "./components/PrivateRoute";
 
 export const App = () => {
+  const { loading } = useAuth0();
   const [searchString, setSearchString] = useState("");
   const [categories, setCategories] = useState({ categories: [] });
   const [searchResults, setSearchResults] = useState({ meals: [] });
@@ -103,10 +108,13 @@ export const App = () => {
 
   const buttonUrl = "/random";
 
-  return (
-    <Router>
-      <Navbar handleClick={getRandomMeal} buttonUrl={buttonUrl} />
-
+  return loading ? (
+    <div>Loading</div>
+  ) : (
+    <Router history={history}>
+      <header>
+        <Navbar handleClick={getRandomMeal} buttonUrl={buttonUrl} />
+      </header>
       <SearchBar
         searchString={searchString}
         handleChange={handleChange}
@@ -117,6 +125,10 @@ export const App = () => {
         <Route exact path="/">
           <Home buttonUrl={buttonUrl} />
         </Route>
+
+        <PrivateRoute exact path="/profile">
+          <Profile />
+        </PrivateRoute>
 
         <Route exact path={buttonUrl}>
           {meal !== undefined && meal.meals !== null ? (

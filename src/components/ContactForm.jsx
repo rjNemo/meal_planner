@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 
 export const ContactForm = ({ handleSubmit }) => {
-  const fields = ["firstname", "lastname", "email", "phone", "message"];
+  // const fields = ["firstname", "lastname", "email", "phone", "message"];
 
   //   const [firstName, setFirstName] = useState("");
 

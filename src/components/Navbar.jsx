@@ -1,21 +1,25 @@
 import React from "react";
+import { useAuth0 } from "../utils/auth0-spa";
 import { Logo } from "./Logo";
-
 import { RandomButton } from "./RandomButton";
 import { FooterLink } from "./FooterLink";
+import { LogInButton } from "./LogInButton";
+import { LogOutButton } from "./LogOutButton";
 
 export const Navbar = props => {
+  const { isAuthenticated } = useAuth0();
   const links = ["categories", "contact"];
   return (
     <div className="row">
       <nav>
         <div className="nav-wrapper">
-          <div className="container">
+          <div className="container ">
             <Logo />
             <ul id="nav-mobile" className="right hide-on-med-and-down">
               {links.map((link, i) => (
                 <FooterLink key={i} link={link} />
               ))}
+              <li>{isAuthenticated && <FooterLink link="profile" />}</li>
               <li>
                 <RandomButton
                   handleClick={props.handleClick}
@@ -23,6 +27,7 @@ export const Navbar = props => {
                   size="small"
                 />
               </li>
+              <li>{!isAuthenticated ? <LogInButton /> : <LogOutButton />}</li>
             </ul>
           </div>
         </div>

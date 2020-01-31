@@ -10,6 +10,7 @@ export const Meal = props => {
 
   useEffect(() => {
     idMeal === null ? getMeal() : getMeal(idMeal);
+    // eslint-disable-next-line
   }, []);
 
   const meal = props.meal.meals[0];

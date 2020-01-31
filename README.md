@@ -71,8 +71,8 @@ Free meal planner for cooks short on ideas! (like me …)
 - [Materialize](https://materializecss.com) CSS librairy for styling
 - Public API: [TheMealDb](https://www.themealdb.com/api.php) and [TheCocktailDb](https://www.thecocktaildb.com/api.php)
 - Hosting: [Render](https://render.com/)
+- Authentication : [Auth0](https://auth0.com/)
 - Analytics : Google Analytics & Mixpanel
-- Authentication : Firebase or Auth0
 
 ## Versions
 
@@ -87,6 +87,7 @@ Free meal planner for cooks short on ideas! (like me …)
 
 - Progressive Web App
 - User Interface Enhancement
+- Secured User Profiles
 - Contact form
 
 ## TO DO
