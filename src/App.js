@@ -106,24 +106,33 @@ export const App = () => {
   return (
     <Router>
       <Navbar handleClick={getRandomMeal} buttonUrl={buttonUrl} />
+
       <SearchBar
         searchString={searchString}
         handleChange={handleChange}
         onSubmit={getSearchResults}
       />
+
       <Switch>
         <Route exact path="/">
           <Home buttonUrl={buttonUrl} />
         </Route>
+
         <Route exact path={buttonUrl}>
-          <Meal meal={meal} getMeal={getRandomMeal} />
+          {meal !== undefined && meal.meals !== null ? (
+            <Meal meal={meal} getMeal={getRandomMeal} />
+          ) : (
+            <NotFoundPage handleClick={getRandomMeal} />
+          )}
         </Route>
+
         <Route exact path="/categories">
           <CategoryListPage
             categories={categories}
             getCategories={getCategories}
           />
         </Route>
+
         <Route path="/categories/:strCategory/">
           <CategoryPage
             getData={getData}
@@ -132,25 +141,35 @@ export const App = () => {
             meal={meal}
           />
         </Route>
+
         <Route exact path="/search">
           <SearchPage
             searchString={searchString}
             searchResults={searchResults}
           />
         </Route>
+
         <Route path="/contact">
           <ContactPage />
         </Route>
+
         <Route path="/404">
           <NotFoundPage handleClick={getRandomMeal} />
         </Route>
+
         <Route path="/:idMeal">
-          <Meal meal={meal} getMeal={getMeal} />
+          {meal !== undefined && meal.meals !== null ? (
+            <Meal meal={meal} getMeal={getMeal} />
+          ) : (
+            <NotFoundPage handleClick={getRandomMeal} />
+          )}
         </Route>
+
         <Route path="*">
           <Redirect to="/404" />
         </Route>
       </Switch>
+
       <Footer />
     </Router>
   );

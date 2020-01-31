@@ -96,9 +96,5 @@ Free meal planner for cooks short on ideas! (like me …)
 - send message after contact form validation (confirm to sender and msg+info to admin)
 - code cleanup (props and refactoring)
 - put a preloader
-- redirect after failed fetch request: (history.push('/path'), or write handleFetchResponse function)
-  - https://stackoverflow.com/questions/45089386/what-is-the-best-way-to-redirect-a-page-using-react-router
-  - https://www.henriksommerfeld.se/error-handling-with-fetch/
-  - Use ErrorBoundaries component ?
 - Back to top button
 - Take a look at some components [here](http://react-materialize.github.io/react-materialize/?path=/story/css-grid--default)

@@ -14,7 +14,7 @@ export const Navbar = props => {
             <Logo />
             <ul id="nav-mobile" className="right hide-on-med-and-down">
               {links.map((link, i) => (
-                <FooterLink i={i} link={link} />
+                <FooterLink key={i} link={link} />
               ))}
               <li>
                 <RandomButton

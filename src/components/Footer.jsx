@@ -11,10 +11,10 @@ export const Footer = () => {
       <div className="row">
         <div className="container">
           <div className=" s12">
-            <h5 className="white-text">Links</h5>
+            <h5 className="white-text">Navigation</h5>
             <ul>
               {links.map((link, i) => (
-                <FooterLink i={i} link={link} />
+                <FooterLink key={i} link={link} />
               ))}
             </ul>
           </div>

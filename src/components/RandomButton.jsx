@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export const RandomButton = ({ url, size, handleClick }) => {
+export const RandomButton = ({ url, size = "large", handleClick }) => {
   const classString = `waves-effect waves-light btn-${size}`;
   return (
     <Link to={url}>
