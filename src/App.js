@@ -17,6 +17,7 @@ import { getData } from "./utils/methods";
 import history from "./utils/history";
 import { Profile } from "./pages/Profile";
 import { PrivateRoute } from "./components/PrivateRoute";
+import { PreLoader } from "./components/PreLoader";
 
 export const App = () => {
   const { loading } = useAuth0();
@@ -109,7 +110,9 @@ export const App = () => {
   const buttonUrl = "/random";
 
   return loading ? (
-    <div>Loading</div>
+    <div className="container center-align valign-wrapper">
+      <PreLoader />
+    </div>
   ) : (
     <Router history={history}>
       <header>

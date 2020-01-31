@@ -58,6 +58,7 @@ Free meal planner for cooks short on ideas! (like me …)
 - Get a full menu (Starter, Main, Dessert + Cocktail)
 - Send a daily suggestion to newsletter
 - History
+- Language selection
 
 ## Supports
 
@@ -93,9 +94,7 @@ Free meal planner for cooks short on ideas! (like me …)
 ## TO DO
 
 - add sidenav on mobile
-- accounts v2 (profile page)
 - send message after contact form validation (confirm to sender and msg+info to admin)
 - code cleanup (props and refactoring)
-- put a preloader
 - Back to top button
 - Take a look at some components [here](http://react-materialize.github.io/react-materialize/?path=/story/css-grid--default)
