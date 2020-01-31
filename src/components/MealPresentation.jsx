@@ -45,6 +45,9 @@ export const MealPresentation = props => {
               </li>
               <li>
                 <b>Origin:</b> {mealArea}
+                {/* <Link to={`/area/${mealArea}`}>
+                  See every {mealArea} recipes
+                </Link> */}
               </li>
             </ul>
           </div>

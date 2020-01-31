@@ -142,10 +142,7 @@ export const App = () => {
         </Route>
 
         <Route exact path="/categories">
-          <CategoryListPage
-            categories={categories}
-            getCategories={getCategories}
-          />
+          <CategoryListPage items={categories} getCategories={getCategories} />
         </Route>
 
         <Route path="/categories/:strCategory/">

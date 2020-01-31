@@ -1,12 +1,12 @@
 import React from "react";
 import { Link, useRouteMatch } from "react-router-dom";
 
-const CategoryEntry = props => {
+const CategoryEntry = ({ category }) => {
   const {
     strCategory,
     strCategoryThumb
     // strCategoryDescription
-  } = props.category;
+  } = category;
 
   const { url } = useRouteMatch();
 

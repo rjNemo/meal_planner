@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import CategoryEntry from "../components/CategoryEntry";
 
-export const CategoryListPage = props => {
-  const { categories } = props.categories;
-  const { getCategories } = props;
+export const CategoryListPage = ({ items, getCategories }) => {
+  const categories = items.categories;
+  // const { getCategories } = props;
 
   useEffect(() => {
     getCategories();

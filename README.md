@@ -59,6 +59,8 @@ Free meal planner for cooks short on ideas! (like me …)
 - Send a daily suggestion to newsletter
 - History
 - Language selection
+- Nutritive value
+- Add personal notes
 
 ## Supports
 
@@ -98,3 +100,4 @@ Free meal planner for cooks short on ideas! (like me …)
 - code cleanup (props and refactoring)
 - Back to top button
 - Take a look at some components [here](http://react-materialize.github.io/react-materialize/?path=/story/css-grid--default)
+- Breadcrumb
