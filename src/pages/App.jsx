@@ -127,6 +127,8 @@ export const App = () => {
     }
   };
 
+  const links = ["categories", "contact"];
+
   return loading ? (
     <div className="container center-align valign-wrapper">
       <PreLoader />
@@ -139,6 +141,7 @@ export const App = () => {
             handleClick={getRandomMeal}
             buttonUrl={buttonUrl}
             openNavClick={openNavClick}
+            links={links}
           />
 
           <SearchBar
@@ -146,7 +149,12 @@ export const App = () => {
             handleChange={handleChange}
             onSubmit={getSearchResults}
           />
-          <SideNav showNav={showNav} />
+          <SideNav
+            showNav={showNav}
+            closeNavClick={closeNavClick}
+            links={links}
+            buttonUrl={buttonUrl}
+          />
         </header>
 
         <Switch>

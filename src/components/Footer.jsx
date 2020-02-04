@@ -14,7 +14,7 @@ export const Footer = () => {
             <h5 className="white-text">Navigation</h5>
             <ul>
               {links.map((link, i) => (
-                <FooterLink key={i} link={link} />
+                <FooterLink key={i} link={link} textColor="grey" />
               ))}
             </ul>
           </div>

@@ -8,8 +8,8 @@ import { LogOutButton } from "./LogOutButton";
 
 export const Navbar = props => {
   const { isAuthenticated } = useAuth0();
-  const links = ["categories", "contact"];
-  const { openNavClick } = props;
+
+  const { openNavClick, links } = props;
   return (
     <div className="navbar-fixed">
       <nav>
@@ -35,6 +35,7 @@ export const Navbar = props => {
               data-target="slide-out"
               class="sidenav-trigger "
               onClick={openNavClick}
+              // onclick="openNav()"
             >
               <i class="material-icons">menu</i>
             </a>
