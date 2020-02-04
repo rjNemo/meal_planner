@@ -1,39 +1,43 @@
 import React from "react";
+import { useInput } from "../utils/inputHook";
 
-export const ContactForm = ({ handleSubmit }) => {
+export const ContactForm = ({ onSubmit }) => {
   // const fields = ["firstname", "lastname", "email", "phone", "message"];
 
-  //   const [firstName, setFirstName] = useState("");
+  // const [firstName, setFirstName] = useState("");
 
-  const onSubmit = ev => {
+  const handleSubmit = ev => {
     ev.preventDefault();
-    handleSubmit(true);
+    onSubmit(true);
   };
 
-  //   const handleChange = ev => {
-  //     const { value } = ev.target;
-  //     setFirstName(value);
-  //   };
+  // const handleChange = ev => {
+  //   const { value } = ev.target;
+  //   setFirstName(value);
+  // };
 
+  // const { value, bind } = useInput("");
+  const { bind } = useInput("");
   return (
-    <form onSubmit={onSubmit}>
+    <form onSubmit={handleSubmit}>
       <div className="row">
         <div className="col s12">
           <div className="col s12 m6">
-            <ContactFormInput id="First Name" />
-          </div>
-          <div className="col s12 m6">
-            <ContactFormInput id="Last Name" />
-          </div>
-          <div className="col s12 m6">
             <ContactFormInput
-              id="Email"
-              type="email"
-              placeholder="jd@mail.com"
+              id="First Name"
+              // value={firstName}
+              // onChange={handleChange}
+              {...bind}
             />
           </div>
           <div className="col s12 m6">
-            <ContactFormInput id="Phone" placeholder="0123456789" />
+            <ContactFormInput id="Last Name" {...bind} />
+          </div>
+          <div className="col s12 m6">
+            <ContactFormInput id="Email" type="email" />
+          </div>
+          <div className="col s12 m6">
+            <ContactFormInput id="Phone" />
           </div>
           <div className="col s12">
             <ContactFormTextArea id="Message" />
@@ -45,18 +49,18 @@ export const ContactForm = ({ handleSubmit }) => {
   );
 };
 
-const ContactFormInput = ({ id, type = "text" }) => {
+const ContactFormInput = ({ id, type = "text", value, onChange }) => {
   return (
     <div className="input-field">
       {/* <i class="material-icons prefix">account_circle</i> */}
-      <label for={id}>{id}</label>
+      <label htmlFor={id}>{id}</label>
       <input
         className="validate"
         type={type}
         id={id}
-        name={id}
-        // value={value}
-        //   onChange={onChange}
+        name={value}
+        value={value}
+        onChange={onChange}
       />
     </div>
   );
@@ -65,7 +69,7 @@ const ContactFormInput = ({ id, type = "text" }) => {
 const ContactFormTextArea = ({ id }) => {
   return (
     <div className="input-field">
-      <label for={id}>{id}</label>
+      <label htmlFor={id}>{id}</label>
       <textarea
         className="materialize-textarea validate"
         rows="12"
@@ -85,7 +89,7 @@ const ContactFormSubmit = ({ text }) => {
       type="submit"
       name="submit"
     >
-      <i class="material-icons right">send</i> {text}
+      <i className="material-icons right">send</i> {text}
     </button>
   );
 };

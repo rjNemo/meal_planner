@@ -97,7 +97,8 @@ Free meal planner for cooks short on ideas! (like me …)
 
 1. add sidenav on mobile
 1. send message after contact form validation (confirm to sender and msg+info to admin)
-1. Breadcrumb
+1. Design & Breadcrumb
+1. Cookie bar
 1. code cleanup (props and refactoring)
 1. Back to top button
 1. Take a look at some components [here](http://react-materialize.github.io/react-materialize/?path=/story/css-grid--default)

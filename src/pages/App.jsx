@@ -1,23 +1,24 @@
 import React, { useState } from "react";
-import { Router } from "./utils/router";
+import { Router } from "../utils/router";
 import { Switch, Route, Redirect } from "react-router-dom";
-import { useAuth0 } from "./utils/auth0-spa";
-import { Home } from "./pages/Home";
-import { Meal } from "./pages/Meal";
-import { SearchPage } from "./pages/Search";
-import { CategoryListPage } from "./pages/CategoryList";
-import { CategoryPage } from "./pages/Category";
-import { ContactPage } from "./pages/Contact";
-import { NotFoundPage } from "./pages/NotFound";
-import { Navbar } from "./components/Navbar";
-import { SearchBar } from "./components/SearchBar";
-import { Footer } from "./components/Footer";
-import "./index.css";
-import { getData } from "./utils/methods";
-import history from "./utils/history";
-import { Profile } from "./pages/Profile";
-import { PrivateRoute } from "./components/PrivateRoute";
-import { PreLoader } from "./components/PreLoader";
+import { useAuth0 } from "../utils/auth0-spa";
+import { Home } from "./Home";
+import { Meal } from "./Meal";
+import { SearchPage } from "./Search";
+import { CategoryListPage } from "./CategoryList";
+import { CategoryPage } from "./Category";
+import { ContactPage } from "./Contact";
+import { NotFoundPage } from "./NotFound";
+import { Navbar } from "../components/Navbar";
+import { SearchBar } from "../components/SearchBar";
+import { Footer } from "../components/Footer";
+import { getData } from "../utils/methods";
+import history from "../utils/history";
+import { Profile } from "./Profile";
+import { PrivateRoute } from "../components/PrivateRoute";
+import { PreLoader } from "../components/PreLoader";
+import { SideNav } from "../components/SideNav";
+import "../index.css";
 
 export const App = () => {
   const { loading } = useAuth0();
@@ -35,7 +36,7 @@ export const App = () => {
         strArea: "Mine",
         strInstructions:
           "Cook the pasta following pack instructions.\r\n\r\nHeat the oil in a non-stick frying pan and cook the onion, garlic and chilli for 3-4 mins to soften. Stir in the tomato pur\u00e9e and cook for 1 min, then add the pilchards with their sauce. Cook, breaking up the fish with a wooden spoon, then add the olives and continue to cook for a few more mins.\r\n\r\nDrain the pasta and add to the pan with 2-3 tbsp of the cooking water. Toss everything together well, then divide between plates and serve, scattered with Parmesan.",
-        strMealThumb: require("./images/breakfast.svg"),
+        strMealThumb: require("../images/breakfast.svg"),
         // "https://www.themealdb.com/images/media/meals/vvtvtr1511180578.jpg",
         strTags: null,
         strYoutube: "#",
@@ -109,80 +110,108 @@ export const App = () => {
 
   const buttonUrl = "/random";
 
+  const [showNav, setShowNav] = useState(false);
+  const openNavClick = ev => {
+    ev.preventDefault();
+    setShowNav(true);
+    document.addEventListener("keydown", handleEscKey);
+  };
+  const closeNavClick = ev => {
+    ev.preventDefault();
+    setShowNav(false);
+    document.removeEventListener("keydown", handleEscKey);
+  };
+  const handleEscKey = ev => {
+    if (ev.key === "Escape") {
+      setShowNav(false);
+    }
+  };
+
   return loading ? (
     <div className="container center-align valign-wrapper">
       <PreLoader />
     </div>
   ) : (
-    <Router history={history}>
-      <header>
-        <Navbar handleClick={getRandomMeal} buttonUrl={buttonUrl} />
-      </header>
-      <SearchBar
-        searchString={searchString}
-        handleChange={handleChange}
-        onSubmit={getSearchResults}
-      />
-
-      <Switch>
-        <Route exact path="/">
-          <Home buttonUrl={buttonUrl} />
-        </Route>
-
-        <PrivateRoute exact path="/profile">
-          <Profile />
-        </PrivateRoute>
-
-        <Route exact path={buttonUrl}>
-          {meal !== undefined && meal.meals !== null ? (
-            <Meal meal={meal} getMeal={getRandomMeal} />
-          ) : (
-            <NotFoundPage handleClick={getRandomMeal} />
-          )}
-        </Route>
-
-        <Route exact path="/categories">
-          <CategoryListPage items={categories} getCategories={getCategories} />
-        </Route>
-
-        <Route path="/categories/:strCategory/">
-          <CategoryPage
-            getData={getData}
-            getMeal={getMeal}
-            setMeal={setMeal}
-            meal={meal}
+    <>
+      <Router history={history}>
+        <header>
+          <Navbar
+            handleClick={getRandomMeal}
+            buttonUrl={buttonUrl}
+            openNavClick={openNavClick}
           />
-        </Route>
 
-        <Route exact path="/search">
-          <SearchPage
+          <SearchBar
             searchString={searchString}
-            searchResults={searchResults}
+            handleChange={handleChange}
+            onSubmit={getSearchResults}
           />
-        </Route>
+          <SideNav showNav={showNav} />
+        </header>
 
-        <Route path="/contact">
-          <ContactPage />
-        </Route>
+        <Switch>
+          <Route exact path="/">
+            <Home buttonUrl={buttonUrl} />
+          </Route>
 
-        <Route path="/404">
-          <NotFoundPage handleClick={getRandomMeal} />
-        </Route>
+          <PrivateRoute exact path="/profile">
+            <Profile />
+          </PrivateRoute>
 
-        <Route path="/:idMeal">
-          {meal !== undefined && meal.meals !== null ? (
-            <Meal meal={meal} getMeal={getMeal} />
-          ) : (
+          <Route exact path={buttonUrl}>
+            {meal !== undefined && meal.meals !== null ? (
+              <Meal meal={meal} getMeal={getRandomMeal} />
+            ) : (
+              <NotFoundPage handleClick={getRandomMeal} />
+            )}
+          </Route>
+
+          <Route exact path="/categories">
+            <CategoryListPage
+              items={categories}
+              getCategories={getCategories}
+            />
+          </Route>
+
+          <Route path="/categories/:strCategory/">
+            <CategoryPage
+              getData={getData}
+              getMeal={getMeal}
+              setMeal={setMeal}
+              meal={meal}
+            />
+          </Route>
+
+          <Route exact path="/search">
+            <SearchPage
+              searchString={searchString}
+              searchResults={searchResults}
+            />
+          </Route>
+
+          <Route path="/contact">
+            <ContactPage />
+          </Route>
+
+          <Route path="/404">
             <NotFoundPage handleClick={getRandomMeal} />
-          )}
-        </Route>
+          </Route>
 
-        <Route path="*">
-          <Redirect to="/404" />
-        </Route>
-      </Switch>
+          <Route path="/:idMeal">
+            {meal !== undefined && meal.meals !== null ? (
+              <Meal meal={meal} getMeal={getMeal} />
+            ) : (
+              <NotFoundPage handleClick={getRandomMeal} />
+            )}
+          </Route>
 
-      <Footer />
-    </Router>
+          <Route path="*">
+            <Redirect to="/404" />
+          </Route>
+        </Switch>
+
+        <Footer />
+      </Router>
+    </>
   );
 };

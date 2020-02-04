@@ -16,8 +16,8 @@ export const ContactPage = props => {
     </div>
   ) : (
     <div className="container">
-      <h1 className="logo">Contact Us</h1>
-      <ContactForm handleSubmit={setIsSubmitted} />
+      <h2 className="logo">Contact Us</h2>
+      <ContactForm onSubmit={setIsSubmitted} />
     </div>
   );
 };
