@@ -54,7 +54,7 @@ Free meal planner for cooks short on ideas! (like me …)
 - Notation system: know what are the most loved meals
 - Share recipe with your friends and family
 - Suggestions based on what your personal taste
-- Recipes in Video
+- Recipes in Video ✓
 - Get a full menu (Starter, Main, Dessert + Cocktail)
 - Send a daily suggestion to newsletter
 - History
@@ -95,7 +95,6 @@ Free meal planner for cooks short on ideas! (like me …)
 
 ## TO DO
 
-1. add sidenav on mobile
 1. send message after contact form validation (confirm to sender and msg+info to admin)
 1. Design & Breadcrumb
 1. Cookie bar

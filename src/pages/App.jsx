@@ -115,6 +115,7 @@ export const App = () => {
     ev.preventDefault();
     setShowNav(true);
     document.addEventListener("keydown", handleEscKey);
+    // document.addEventListener("click", handleOutsideClick);
   };
   const closeNavClick = ev => {
     ev.preventDefault();
@@ -126,6 +127,9 @@ export const App = () => {
       setShowNav(false);
     }
   };
+  // const handleOutsideClick = ev => {
+  //   console.log(ev);
+  // };
 
   const links = ["categories", "contact"];
 

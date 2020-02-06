@@ -22,6 +22,7 @@ export const Profile = () => {
         <p>
           <b>Email: </b>
           {user.email}
+          {/* <a href={`mailto:${user.email}`}>{user.email}</a> */}
         </p>
         {/* <code>{JSON.stringify(user, null, 2)}</code> */}
       </div>

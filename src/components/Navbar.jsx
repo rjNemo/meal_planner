@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { useAuth0 } from "../utils/auth0-spa";
 import { Logo } from "./Logo";
 import { RandomButton } from "./RandomButton";
@@ -20,7 +21,7 @@ export const Navbar = props => {
               {links.map((link, i) => (
                 <FooterLink key={i} link={link} />
               ))}
-              <li>{isAuthenticated && <FooterLink link="profile" />}</li>
+              {isAuthenticated && <FooterLink link="profile" />}
               <li>
                 <RandomButton
                   handleClick={props.handleClick}
@@ -30,15 +31,14 @@ export const Navbar = props => {
               </li>
               <li>{!isAuthenticated ? <LogInButton /> : <LogOutButton />}</li>
             </ul>
-            <a
-              href="#"
+            <Link
+              to="#"
               data-target="slide-out"
-              class="sidenav-trigger "
+              className="sidenav-trigger "
               onClick={openNavClick}
-              // onclick="openNav()"
             >
-              <i class="material-icons">menu</i>
-            </a>
+              <i className="material-icons">menu</i>
+            </Link>
           </div>
         </div>
       </nav>

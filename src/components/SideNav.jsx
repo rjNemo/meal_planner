@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
+import { Link } from "react-router-dom";
 import { useAuth0 } from "../utils/auth0-spa";
-// import { Logo } from "./Logo";
 import { RandomButton } from "./RandomButton";
 import { FooterLink } from "./FooterLink";
 import { LogInButton } from "./LogInButton";
@@ -8,7 +8,7 @@ import { LogOutButton } from "./LogOutButton";
 
 export const SideNav = props => {
   const { showNav, closeNavClick, links } = props;
-  const { isAuthenticated } = useAuth0();
+  const { isAuthenticated, user } = useAuth0();
   let transformStyle = {
     transform: showNav ? "translateX(0%)" : "translateX(-105%)",
     transition: "0.5s"
@@ -18,18 +18,14 @@ export const SideNav = props => {
     <>
       <ul id="slide-out" className="sidenav" style={transformStyle}>
         <li>
-          <a>
-            <i className="material-icons" onClick={closeNavClick}>
-              close
-            </i>
-          </a>
-          <div className="user-view">
+          <div className="user-view" style={{ height: "30vh" }}>
             <div className="background">
               <img
                 // className="responsive-img"
                 style={{
                   position: "fixed" /* Sit on top of the page content */,
                   width: "100%" /* Full width (cover the whole page) */,
+                  height: "30vh" /* Full width (cover the whole page) */,
                   top: "0",
                   left: "0",
                   right: "0",
@@ -44,45 +40,54 @@ export const SideNav = props => {
                 alt="sidenav_background"
               />
             </div>
-            <a href="#user">
+
+            <i className="material-icons right" onClick={closeNavClick}>
+              close
+            </i>
+
+            {isAuthenticated ? (
+              <Link to="/profile">
+                <img className="circle" src={user.picture} alt="user_avatar" />
+                <span className="white-text name">{user.name}</span>
+                <span className="white-text email">{user.email}</span>
+              </Link>
+            ) : (
+              // <Link to="/profile">
               <img
                 className="circle"
                 src={require("../images/chef.svg")}
                 alt="user_avatar"
               />
-            </a>
-            <a href="#name">
-              <span className="white-text name">John Doe</span>
-            </a>
-            <a href="#email">
-              <span className="white-text email">jdandturk@gmail.com</span>
-            </a>
+              // </Link>
+            )}
           </div>
         </li>
 
         <li>
-          <a>
-            <RandomButton
-              handleClick={props.handleClick}
-              url={props.buttonUrl}
-              size="small"
-            />
-          </a>
+          <RandomButton
+            handleClick={props.handleClick}
+            url={props.buttonUrl}
+            size="small"
+          />
         </li>
         <li>
-          <a>{!isAuthenticated ? <LogInButton /> : <LogOutButton />}</a>
+          <Link to="#">
+            {!isAuthenticated ? <LogInButton /> : <LogOutButton />}
+          </Link>
         </li>
 
         <li>
           <div className="divider"></div>
         </li>
         <li>
-          <a className="subheader">Navigation</a>
+          <Link to="#" className="subheader">
+            Navigation
+          </Link>
         </li>
         {links.map((link, i) => (
           <FooterLink key={i} link={link} />
         ))}
-        <li>{isAuthenticated && <FooterLink link="profile" />}</li>
+        {isAuthenticated && <FooterLink link="profile" />}
       </ul>
     </>
   );
