@@ -41,7 +41,7 @@ export const ContactForm = ({ onSubmit }) => {
           </div>
           <div className="col s12">
             <ContactFormTextArea id="Message" />
-            <ContactFormSubmit text="Send Message" />
+            <ContactFormSubmit text="Send Message" color="orange darken-2" />
           </div>
         </div>
       </div>
@@ -82,10 +82,10 @@ const ContactFormTextArea = ({ id }) => {
   );
 };
 
-const ContactFormSubmit = ({ text }) => {
+const ContactFormSubmit = ({ text, color }) => {
   return (
     <button
-      className="waves-effect waves-light btn"
+      className={`waves-effect waves-light btn ${color}`}
       type="submit"
       name="submit"
     >

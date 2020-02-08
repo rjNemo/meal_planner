@@ -68,11 +68,16 @@ export const SideNav = props => {
             handleClick={props.handleClick}
             url={props.buttonUrl}
             size="small"
+            color="orange darken-2"
           />
         </li>
         <li>
           <Link to="#">
-            {!isAuthenticated ? <LogInButton /> : <LogOutButton />}
+            {!isAuthenticated ? (
+              <LogInButton color="orange lighten-1" />
+            ) : (
+              <LogOutButton />
+            )}
           </Link>
         </li>
 

@@ -19,17 +19,26 @@ export const Navbar = props => {
             <Logo />
             <ul id="nav-mobile" className="right hide-on-med-and-down">
               {links.map((link, i) => (
-                <FooterLink key={i} link={link} />
+                <FooterLink key={i} link={link} textColor="black" />
               ))}
-              {isAuthenticated && <FooterLink link="profile" />}
+              {isAuthenticated && (
+                <FooterLink link="profile" textColor="black" />
+              )}
               <li>
                 <RandomButton
                   handleClick={props.handleClick}
                   url={props.buttonUrl}
                   size="small"
+                  color="orange darken-2"
                 />
               </li>
-              <li>{!isAuthenticated ? <LogInButton /> : <LogOutButton />}</li>
+              <li>
+                {!isAuthenticated ? (
+                  <LogInButton color="orange lighten-1" />
+                ) : (
+                  <LogOutButton />
+                )}
+              </li>
             </ul>
             <Link
               to="#"

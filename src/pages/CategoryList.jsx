@@ -11,15 +11,13 @@ export const CategoryListPage = ({ items, getCategories }) => {
   }, []);
 
   return (
-    <div className="section">
-      <div className="container">
-        <h1 className="logo">Chef's Categories</h1>
-        <ul>
-          {categories.map((category, i) => (
-            <CategoryEntry key={i} category={category} />
-          ))}
-        </ul>
-      </div>
+    <div className="container">
+      <h1 className="logo">Chef's Categories</h1>
+      <ul>
+        {categories.map((category, i) => (
+          <CategoryEntry key={i} category={category} />
+        ))}
+      </ul>
     </div>
   );
 };

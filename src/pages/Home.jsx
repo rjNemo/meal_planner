@@ -8,7 +8,11 @@ export const Home = ({ buttonUrl }) => {
         <div className="row">
           <div className="col s12 m6">
             <h1 className="logo">Chef's Online Cookbook</h1>
-            <RandomButton url={buttonUrl} size="large" />
+            <RandomButton
+              url={buttonUrl}
+              size="large"
+              color="orange darken-2"
+            />
           </div>
           <div className="col s12 m6">
             <img

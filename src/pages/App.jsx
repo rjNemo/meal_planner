@@ -99,8 +99,10 @@ export const App = () => {
     getData("categories", setCategories);
   };
 
-  const getSearchResults = () => {
-    getData(searchString, setSearchResults, "search");
+  const getSearchResults = e => {
+    searchString === ""
+      ? e.preventDefault()
+      : getData(searchString, setSearchResults, "search");
   };
 
   const handleChange = ev => {
@@ -150,8 +152,10 @@ export const App = () => {
 
           <SearchBar
             searchString={searchString}
+            setSearchString={setSearchString}
             handleChange={handleChange}
             onSubmit={getSearchResults}
+            setSearchResults={setSearchResults}
           />
           <SideNav
             showNav={showNav}

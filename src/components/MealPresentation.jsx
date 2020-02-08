@@ -12,42 +12,32 @@ export const MealPresentation = props => {
   return (
     <div className="row">
       <div className="col s12">
-        <div className="card teal darken-1">
-          <div className="card-content white-text">
+        <div className="card orange lighten-1">
+          <div className="card-content black-text">
             <span className="card-title">{mealName}</span>
             <img className="responsive-img" src={imgAddress} alt={mealName} />
             <ul>
               <li>
-                <a href={videoAddress} target="blank">
-                  See in video
-                </a>
-              </li>
-              {/* <video width="" height="" controls autoplay>
-        <source src={videoAddress} type="video/mp4" />
-        Your browser does not support the video tag.
-      </video> */}
-              {/* <iframe
-        title="video"
-        width="560"
-        height="315"
-        src="https://www.youtube.com/embed/wqZzLAPmr9k"
-        frameborder="0"
-        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen
-      ></iframe> */}
+                <div className="chip">
+                  <b>Video:</b>
+                  <a href={videoAddress} target="blank">
+                    <i className="close material-icons">video_library</i>
+                  </a>
+                </div>
+                {/* </li>
 
-              <li>
-                <b>Category: </b> {mealCategory} (
-                <Link to={`/categories/${mealCategory}`}>
-                  See every {mealCategory} recipes
-                </Link>
-                )
-              </li>
-              <li>
-                <b>Origin:</b> {mealArea}
-                {/* <Link to={`/area/${mealArea}`}>
-                  See every {mealArea} recipes
-                </Link> */}
+              <li> */}
+                <div className="chip">
+                  <b>Category: </b> {mealCategory}
+                  <Link to={`/categories/${mealCategory}`}>
+                    <i className="close material-icons">call_made</i>
+                  </Link>
+                </div>
+                {/* </li>
+              <li> */}
+                <div className="chip">
+                  <b>Origin:</b> {mealArea}
+                </div>
               </li>
             </ul>
           </div>

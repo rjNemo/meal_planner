@@ -3,12 +3,17 @@ import { Link } from "react-router-dom";
 
 export const Logo = () => {
   return (
-    <div>
+    <>
       <Link to="/" className="brand-logo">
-        <span role="img" aria-label="cookie">
-          👩‍🍳 <span className="logo">Chef's</span>
-        </span>
+        <img
+          // className="responsive-img"
+          src="/logo192.png"
+          alt="chef's logo"
+          height="30px"
+          style={{ position: "relative", top: "5px" }}
+        />
+        <span className="logo orange-text text-accent-4">Chef's</span>
       </Link>
-    </div>
+    </>
   );
 };
