@@ -1,7 +1,7 @@
 import React from "react";
 import { RandomButton } from "../components/RandomButton";
 
-export const NotFoundPage = props => {
+export const NotFoundPage = () => {
   return (
     <div className="container center-align">
       <div className="row">

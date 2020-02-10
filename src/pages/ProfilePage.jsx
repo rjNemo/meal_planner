@@ -1,15 +1,7 @@
 import React from "react";
-import { useAuth0 } from "../utils/auth0-spa";
-import { PreLoader } from "../components/PreLoader";
 
-export const Profile = () => {
-  const { loading, user } = useAuth0();
-
-  return loading || !user ? ( // is catched by PrivateRoute
-    <div className="container center-align">
-      <PreLoader />
-    </div>
-  ) : (
+export const ProfilePage = ({ user }) => {
+  return (
     <div className="container">
       <div className="row">
         <img

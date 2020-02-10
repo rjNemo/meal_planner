@@ -7,10 +7,9 @@ import { FooterLink } from "./FooterLink";
 import { LogInButton } from "./LogInButton";
 import { LogOutButton } from "./LogOutButton";
 
-export const Navbar = props => {
+export const Navbar = ({ openNavClick, links, buttonUrl, handleClick }) => {
   const { isAuthenticated } = useAuth0();
 
-  const { openNavClick, links } = props;
   return (
     <div className="navbar-fixed">
       <nav>
@@ -26,8 +25,8 @@ export const Navbar = props => {
               )}
               <li>
                 <RandomButton
-                  handleClick={props.handleClick}
-                  url={props.buttonUrl}
+                  handleClick={handleClick}
+                  url={buttonUrl}
                   size="small"
                   color="orange darken-2"
                 />

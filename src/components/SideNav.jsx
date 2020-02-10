@@ -6,8 +6,13 @@ import { FooterLink } from "./FooterLink";
 import { LogInButton } from "./LogInButton";
 import { LogOutButton } from "./LogOutButton";
 
-export const SideNav = props => {
-  const { showNav, closeNavClick, links } = props;
+export const SideNav = ({
+  showNav,
+  closeNavClick,
+  links,
+  buttonUrl,
+  handleClick
+}) => {
   const { isAuthenticated, user } = useAuth0();
   let transformStyle = {
     transform: showNav ? "translateX(0%)" : "translateX(-105%)",
@@ -65,8 +70,8 @@ export const SideNav = props => {
 
         <li>
           <RandomButton
-            handleClick={props.handleClick}
-            url={props.buttonUrl}
+            handleClick={handleClick}
+            url={buttonUrl}
             size="small"
             color="orange darken-2"
           />

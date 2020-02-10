@@ -1,15 +1,7 @@
-import React, { useEffect } from "react";
+import React from "react";
 import CategoryEntry from "../components/CategoryEntry";
 
-export const CategoryListPage = ({ items, getCategories }) => {
-  const categories = items.categories;
-  // const { getCategories } = props;
-
-  useEffect(() => {
-    getCategories();
-    // eslint-disable-next-line
-  }, []);
-
+export const CategoryListPage = ({ categories }) => {
   return (
     <div className="container">
       <h1 className="logo">Chef's Categories</h1>

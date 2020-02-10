@@ -1,29 +1,29 @@
 import React, { useState } from "react";
-import { Router } from "../utils/router";
+import { Router } from "./utils/router";
 import { Switch, Route, Redirect } from "react-router-dom";
-import { useAuth0 } from "../utils/auth0-spa";
-import { Home } from "./Home";
-import { Meal } from "./Meal";
-import { SearchPage } from "./Search";
-import { CategoryListPage } from "./CategoryList";
-import { CategoryPage } from "./Category";
-import { ContactPage } from "./Contact";
-import { NotFoundPage } from "./NotFound";
-import { Navbar } from "../components/Navbar";
-import { SearchBar } from "../components/SearchBar";
-import { Footer } from "../components/Footer";
-import { getData } from "../utils/methods";
-import history from "../utils/history";
-import { Profile } from "./Profile";
-import { PrivateRoute } from "../components/PrivateRoute";
-import { PreLoader } from "../components/PreLoader";
-import { SideNav } from "../components/SideNav";
-import "../index.css";
+import { useAuth0 } from "./utils/auth0-spa";
+import { SearchController } from "./controllers/SearchController";
+import { ContactPage } from "./pages/Contact";
+import { NotFoundPage } from "./pages/NotFoundPage";
+import { Navbar } from "./components/Navbar";
+import { SearchBar } from "./components/SearchBar";
+import { Footer } from "./components/Footer";
+import { getData } from "./utils/methods";
+import history from "./utils/history";
+import { ProfileController } from "./controllers/ProfileController";
+import { PrivateRoute } from "./components/PrivateRoute";
+import { PreLoader } from "./components/PreLoader";
+import { SideNav } from "./components/SideNav";
+import "./index.css";
+import { HomeController } from "./controllers/HomeController";
+import { MealController } from "./controllers/MealController";
+import { CategoryListController } from "./controllers/CategoryListController";
+import { CategoryController } from "./controllers/CategoryController";
 
 export const App = () => {
   const { loading } = useAuth0();
   const [searchString, setSearchString] = useState("");
-  const [categories, setCategories] = useState({ categories: [] });
+
   const [searchResults, setSearchResults] = useState({ meals: [] });
   // Default meal object. TODO: Find a better alternative …
   const mealDef = {
@@ -36,7 +36,7 @@ export const App = () => {
         strArea: "Mine",
         strInstructions:
           "Cook the pasta following pack instructions.\r\n\r\nHeat the oil in a non-stick frying pan and cook the onion, garlic and chilli for 3-4 mins to soften. Stir in the tomato pur\u00e9e and cook for 1 min, then add the pilchards with their sauce. Cook, breaking up the fish with a wooden spoon, then add the olives and continue to cook for a few more mins.\r\n\r\nDrain the pasta and add to the pan with 2-3 tbsp of the cooking water. Toss everything together well, then divide between plates and serve, scattered with Parmesan.",
-        strMealThumb: require("../images/breakfast.svg"),
+        strMealThumb: require("./images/breakfast.svg"),
         // "https://www.themealdb.com/images/media/meals/vvtvtr1511180578.jpg",
         strTags: null,
         strYoutube: "#",
@@ -87,16 +87,12 @@ export const App = () => {
   };
   const [meal, setMeal] = useState(mealDef);
 
-  const getRandomMeal = () => {
-    getData("random", setMeal);
-  };
-
   const getMeal = id => {
     getData(id, setMeal, "lookup");
   };
 
-  const getCategories = () => {
-    getData("categories", setCategories);
+  const getRandomMeal = () => {
+    getData("random", setMeal);
   };
 
   const getSearchResults = e => {
@@ -167,39 +163,31 @@ export const App = () => {
 
         <Switch>
           <Route exact path="/">
-            <Home buttonUrl={buttonUrl} />
+            <HomeController buttonUrl={buttonUrl} />
           </Route>
 
           <PrivateRoute exact path="/profile">
-            <Profile />
+            <ProfileController />
           </PrivateRoute>
 
           <Route exact path={buttonUrl}>
-            {meal !== undefined && meal.meals !== null ? (
-              <Meal meal={meal} getMeal={getRandomMeal} />
-            ) : (
-              <NotFoundPage handleClick={getRandomMeal} />
-            )}
+            <MealController
+              meal={meal}
+              getMeal={getMeal}
+              getRandomMeal={getRandomMeal}
+            />
           </Route>
 
           <Route exact path="/categories">
-            <CategoryListPage
-              items={categories}
-              getCategories={getCategories}
-            />
+            <CategoryListController />
           </Route>
 
           <Route path="/categories/:strCategory/">
-            <CategoryPage
-              getData={getData}
-              getMeal={getMeal}
-              setMeal={setMeal}
-              meal={meal}
-            />
+            <CategoryController />
           </Route>
 
           <Route exact path="/search">
-            <SearchPage
+            <SearchController
               searchString={searchString}
               searchResults={searchResults}
             />
@@ -214,11 +202,11 @@ export const App = () => {
           </Route>
 
           <Route path="/:idMeal">
-            {meal !== undefined && meal.meals !== null ? (
-              <Meal meal={meal} getMeal={getMeal} />
-            ) : (
-              <NotFoundPage handleClick={getRandomMeal} />
-            )}
+            <MealController
+              meal={meal}
+              getMeal={getMeal}
+              getRandomMeal={getRandomMeal}
+            />
           </Route>
 
           <Route path="*">
