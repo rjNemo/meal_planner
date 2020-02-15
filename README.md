@@ -96,7 +96,8 @@ Free meal planner for cooks short on ideas! (like me …)
 ## TO DO
 
 1. send message after contact form validation (confirm to sender and msg+info to admin)
-1. Design & Breadcrumb
+1. Local storage of prefeernces
+1. Breadcrumb
 1. Cookie bar
 1. code cleanup (props and refactoring)
 1. Back to top button

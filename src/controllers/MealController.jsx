@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { MealPage } from "../pages/MealPage";
 import { NotFoundPage } from "../pages/NotFoundPage";
@@ -22,12 +22,27 @@ export const MealController = ({ meal, getMeal, getRandomMeal }) => {
     strInstructions
   } = mealItem;
 
+  const favInit = Boolean(localStorage.getItem(strMeal));
+  // console.log(favInit);
+  const [isFav, setIsFav] = useState(favInit);
+  // console.log(isFav);
+
+  useEffect(() => {
+    isFav
+      ? localStorage.setItem(strMeal, isFav)
+      : localStorage.setItem(strMeal, "");
+    console.log(localStorage.getItem(strMeal));
+    console.log(isFav);
+  }, [isFav, strMeal]);
+
   const item = {
     mealName: strMeal,
     imgAddress: strMealThumb,
     videoAddress: strYoutube,
     mealCategory: strCategory,
-    mealArea: strArea
+    mealArea: strArea,
+    isFav: isFav,
+    setIsFav: setIsFav
   };
 
   let ingredientList = [];

@@ -7,7 +7,9 @@ export const MealPresentation = props => {
     imgAddress,
     videoAddress,
     mealCategory,
-    mealArea
+    mealArea,
+    isFav,
+    setIsFav
   } = props.meal;
   return (
     <div className="row">
@@ -38,7 +40,22 @@ export const MealPresentation = props => {
                 <div className="chip">
                   <b>Origin:</b> {mealArea}
                 </div>
+                <div className="chip">
+                  <b>
+                    {isFav ? "Remove from favourites" : "Add to favourites"}:
+                  </b>
+
+                  <Link to="#">
+                    <i
+                      className="close material-icons"
+                      onClick={() => setIsFav(!isFav)}
+                    >
+                      {isFav ? "favorite" : "favorite_border"}
+                    </i>
+                  </Link>
+                </div>
               </li>
+              <li></li>
             </ul>
           </div>
         </div>

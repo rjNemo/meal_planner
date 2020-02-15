@@ -22,3 +22,5 @@ export const getData = (keyword, set, option = null) => {
 export const upFirstChar = lower => {
   return lower.replace(/^\w/, c => c.toUpperCase());
 };
+
+export const addToFavourites = () => {};
