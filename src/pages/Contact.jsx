@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { ContactForm } from "../components/ContactForm";
 
-export const ContactPage = props => {
+export const ContactPage = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   return isSubmitted ? (

@@ -1,23 +1,39 @@
-import React from "react";
-import { useInput } from "../utils/inputHook";
+import React, { useState } from "react";
+// import { useInput } from "../utils/inputHook";
 
 export const ContactForm = ({ onSubmit }) => {
-  // const fields = ["firstname", "lastname", "email", "phone", "message"];
-
-  // const [firstName, setFirstName] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [message, setMessage] = useState("");
 
   const handleSubmit = ev => {
     ev.preventDefault();
     onSubmit(true);
   };
 
-  // const handleChange = ev => {
-  //   const { value } = ev.target;
-  //   setFirstName(value);
-  // };
+  const changeFirstName = ev => {
+    const { value } = ev.target;
+    setFirstName(value);
+  };
+  const changeLastName = ev => {
+    const { value } = ev.target;
+    setLastName(value);
+  };
+  const changePhone = ev => {
+    const { value } = ev.target;
+    setPhone(value);
+  };
+  const changeEmail = ev => {
+    const { value } = ev.target;
+    setEmail(value);
+  };
+  const changeMessage = ev => {
+    const { value } = ev.target;
+    setMessage(value);
+  };
 
-  // const { value, bind } = useInput("");
-  const { bind } = useInput("");
   return (
     <form onSubmit={handleSubmit}>
       <div className="row">
@@ -25,22 +41,34 @@ export const ContactForm = ({ onSubmit }) => {
           <div className="col s12 m6">
             <ContactFormInput
               id="First Name"
-              // value={firstName}
-              // onChange={handleChange}
-              {...bind}
+              value={firstName}
+              onChange={changeFirstName}
             />
           </div>
           <div className="col s12 m6">
-            <ContactFormInput id="Last Name" {...bind} />
+            <ContactFormInput
+              id="Last Name"
+              value={lastName}
+              onChange={changeLastName}
+            />
           </div>
           <div className="col s12 m6">
-            <ContactFormInput id="Email" type="email" />
+            <ContactFormInput
+              id="Email"
+              type="email"
+              value={email}
+              onChange={changeEmail}
+            />
           </div>
           <div className="col s12 m6">
-            <ContactFormInput id="Phone" />
+            <ContactFormInput id="Phone" value={phone} onChange={changePhone} />
           </div>
           <div className="col s12">
-            <ContactFormTextArea id="Message" />
+            <ContactFormTextArea
+              id="Message"
+              value={message}
+              onChange={changeMessage}
+            />
             <ContactFormSubmit text="Send Message" color="orange darken-2" />
           </div>
         </div>
@@ -52,31 +80,29 @@ export const ContactForm = ({ onSubmit }) => {
 const ContactFormInput = ({ id, type = "text", value, onChange }) => {
   return (
     <div className="input-field">
-      {/* <i class="material-icons prefix">account_circle</i> */}
-      <label htmlFor={id}>{id}</label>
+      {/* <i className="material-icons prefix">account_circle</i> */}
       <input
         className="validate"
         type={type}
         id={id}
-        name={value}
         value={value}
         onChange={onChange}
       />
+      <label htmlFor={id}>{id}</label>
     </div>
   );
 };
 
-const ContactFormTextArea = ({ id }) => {
+const ContactFormTextArea = ({ id, value, onChange }) => {
   return (
     <div className="input-field">
       <label htmlFor={id}>{id}</label>
       <textarea
         className="materialize-textarea validate"
         rows="12"
-        //   cols="50"
         name={id}
-        // value={value}
-        //   onChange={onChange}
+        value={value}
+        onChange={onChange}
       />
     </div>
   );
@@ -93,10 +119,3 @@ const ContactFormSubmit = ({ text, color }) => {
     </button>
   );
 };
-// {fields.map(field => (
-//     <ContactFormInput
-//       value={field}
-//       placeholder={field}
-//       //   onChange={handleChange}
-//     />
-//   ))}

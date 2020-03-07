@@ -22,17 +22,54 @@ export const MealController = ({ meal, getMeal, getRandomMeal }) => {
     strInstructions
   } = mealItem;
 
-  const favInit = Boolean(localStorage.getItem(strMeal));
-  // console.log(favInit);
-  const [isFav, setIsFav] = useState(favInit);
+  // const setDbPromise = () => {
+  //   //check for support
+  //   if (!("indexedDB" in window)) {
+  //     console.log("This browser doesn't support IndexedDB");
+  //     return;
+  //   }
+
+  //   var dbPromise = indexedDB.open("chefs-db", 1, function(upgradeDb) {
+  //     if (!upgradeDb.objectStoreNames.contains("favourites")) {
+  //       var favOS = upgradeDb.createObjectStore("favourites", {
+  //         keyPath: "mealName"
+  //       });
+  //       favOS.createIndex("isFav", "isFav", { unique: true });
+  //     }
+  //   });
+  //   return dbPromise;
+  // };
+
+  // const [isFav, setIsFav] = useState(false);
+
+  // var dbPromise = setDbPromise();
+
+  // dbPromise
+  //   .then(db => {
+  //     var tx = db.transaction("favourites", "readwrite");
+  //     var store = tx.objectStore("favourites");
+  //     var item = {
+  //       mealName: strMeal,
+  //       isFav: isFav
+  //     };
+  //     store.add(item);
+  //     return tx.complete;
+  //   })
+  //   .then(function() {
+  //     console.log("added item to the favourite os!");
+  //   });
+
+  // const initState = Boolean(localStorage.getItem(strMeal));
+  const [isFav, setIsFav] = useState(localStorage.getItem(strMeal) === "fav");
+
   // console.log(isFav);
 
   useEffect(() => {
     isFav
-      ? localStorage.setItem(strMeal, isFav)
-      : localStorage.setItem(strMeal, "");
-    console.log(localStorage.getItem(strMeal));
-    console.log(isFav);
+      ? localStorage.setItem(strMeal, "fav")
+      : localStorage.removeItem(strMeal);
+    // console.log(localStorage.getItem(strMeal));
+    // console.log(isFav);
   }, [isFav, strMeal]);
 
   const item = {
