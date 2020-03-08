@@ -17,7 +17,7 @@ export const ContactPage = () => {
   ) : (
     <div className="container">
       <h2 className="logo">Contact Us</h2>
-      <ContactForm onSubmit={setIsSubmitted} />
+      <ContactForm setIsSubmitted={setIsSubmitted} />
     </div>
   );
 };

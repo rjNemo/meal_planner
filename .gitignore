@@ -22,4 +22,5 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# /src/utils/auth_config.json
+/src/utils/auth_config.json
+/src/utils/secret.js

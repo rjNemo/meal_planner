@@ -1,17 +1,12 @@
 import React, { useState } from "react";
-// import { useInput } from "../utils/inputHook";
+// import { notificationMail, confirmationMail } from "../utils/mail";
 
-export const ContactForm = ({ onSubmit }) => {
+export const ContactForm = ({ setIsSubmitted }) => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
-
-  const handleSubmit = ev => {
-    ev.preventDefault();
-    onSubmit(true);
-  };
 
   const changeFirstName = ev => {
     const { value } = ev.target;
@@ -32,6 +27,14 @@ export const ContactForm = ({ onSubmit }) => {
   const changeMessage = ev => {
     const { value } = ev.target;
     setMessage(value);
+  };
+
+  const handleSubmit = ev => {
+    ev.preventDefault();
+    // confirmationMail(email);
+    // const body = `Sender: ${firstName} ${lastName}\nPhone: ${phone}\nMessage: ${message}`;
+    // notificationMail(email, `New message from ${firstName} ${lastName}`, body);
+    setIsSubmitted(true);
   };
 
   return (
@@ -61,7 +64,13 @@ export const ContactForm = ({ onSubmit }) => {
             />
           </div>
           <div className="col s12 m6">
-            <ContactFormInput id="Phone" value={phone} onChange={changePhone} />
+            <ContactFormInput
+              id="Phone"
+              value={phone}
+              type="tel"
+              // pattern="[0-9]"
+              onChange={changePhone}
+            />
           </div>
           <div className="col s12">
             <ContactFormTextArea
@@ -87,6 +96,7 @@ const ContactFormInput = ({ id, type = "text", value, onChange }) => {
         id={id}
         value={value}
         onChange={onChange}
+        required
       />
       <label htmlFor={id}>{id}</label>
     </div>
@@ -103,6 +113,7 @@ const ContactFormTextArea = ({ id, value, onChange }) => {
         name={id}
         value={value}
         onChange={onChange}
+        required
       />
     </div>
   );
