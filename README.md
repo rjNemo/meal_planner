@@ -4,7 +4,7 @@ Free meal planner for cooks short on ideas! (like me …)
 
 [v.0.1 Available Here!](https://chefs-meal-planner.onrender.com/)
 
-## Features
+## Feature list
 
 - Random meal suggestion ✓
 - Search by name: you're look for a recipe? Ours are easy to make and Yummy! ✓
@@ -68,37 +68,36 @@ Free meal planner for cooks short on ideas! (like me …)
 - Progressive Web App ✓
 - Mobile
 
-## Technical Stack
+## Deployment
 
-- `React` client on the front-end
-- [Materialize](https://materializecss.com) CSS librairy for styling
-- Public API: [TheMealDb](https://www.themealdb.com/api.php) and [TheCocktailDb](https://www.thecocktaildb.com/api.php)
-- Hosting: [Render](https://render.com/)
-- Authentication : [Auth0](https://auth0.com/)
-- Analytics : Google Analytics & Mixpanel
+The application is hosted on [Render](https://render.com/) at the following address: [link](https://chefs-meal-planner.onrender.com/).
 
-## Versions
+## Built With
 
-### Features in v.0.1
+- [React](https://reactjs.org/) - A JavaScript library for building user interfaces
+- [Materialize](https://materializecss.com) - Modern responsive CSS framework based on Material Design by Google
+- [TheMealDb](https://www.themealdb.com/api.php) - An open, crowd-sourced database of Recipes from around the world
+<!-- - and [TheCocktailDb](https://www.thecocktaildb.com/api.php) -->
+- [Auth0](https://auth0.com/) - Rapidly integrate authentication and authorization
+- [Render](https://render.com/) - The Easiest Cloud For All Your Apps and Websites
+<!-- - Analytics : Google Analytics & Mixpanel -->
 
-- WebApp
-- Random meal suggestion
-- List of meals by categories
-- Search by name: you're looking for a recipe? Ours are easy to make and yummy!
+## Contributing
 
-### Features in v.0.2
+Please read [CONTRIBUTING.md](https://github.com/rjNemo/meal_planner/contributors) for details on our code of conduct, and the process for submitting pull requests to us.
 
-- Progressive Web App
-- User Interface Enhancement
-- Secured User Profiles
-- Contact form
+## Versioning
 
-## TO DO
+We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/rjNemo/meal_planner/tags).
 
-1. send message after contact form validation (confirm to sender and msg+info to admin)
-1. Local storage of prefeernces
-1. Breadcrumb
-1. Cookie bar
-1. code cleanup (props and refactoring)
-1. Back to top button
-1. Take a look at some components [here](http://react-materialize.github.io/react-materialize/?path=/story/css-grid--default)
+## Authors
+
+- **Ruidy Nemausat** - _Initial work_ - [GitHub](https://github.com/rjNemo)
+
+See also the list of [contributors](https://github.com/rjNemo/meal_planner/contributors) who participated in this project.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+
+<!-- ## Acknowledgments -->
