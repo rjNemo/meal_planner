@@ -2,6 +2,7 @@
 
 - [ ] send message after contact form validation (confirm to sender and msg+info to admin)
 - [ ] Local storage of prefeernces
+- [ ] Firebase
 - [ ] Breadcrumb
 - [ ] Cookie bar
 - [ ] code cleanup (props and refactoring)

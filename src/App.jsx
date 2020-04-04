@@ -81,13 +81,13 @@ export const App = () => {
         strMeasure19: "",
         strMeasure20: "",
         strSource: "https://www.bbcgoodfood.com/recipes/pilchard-puttanesca",
-        dateModified: null
-      }
-    ]
+        dateModified: null,
+      },
+    ],
   };
   const [meal, setMeal] = useState(mealDef);
 
-  const getMeal = id => {
+  const getMeal = (id) => {
     getData(id, setMeal, "lookup");
   };
 
@@ -95,13 +95,13 @@ export const App = () => {
     getData("random", setMeal);
   };
 
-  const getSearchResults = e => {
+  const getSearchResults = (e) => {
     searchString === ""
       ? e.preventDefault()
       : getData(searchString, setSearchResults, "search");
   };
 
-  const handleChange = ev => {
+  const handleChange = (ev) => {
     const { value } = ev.target;
     setSearchString(value);
   };
@@ -109,18 +109,18 @@ export const App = () => {
   const buttonUrl = "/random";
 
   const [showNav, setShowNav] = useState(false);
-  const openNavClick = ev => {
+  const openNavClick = (ev) => {
     ev.preventDefault();
     setShowNav(true);
     document.addEventListener("keydown", handleEscKey);
     // document.addEventListener("click", handleOutsideClick);
   };
-  const closeNavClick = ev => {
+  const closeNavClick = (ev) => {
     ev.preventDefault();
     setShowNav(false);
     document.removeEventListener("keydown", handleEscKey);
   };
-  const handleEscKey = ev => {
+  const handleEscKey = (ev) => {
     if (ev.key === "Escape") {
       setShowNav(false);
     }
@@ -201,7 +201,7 @@ export const App = () => {
             <NotFoundPage handleClick={getRandomMeal} />
           </Route>
 
-          <Route path="/:idMeal">
+          <Route path="/:id">
             <MealController
               meal={meal}
               getMeal={getMeal}

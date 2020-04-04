@@ -1,76 +1,48 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { useAuth0 } from "../utils/auth0-spa";
 import { MealPage } from "../pages/MealPage";
 import { NotFoundPage } from "../pages/NotFoundPage";
+import { useFirebase } from "../services/Firebase";
+// import Firebase from "../data/Firebase";
 
 export const MealController = ({ meal, getMeal, getRandomMeal }) => {
-  const { idMeal } = useParams();
+  const { user, isAuthenticated } = useAuth0();
+  const { id } = useParams();
+  const fb = useFirebase();
 
   useEffect(() => {
-    idMeal === undefined ? getRandomMeal() : getMeal(idMeal);
+    id === undefined ? getRandomMeal() : getMeal(id);
     // eslint-disable-next-line
   }, []);
 
   const mealItem = meal.meals[0];
 
   const {
+    idMeal,
     strMeal,
     strMealThumb,
     strYoutube,
     strCategory,
     strArea,
-    strInstructions
+    strInstructions,
   } = mealItem;
 
-  // const setDbPromise = () => {
-  //   //check for support
-  //   if (!("indexedDB" in window)) {
-  //     console.log("This browser doesn't support IndexedDB");
-  //     return;
-  //   }
-
-  //   var dbPromise = indexedDB.open("chefs-db", 1, function(upgradeDb) {
-  //     if (!upgradeDb.objectStoreNames.contains("favourites")) {
-  //       var favOS = upgradeDb.createObjectStore("favourites", {
-  //         keyPath: "mealName"
-  //       });
-  //       favOS.createIndex("isFav", "isFav", { unique: true });
-  //     }
-  //   });
-  //   return dbPromise;
-  // };
-
-  // const [isFav, setIsFav] = useState(false);
-
-  // var dbPromise = setDbPromise();
-
-  // dbPromise
-  //   .then(db => {
-  //     var tx = db.transaction("favourites", "readwrite");
-  //     var store = tx.objectStore("favourites");
-  //     var item = {
-  //       mealName: strMeal,
-  //       isFav: isFav
-  //     };
-  //     store.add(item);
-  //     return tx.complete;
-  //   })
-  //   .then(function() {
-  //     console.log("added item to the favourite os!");
-  //   });
-
-  // const initState = Boolean(localStorage.getItem(strMeal));
-  const [isFav, setIsFav] = useState(localStorage.getItem(strMeal) === "fav");
-
-  // console.log(isFav);
+  const [isFav, setIsFav] = useState(false);
 
   useEffect(() => {
-    isFav
-      ? localStorage.setItem(strMeal, "fav")
-      : localStorage.removeItem(strMeal);
-    // console.log(localStorage.getItem(strMeal));
+    // console.log(user.email);
+    // console.log(idMeal);
     // console.log(isFav);
-  }, [isFav, strMeal]);
+    console.log(fb);
+
+    // const add2Fav = async (user, idMeal, isFav) => {
+    if (isAuthenticated) {
+      fb.add(user.email, idMeal, isFav);
+    }
+    // };
+    // add2Fav(user, idMeal, isFav).then((data) => console.log(data));
+  }, [user, idMeal, isFav]);
 
   const item = {
     mealName: strMeal,
@@ -79,7 +51,7 @@ export const MealController = ({ meal, getMeal, getRandomMeal }) => {
     mealCategory: strCategory,
     mealArea: strArea,
     isFav: isFav,
-    setIsFav: setIsFav
+    setIsFav: setIsFav,
   };
 
   let ingredientList = [];
