@@ -18,7 +18,6 @@ const MainLayout = ({
   const [showNav, setShowNav] = useState(false);
 
   const links = ["categories", "contact"];
-  const footerLinks = [...links, "random"];
 
   const openNavClick = (ev) => {
     ev.preventDefault();

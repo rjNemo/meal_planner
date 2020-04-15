@@ -1,11 +1,11 @@
 import React from "react";
 import { SearchResult } from "../components/SearchResult";
+import PageLayout from "../layouts/PageLayout";
 
 export const SearchPage = ({ searchString, searchResults }) => {
   const { meals } = searchResults;
   return (
-    <div className="container">
-      <h1 className="logo">Results for: {searchString}</h1>
+    <PageLayout title={`Results for: ${searchString}`}>
       {meals === null ? (
         <div className="center-align">
           <p>
@@ -16,7 +16,6 @@ export const SearchPage = ({ searchString, searchResults }) => {
             alt="Nothing here!"
             width="70%"
           />
-          <p></p>
         </div>
       ) : (
         <div className="row">
@@ -27,6 +26,6 @@ export const SearchPage = ({ searchString, searchResults }) => {
           </ul>
         </div>
       )}
-    </div>
+    </PageLayout>
   );
 };

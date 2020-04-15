@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import PageLayout from "../layouts/PageLayout";
 import { ContactForm } from "../components/ContactForm";
 
 export const ContactPage = () => {
@@ -15,9 +16,8 @@ export const ContactPage = () => {
       <h4>Thank you for your message</h4>
     </div>
   ) : (
-    <div className="container">
-      <h2 className="logo">Contact Us</h2>
+    <PageLayout title="Contact Us">
       <ContactForm setIsSubmitted={setIsSubmitted} />
-    </div>
+    </PageLayout>
   );
 };

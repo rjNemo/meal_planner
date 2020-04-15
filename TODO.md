@@ -10,5 +10,6 @@
 - [ ] Close Sidebar at outside click
 - [ ] Take a look at some components [here](http://react-materialize.github.io/react-materialize/?path=/story/css-grid--default)
 - [ ] Decoupled application and data layers. Abstract such that the front end does not know where the data comes from.
-- [ ] Create PageLayout component
+- [x] Create PageLayout component
 - [ ] Use Css-in-Js
+- [ ] Redirect to 404

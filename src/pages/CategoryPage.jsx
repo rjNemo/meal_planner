@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import PageLayout from "../layouts/PageLayout";
 
 export const CategoryPage = ({ meals, strCategory }) => {
   return (
-    <div className="container">
-      <h1 className="logo">Chef's {strCategory} Recipes</h1>
+    <PageLayout title={`Chef's ${strCategory} Recipes`}>
       <ul>
         <div className="row">
           {meals.meals.map((meal, i) => (
@@ -26,6 +26,6 @@ export const CategoryPage = ({ meals, strCategory }) => {
           ))}
         </div>
       </ul>
-    </div>
+    </PageLayout>
   );
 };
