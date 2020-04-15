@@ -8,8 +8,8 @@ export const ContactForm = ({ setIsSubmitted }) => {
   const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
 
-  const handleSubmit = (ev) => {
-    ev.preventDefault();
+  const handleSubmit = (e) => {
+    e.preventDefault();
     // confirmationMail(email);
     // const body = `Sender: ${firstName} ${lastName}\nPhone: ${phone}\nMessage: ${message}`;
     // notificationMail(email, `New message from ${firstName} ${lastName}`, body);

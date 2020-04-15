@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-
 import { Navbar } from "../components/Navbar";
 import { SearchBar } from "../components/SearchBar";
 import { Footer } from "../components/Footer";
@@ -19,26 +18,26 @@ const MainLayout = ({
 
   const links = ["categories", "contact"];
 
-  const openNavClick = (ev) => {
-    ev.preventDefault();
+  const openNavClick = (e) => {
+    e.preventDefault();
     setShowNav(true);
     document.addEventListener("keydown", handleEscKey);
     // document.addEventListener("click", handleOutsideClick);
   };
 
-  const closeNavClick = (ev) => {
-    ev.preventDefault();
+  const closeNavClick = (e) => {
+    e.preventDefault();
     setShowNav(false);
     document.removeEventListener("keydown", handleEscKey);
   };
 
-  const handleEscKey = (ev) => {
-    if (ev.key === "Escape") {
+  const handleEscKey = (e) => {
+    if (e.key === "Escape") {
       setShowNav(false);
     }
   };
-  // const handleOutsideClick = ev => {
-  //   console.log(ev);
+  // const handleOutsideClick = e => {
+  //   console.log(e);
   // };
 
   return (

@@ -20,7 +20,7 @@ export default class Firebase {
     app.initializeApp(CONFIG);
     this.db = app.firestore();
   }
-
+  // this should put email, idMeal, strMeal and isFav
   add = async (email, id, fav) => {
     await this.db
       .collection("MealPlannerFavs")
@@ -36,6 +36,17 @@ export default class Firebase {
       .collection("MealPlannerFavs")
       .where("email", "==", email)
       .get();
+    const snapshot = query.docs[0];
+    return snapshot.data();
+  };
+
+  // get all favs for user 'email'
+  get = async (email) => {
+    const query = await this.db
+      .collection("mealPlannerUsers")
+      .where("email", "==", email)
+      .get();
+    // .then((doc) => doc.data());
     const snapshot = query.docs[0];
     return snapshot.data();
   };

@@ -1,6 +1,6 @@
 import React from "react";
 
-export const ProfilePage = ({ user }) => {
+export const ProfilePage = ({ user, data }) => {
   return (
     <div className="container">
       <div className="row">
@@ -14,9 +14,8 @@ export const ProfilePage = ({ user }) => {
         <p>
           <b>Email: </b>
           {user.email}
-          {/* <a href={`mailto:${user.email}`}>{user.email}</a> */}
+          {JSON.stringify(data, null, 2)}
         </p>
-        {/* <code>{JSON.stringify(user, null, 2)}</code> */}
       </div>
     </div>
   );

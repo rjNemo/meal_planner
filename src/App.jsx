@@ -14,7 +14,6 @@ import MainRouter from "./controllers/MainRouter";
 export const App = () => {
   const { loading } = useAuth0();
   const [searchString, setSearchString] = useState("");
-
   const [searchResults, setSearchResults] = useState({ meals: [] });
   // Default meal object. TODO: Find a better alternative …
   const mealDef = {
@@ -93,8 +92,8 @@ export const App = () => {
       : getData(searchString, setSearchResults, "search");
   };
 
-  const handleChange = (ev) => {
-    const { value } = ev.target;
+  const handleChange = (e) => {
+    const { value } = e.target;
     setSearchString(value);
   };
 
