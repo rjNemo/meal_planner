@@ -3,7 +3,7 @@ import { useParams, Redirect } from "react-router-dom";
 import { CategoryPage } from "../pages/CategoryPage";
 import { getData } from "../utils/methods";
 
-export const CategoryController = props => {
+export const CategoryController = () => {
   const [meals, setMeals] = useState({ meals: [] });
 
   const { strCategory } = useParams();
@@ -17,13 +17,9 @@ export const CategoryController = props => {
     // eslint-disable-next-line
   }, []);
 
-  return (
-    <>
-      {meals.meals === null ? (
-        <Redirect to="/404" />
-      ) : (
-        <CategoryPage meals={meals} strCategory={strCategory} />
-      )}
-    </>
+  return meals.meals === null ? (
+    <Redirect to="/404" />
+  ) : (
+    <CategoryPage meals={meals} strCategory={strCategory} />
   );
 };

@@ -13,6 +13,8 @@ const CONFIG = {
   measurementId: config.measurementId,
 };
 
+// Firebase initializes the Application and provides method to interact with
+// Firebase services as auth and firestore.
 export default class Firebase {
   constructor() {
     app.initializeApp(CONFIG);

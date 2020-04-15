@@ -1,7 +1,6 @@
 import React from "react";
 import { CardEntry } from "./CardEntry";
 
-export const SearchResult = props => {
-  const { meal } = props;
+export const SearchResult = ({ meal }) => {
   return <CardEntry item={meal} />;
 };

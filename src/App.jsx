@@ -1,24 +1,15 @@
 import React, { useState } from "react";
 import { Router } from "./utils/router";
-import { Switch, Route, Redirect } from "react-router-dom";
+
+import { PreLoader } from "./components/PreLoader";
+
 import { useAuth0 } from "./utils/auth0-spa";
-import { SearchController } from "./controllers/SearchController";
-import { ContactPage } from "./pages/Contact";
-import { NotFoundPage } from "./pages/NotFoundPage";
-import { Navbar } from "./components/Navbar";
-import { SearchBar } from "./components/SearchBar";
-import { Footer } from "./components/Footer";
 import { getData } from "./utils/methods";
 import history from "./utils/history";
-import { ProfileController } from "./controllers/ProfileController";
-import { PrivateRoute } from "./components/PrivateRoute";
-import { PreLoader } from "./components/PreLoader";
-import { SideNav } from "./components/SideNav";
+
 import "./index.css";
-import { HomeController } from "./controllers/HomeController";
-import { MealController } from "./controllers/MealController";
-import { CategoryListController } from "./controllers/CategoryListController";
-import { CategoryController } from "./controllers/CategoryController";
+import MainLayout from "./layouts/MainLayout";
+import MainRouter from "./controllers/MainRouter";
 
 export const App = () => {
   const { loading } = useAuth0();
@@ -85,6 +76,7 @@ export const App = () => {
       },
     ],
   };
+
   const [meal, setMeal] = useState(mealDef);
 
   const getMeal = (id) => {
@@ -108,114 +100,33 @@ export const App = () => {
 
   const buttonUrl = "/random";
 
-  const [showNav, setShowNav] = useState(false);
-  const openNavClick = (ev) => {
-    ev.preventDefault();
-    setShowNav(true);
-    document.addEventListener("keydown", handleEscKey);
-    // document.addEventListener("click", handleOutsideClick);
-  };
-  const closeNavClick = (ev) => {
-    ev.preventDefault();
-    setShowNav(false);
-    document.removeEventListener("keydown", handleEscKey);
-  };
-  const handleEscKey = (ev) => {
-    if (ev.key === "Escape") {
-      setShowNav(false);
-    }
-  };
-  // const handleOutsideClick = ev => {
-  //   console.log(ev);
-  // };
-
-  const links = ["categories", "contact"];
-
   return loading ? (
     <div className="container center-align valign-wrapper">
       <PreLoader />
     </div>
   ) : (
-    <>
-      <Router history={history}>
-        <header>
-          <Navbar
-            handleClick={getRandomMeal}
-            buttonUrl={buttonUrl}
-            openNavClick={openNavClick}
-            links={links}
-          />
-
-          <SearchBar
-            searchString={searchString}
-            setSearchString={setSearchString}
-            handleChange={handleChange}
-            onSubmit={getSearchResults}
-            setSearchResults={setSearchResults}
-          />
-          <SideNav
-            showNav={showNav}
-            closeNavClick={closeNavClick}
-            links={links}
-            buttonUrl={buttonUrl}
-          />
-        </header>
-
-        <Switch>
-          <Route exact path="/">
-            <HomeController buttonUrl={buttonUrl} />
-          </Route>
-
-          <PrivateRoute exact path="/profile">
-            <ProfileController />
-          </PrivateRoute>
-
-          <Route exact path={buttonUrl}>
-            <MealController
-              meal={meal}
-              getMeal={getMeal}
-              getRandomMeal={getRandomMeal}
-            />
-          </Route>
-
-          <Route exact path="/categories">
-            <CategoryListController />
-          </Route>
-
-          <Route path="/categories/:strCategory/">
-            <CategoryController />
-          </Route>
-
-          <Route exact path="/search">
-            <SearchController
-              searchString={searchString}
-              searchResults={searchResults}
-            />
-          </Route>
-
-          <Route path="/contact">
-            <ContactPage />
-          </Route>
-
-          <Route path="/404">
-            <NotFoundPage handleClick={getRandomMeal} />
-          </Route>
-
-          <Route path="/:id">
-            <MealController
-              meal={meal}
-              getMeal={getMeal}
-              getRandomMeal={getRandomMeal}
-            />
-          </Route>
-
-          <Route path="*">
-            <Redirect to="/404" />
-          </Route>
-        </Switch>
-
-        <Footer />
-      </Router>
-    </>
+    <Router history={history}>
+      <MainLayout
+        buttonUrl={buttonUrl}
+        meal={meal}
+        getMeal={getMeal}
+        getRandomMeal={getRandomMeal}
+        searchString={searchString}
+        searchResults={searchResults}
+        setSearchResults={setSearchResults}
+        handleChange={handleChange}
+        setSearchString={setSearchString}
+        getSearchResults={getSearchResults}
+      >
+        <MainRouter
+          buttonUrl={buttonUrl}
+          meal={meal}
+          getMeal={getMeal}
+          getRandomMeal={getRandomMeal}
+          searchString={searchString}
+          searchResults={searchResults}
+        />
+      </MainLayout>
+    </Router>
   );
 };

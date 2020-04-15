@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export const MealPresentation = (props) => {
+export const MealPresentation = ({ meal }) => {
   const {
     mealName,
     imgAddress,
@@ -10,7 +10,7 @@ export const MealPresentation = (props) => {
     mealArea,
     isFav,
     setIsFav,
-  } = props.meal;
+  } = meal;
 
   return (
     <div className="row">

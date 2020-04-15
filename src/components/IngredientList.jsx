@@ -1,7 +1,6 @@
 import React from "react";
 
-export const IngredientList = props => {
-  const { ingredients } = props;
+export const IngredientList = ({ ingredients }) => {
   return (
     <div className="ingredientList">
       <table className="striped highlight responsive-table">

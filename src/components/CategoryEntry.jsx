@@ -2,13 +2,13 @@ import React from "react";
 import { Link, useRouteMatch } from "react-router-dom";
 
 const CategoryEntry = ({ category }) => {
+  const { url } = useRouteMatch();
+
   const {
     strCategory,
-    strCategoryThumb
+    strCategoryThumb,
     // strCategoryDescription
   } = category;
-
-  const { url } = useRouteMatch();
 
   return (
     // <CardEntry item={meal} />

@@ -6,12 +6,13 @@ export const SearchBar = ({
   setSearchString,
   setSearchResults,
   handleChange,
-  onSubmit
+  onSubmit,
 }) => {
   const clearSearchBar = () => {
     setSearchString("");
     setSearchResults({ meals: [] });
   };
+
   return (
     <div className="section">
       <div className="container">

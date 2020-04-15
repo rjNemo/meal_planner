@@ -3,9 +3,7 @@ import { CopyrightText } from "./CopyrightText";
 import { GitHubLink } from "./GitHubLink";
 import { FooterLink } from "./FooterLink";
 
-export const Footer = () => {
-  const links = ["categories", "random", "contact"];
-
+export const Footer = ({ links }) => {
   return (
     <footer className="page-footer">
       <div className="row">

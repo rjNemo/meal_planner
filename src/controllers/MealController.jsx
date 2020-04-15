@@ -4,7 +4,6 @@ import { useAuth0 } from "../utils/auth0-spa";
 import { MealPage } from "../pages/MealPage";
 import { NotFoundPage } from "../pages/NotFoundPage";
 import { useFirebase } from "../services/Firebase";
-// import Firebase from "../data/Firebase";
 
 export const MealController = ({ meal, getMeal, getRandomMeal }) => {
   const { user, isAuthenticated } = useAuth0();

@@ -26,7 +26,6 @@ export const CategoryPage = ({ meals, strCategory }) => {
           ))}
         </div>
       </ul>
-      }
     </div>
   );
 };

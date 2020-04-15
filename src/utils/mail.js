@@ -1,8 +1,8 @@
-// This must be set on the server using express
+// This must be set on the server using or firebase functions
 import { createTransport } from "nodemailer";
-import { mailPassword } from "./secret";
+import { mailAdress, mailPassword } from "./secret";
 
-const myMail = "ruidy.nemausat@gmail.com";
+const myMail = mailAdress;
 const myPass = mailPassword;
 
 const handleMail = (mailTo, subject, text) => {
@@ -10,18 +10,18 @@ const handleMail = (mailTo, subject, text) => {
     service: "gmail",
     auth: {
       user: myMail,
-      pass: myPass
-    }
+      pass: myPass,
+    },
   });
 
   let mailOptions = {
     from: myMail,
     to: mailTo,
     subject: subject,
-    text: text
+    text: text,
   };
 
-  transporter.sendMail(mailOptions, function(error, info) {
+  transporter.sendMail(mailOptions, function (error, info) {
     if (error) {
       console.log(error);
     } else {

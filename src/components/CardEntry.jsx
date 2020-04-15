@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export const CardEntry = props => {
-  const { idMeal, strMeal, strMealThumb } = props.item;
+export const CardEntry = ({ item }) => {
+  const { idMeal, strMeal, strMealThumb } = item;
   return (
     <Link to={`${idMeal}`}>
       <li>
