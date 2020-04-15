@@ -8,28 +8,7 @@ export const ContactForm = ({ setIsSubmitted }) => {
   const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
 
-  const changeFirstName = ev => {
-    const { value } = ev.target;
-    setFirstName(value);
-  };
-  const changeLastName = ev => {
-    const { value } = ev.target;
-    setLastName(value);
-  };
-  const changePhone = ev => {
-    const { value } = ev.target;
-    setPhone(value);
-  };
-  const changeEmail = ev => {
-    const { value } = ev.target;
-    setEmail(value);
-  };
-  const changeMessage = ev => {
-    const { value } = ev.target;
-    setMessage(value);
-  };
-
-  const handleSubmit = ev => {
+  const handleSubmit = (ev) => {
     ev.preventDefault();
     // confirmationMail(email);
     // const body = `Sender: ${firstName} ${lastName}\nPhone: ${phone}\nMessage: ${message}`;
@@ -45,14 +24,14 @@ export const ContactForm = ({ setIsSubmitted }) => {
             <ContactFormInput
               id="First Name"
               value={firstName}
-              onChange={changeFirstName}
+              dispatch={setFirstName}
             />
           </div>
           <div className="col s12 m6">
             <ContactFormInput
               id="Last Name"
               value={lastName}
-              onChange={changeLastName}
+              dispatch={setLastName}
             />
           </div>
           <div className="col s12 m6">
@@ -60,7 +39,7 @@ export const ContactForm = ({ setIsSubmitted }) => {
               id="Email"
               type="email"
               value={email}
-              onChange={changeEmail}
+              dispatch={setEmail}
             />
           </div>
           <div className="col s12 m6">
@@ -68,15 +47,14 @@ export const ContactForm = ({ setIsSubmitted }) => {
               id="Phone"
               value={phone}
               type="tel"
-              // pattern="[0-9]"
-              onChange={changePhone}
+              dispatch={setPhone}
             />
           </div>
           <div className="col s12">
             <ContactFormTextArea
               id="Message"
               value={message}
-              onChange={changeMessage}
+              dispatch={setMessage}
             />
             <ContactFormSubmit text="Send Message" color="orange darken-2" />
           </div>
@@ -86,7 +64,12 @@ export const ContactForm = ({ setIsSubmitted }) => {
   );
 };
 
-const ContactFormInput = ({ id, type = "text", value, onChange }) => {
+const ContactFormInput = ({ id, type = "text", value, dispatch }) => {
+  const handleChange = (e) => {
+    e.preventDefault();
+    dispatch(e.target.value);
+  };
+
   return (
     <div className="input-field">
       {/* <i className="material-icons prefix">account_circle</i> */}
@@ -95,7 +78,7 @@ const ContactFormInput = ({ id, type = "text", value, onChange }) => {
         type={type}
         id={id}
         value={value}
-        onChange={onChange}
+        onChange={handleChange}
         required
       />
       <label htmlFor={id}>{id}</label>
@@ -103,7 +86,12 @@ const ContactFormInput = ({ id, type = "text", value, onChange }) => {
   );
 };
 
-const ContactFormTextArea = ({ id, value, onChange }) => {
+const ContactFormTextArea = ({ id, value, dispatch }) => {
+  const handleChange = (e) => {
+    e.preventDefault();
+    dispatch(e.target.value);
+  };
+
   return (
     <div className="input-field">
       <label htmlFor={id}>{id}</label>
@@ -112,7 +100,7 @@ const ContactFormTextArea = ({ id, value, onChange }) => {
         rows="12"
         name={id}
         value={value}
-        onChange={onChange}
+        onChange={handleChange}
         required
       />
     </div>
