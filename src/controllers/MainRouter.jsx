@@ -27,9 +27,7 @@ const MainRouter = ({
         <HomeController buttonUrl={buttonUrl} />
       </Route>
 
-      <PrivateRoute exact path="/profile">
-        <ProfileController />
-      </PrivateRoute>
+      <PrivateRoute exact path="/profile" component={ProfileController} />
 
       <Route exact path={buttonUrl}>
         <MealController

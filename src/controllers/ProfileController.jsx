@@ -10,7 +10,8 @@ export const ProfileController = () => {
   const db = useFirebase();
 
   useEffect(() => {
-    db.get(user.email).then((res) => setData(res));
+    db.getByEmail(user.email).then((res) => setData(res));
+    // db.getFavsByEmail(user.email).then((res) => setData(res));
   }, [db, user.email]);
 
   return loading || !user ? ( // is catched by PrivateRoute

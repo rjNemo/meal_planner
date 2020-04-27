@@ -41,7 +41,7 @@ export const MealController = ({ meal, getMeal, getRandomMeal }) => {
     }
     // };
     // add2Fav(user, idMeal, isFav).then((data) => console.log(data));
-  }, [user, idMeal, isFav]);
+  }, [user, idMeal, isFav, fb, isAuthenticated]);
 
   const item = {
     mealName: strMeal,

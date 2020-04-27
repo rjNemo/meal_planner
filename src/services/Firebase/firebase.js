@@ -23,7 +23,7 @@ export default class Firebase {
   // this should put email, idMeal, strMeal and isFav
   add = async (email, id, fav) => {
     await this.db
-      .collection("MealPlannerFavs")
+      .collection("mealPlannerUsers")
       .add({ email: email, idMeal: id, isfav: fav })
       .then((ref) => {
         console.log("Added document with ID: ", ref.id);
@@ -31,23 +31,34 @@ export default class Firebase {
       .catch((error) => console.error("Error adding document: ", error));
   };
 
+  // get infos for user 'email'
   getByEmail = async (email) => {
     const query = await this.db
-      .collection("MealPlannerFavs")
+      .collection("mealPlannerUsers")
       .where("email", "==", email)
+      .limit(1)
       .get();
-    const snapshot = query.docs[0];
-    return snapshot.data();
+
+    return query.docs[0].data();
   };
 
-  // get all favs for user 'email'
-  get = async (email) => {
+  getFavsByEmail = async (email) => {
     const query = await this.db
       .collection("mealPlannerUsers")
       .where("email", "==", email)
       .get();
-    // .then((doc) => doc.data());
-    const snapshot = query.docs[0];
-    return snapshot.data();
+    return query.docs[0].collection("favs").get();
+
+    //   .limit(1)
+    //   .get();
+
+    // return query.docs[0].data();
+    // const user = await this.getByEmail(email);
+    // const query = user.collection("favs").get();
+
+    // const favs = [];
+    // query.docs.forEach((doc) => favs.push(doc.data()));
+    // console.log(favs);
+    // return favs;
   };
 }
