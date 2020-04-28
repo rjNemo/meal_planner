@@ -1,15 +1,24 @@
 import app from "firebase/app";
 import "firebase/firestore";
+import config from "./config.json";
 
 const CONFIG = {
-  apiKey: process.env.API_KEY,
-  authDomain: process.env.AUTH_DOMAIN,
-  databaseURL: process.env.DB_URL,
-  projectId: process.env.PROJECT_ID,
-  storageBucket: process.env.STORAGE_BUCKET,
-  messagingSenderId: process.env.MSG_SENDER_ID,
-  appId: process.env.APP_ID,
-  measurementId: process.env.MEASUREMENT_ID,
+  apiKey: config.API_KEY,
+  authDomain: config.AUTH_DOMAIN,
+  databaseURL: config.DB_URL,
+  projectId: config.PROJECT_ID,
+  storageBucket: config.STORAGE_BUCKET,
+  messagingSenderId: config.MSG_SENDER_ID,
+  appId: config.APP_ID,
+  measurementId: config.MEASUREMENT_ID,
+  // apiKey: process.env.API_KEY ,
+  // authDomain: process.env.AUTH_DOMAIN,
+  // databaseURL: process.env.DB_URL,
+  // projectId: process.env.PROJECT_ID,
+  // storageBucket: process.env.STORAGE_BUCKET,
+  // messagingSenderId: process.env.MSG_SENDER_ID,
+  // appId: process.env.APP_ID,
+  // measurementId: process.env.MEASUREMENT_ID,
 };
 
 const FAVS = "favs";
