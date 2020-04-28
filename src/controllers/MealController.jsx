@@ -32,9 +32,9 @@ export const MealController = ({ meal, getMeal, getRandomMeal }) => {
   useEffect(() => {
     // Not update fav status of the placeholder recipe. TODO: it's ugly...
     if (idMeal !== "52837" && isAuthenticated) {
-      fb.addToFavs(user.email, idMeal, isFav);
+      fb.addToFavs(user.email, idMeal, strMeal, strMealThumb, isFav);
     }
-  }, [user, idMeal, isFav, fb, isAuthenticated]);
+  }, [user, idMeal, strMeal, strMealThumb, isFav, fb, isAuthenticated]);
 
   const item = {
     mealName: strMeal,

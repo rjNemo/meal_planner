@@ -6,12 +6,13 @@ import { useFirebase } from "../services/Firebase";
 
 export const ProfileController = () => {
   const { loading, user } = useAuth0();
-  const [data, setData] = useState();
+  const [favs, setFavs] = useState([]);
   const db = useFirebase();
 
   useEffect(() => {
-    db.getByEmail(user.email).then((res) => setData(res));
-    // db.getFavsByEmail(user.email).then((res) => setData(res));
+    db.getByEmail(user.email).then((res) => {
+      setFavs(res.favs);
+    });
   }, [db, user.email]);
 
   return loading || !user ? ( // is catched by PrivateRoute
@@ -19,6 +20,6 @@ export const ProfileController = () => {
       <PreLoader />
     </div>
   ) : (
-    <ProfilePage user={user} data={data} />
+    <ProfilePage user={user} data={favs} />
   );
 };

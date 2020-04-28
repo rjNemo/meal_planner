@@ -1,4 +1,5 @@
 import React from "react";
+import { CardEntry } from "../components/CardEntry";
 
 export const ProfilePage = ({ user, data }) => {
   return (
@@ -12,12 +13,12 @@ export const ProfilePage = ({ user, data }) => {
         />
         <h2 className="col s9">{user.name}</h2>
       </div>
-      <p>
+      <div className="row">
         <b>Email: </b>
         {user.email}
         <br />
-        {JSON.stringify(data, null, 2)}
-      </p>
+        <ul>{data && data.map((d, i) => <CardEntry key={i} item={d} />)}</ul>
+      </div>
     </div>
   );
 };

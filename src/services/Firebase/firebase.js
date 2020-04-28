@@ -13,6 +13,8 @@ const CONFIG = {
   measurementId: config.measurementId,
 };
 
+const FAVS = "favs";
+
 /**
  * Firebase initializes the Application and provides method to interact with
  * Firebase services as auth and firestore.
@@ -28,45 +30,48 @@ export default class Firebase {
    * Get infos for user 'email'.
    */
   getByEmail = async (email) => {
-    const query = await this.collection
+    const infos = await this.collection
       .where("email", "==", email)
       .limit(1)
       .get();
 
-    return query.docs[0].data();
+    const favs = await this.getFavsByEmail(email);
+
+    return { infos, favs };
   };
 
-  // get user's favourite recipes
+  /**
+   * Get user's favourite recipes
+   * */
   getFavsByEmail = async (email) => {
-    const query = await this.collection.where("email", "==", email).get();
-    return query.docs[0].collection("favs").get();
+    let favs = [];
+    const query = await this.collection
+      .doc(email)
+      .collection(FAVS)
+      // .orderBy("timestamp", "desc")
+      .limit(10)
+      .get();
 
-    //   .limit(1)
-    //   .get();
+    query.forEach((doc) => favs.push(doc.data()));
 
-    // return query.docs[0].data();
-    // const user = await this.getByEmail(email);
-    // const query = user.collection("favs").get();
-
-    // const favs = [];
-    // query.docs.forEach((doc) => favs.push(doc.data()));
-    // console.log(favs);
-    // return favs;
+    return favs;
   };
 
   /**
    * Create or update favourite status for an authenticated user.
    */
-  addToFavs = async (email, idMeal, isFav) => {
+  addToFavs = async (email, idMeal, strMeal, strMealThumb, isFav) => {
     this.collection
       .doc(email)
-      .collection("favs")
+      .collection(FAVS)
       .doc(idMeal)
       .set({
         email,
         idMeal,
+        strMeal,
+        strMealThumb,
         isFav,
-        timestamp: this.db.FieldValue.serverTimestamp(),
+        // timestamp: app.FieldValue.serverTimestamp(),
       })
       // .then(() => console.log("Fav object created."))
       .catch((err) => console.error("Error adding favs to database", err));

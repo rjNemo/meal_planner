@@ -12,6 +12,7 @@ import { ContactPage } from "../pages/Contact";
 import { NotFoundPage } from "../pages/NotFoundPage";
 
 import { PrivateRoute } from "../components/PrivateRoute";
+import TestPage from "../pages/TestPage";
 
 const MainRouter = ({
   buttonUrl,
