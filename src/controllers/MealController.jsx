@@ -44,7 +44,7 @@ export const MealController = ({ meal, getMeal, getRandomMeal }) => {
     if (idMeal !== "52837" && isAuthenticated) {
       fb.isFav(user.email, idMeal).then((res) => setIsFav(res));
     }
-  }, [user.email, fb, idMeal, isAuthenticated]);
+  }, [user, fb, idMeal, isAuthenticated]);
 
   const item = {
     mealName: strMeal,
