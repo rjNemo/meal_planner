@@ -1,16 +1,15 @@
 import app from "firebase/app";
 import "firebase/firestore";
-import config from "./config.json";
 
 const CONFIG = {
-  apiKey: config.apiKey,
-  authDomain: config.authDomain,
-  databaseURL: config.databaseURL,
-  projectId: config.projectId,
-  storageBucket: config.storageBucket,
-  messagingSenderId: config.messagingSenderId,
-  appId: config.appId,
-  measurementId: config.measurementId,
+  apiKey: process.env.API_KEY,
+  authDomain: process.env.AUTH_DOMAIN,
+  databaseURL: process.env.DB_URL,
+  projectId: process.env.PROJECT_ID,
+  storageBucket: process.env.STORAGE_BUCKET,
+  messagingSenderId: process.env.MSG_SENDER_ID,
+  appId: process.env.APP_ID,
+  measurementId: process.env.MEASUREMENT_ID,
 };
 
 const FAVS = "favs";
@@ -48,6 +47,7 @@ export default class Firebase {
     const query = await this.collection
       .doc(email)
       .collection(FAVS)
+      .where("isFav", "==", true)
       // .orderBy("timestamp", "desc")
       .limit(10)
       .get();
@@ -55,6 +55,19 @@ export default class Firebase {
     query.forEach((doc) => favs.push(doc.data()));
 
     return favs;
+  };
+
+  isFav = async (email, idMeal) => {
+    const query = await this.collection
+      .doc(email)
+      .collection(FAVS)
+      .doc(idMeal)
+      .get();
+
+    const obj = query.data();
+    return obj && !!obj.isFav;
+    // .where("isFav", "==", true);
+    // return !!query;
   };
 
   /**
@@ -73,7 +86,7 @@ export default class Firebase {
         isFav,
         // timestamp: app.FieldValue.serverTimestamp(),
       })
-      // .then(() => console.log("Fav object created."))
+      // .then(() => console.log("Fav object created.", isFav))
       .catch((err) => console.error("Error adding favs to database", err));
   };
 }

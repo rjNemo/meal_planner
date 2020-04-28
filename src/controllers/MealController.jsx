@@ -27,14 +27,24 @@ export const MealController = ({ meal, getMeal, getRandomMeal }) => {
     strInstructions,
   } = mealItem;
 
-  const [isFav, setIsFav] = useState(false);
+  const [isFav, setIsFav] = useState();
+
+  /**
+   * Updates fav status in db
+   */
+  const handleFavChange = (e) => {
+    e.preventDefault();
+    setIsFav(!isFav);
+    // Send !isFav because state is not yet updated
+    fb.addToFavs(user.email, idMeal, strMeal, strMealThumb, !isFav);
+  };
 
   useEffect(() => {
     // Not update fav status of the placeholder recipe. TODO: it's ugly...
     if (idMeal !== "52837" && isAuthenticated) {
-      fb.addToFavs(user.email, idMeal, strMeal, strMealThumb, isFav);
+      fb.isFav(user.email, idMeal).then((res) => setIsFav(res));
     }
-  }, [user, idMeal, strMeal, strMealThumb, isFav, fb, isAuthenticated]);
+  }, [user.email, fb, idMeal, isAuthenticated]);
 
   const item = {
     mealName: strMeal,
@@ -42,15 +52,15 @@ export const MealController = ({ meal, getMeal, getRandomMeal }) => {
     videoAddress: strYoutube,
     mealCategory: strCategory,
     mealArea: strArea,
-    isFav: isFav,
-    setIsFav: setIsFav,
+    isFav,
+    handleFavChange,
   };
 
   let ingredientList = [];
   var i;
   for (i = 1; i <= 20; i++) {
-    var strIng = `strIngredient${i}`;
-    var strMes = `strMeasure${i}`;
+    let strIng = `strIngredient${i}`;
+    let strMes = `strMeasure${i}`;
     if (mealItem[strIng] !== "" && mealItem[strIng] !== null) {
       ingredientList.push([mealItem[strIng], mealItem[strMes]]);
     }

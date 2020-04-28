@@ -1,18 +1,14 @@
 import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
-
 import { SearchController } from "../controllers/SearchController";
 import { HomeController } from "../controllers/HomeController";
 import { MealController } from "../controllers/MealController";
 import { CategoryController } from "../controllers/CategoryController";
 import { CategoryListController } from "../controllers/CategoryListController";
 import { ProfileController } from "../controllers/ProfileController";
-
 import { ContactPage } from "../pages/Contact";
 import { NotFoundPage } from "../pages/NotFoundPage";
-
 import { PrivateRoute } from "../components/PrivateRoute";
-import TestPage from "../pages/TestPage";
 
 const MainRouter = ({
   buttonUrl,

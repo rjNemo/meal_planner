@@ -50,7 +50,7 @@ Free meal planner for cooks short on ideas! (like me …)
   - Unknown
   - Vietnamese
 - Cocktail selection
-- Create a profile and save your favourite meals
+- Create a profile and save your favourite meals ✓
 - Notation system: know what are the most loved meals
 - Share recipe with your friends and family
 - Suggestions based on what your personal taste
@@ -79,6 +79,7 @@ The application is hosted on [Render](https://render.com/) at the following addr
 - [TheMealDb](https://www.themealdb.com/api.php) - An open, crowd-sourced database of Recipes from around the world
 <!-- - and [TheCocktailDb](https://www.thecocktaildb.com/api.php) -->
 - [Auth0](https://auth0.com/) - Rapidly integrate authentication and authorization
+- [Firebase](https://firebase.google.com/) - Firebase helps mobile and web app teams succeed
 - [Render](https://render.com/) - The Easiest Cloud For All Your Apps and Websites
 <!-- - Analytics : Google Analytics & Mixpanel -->
 

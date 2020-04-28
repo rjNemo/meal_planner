@@ -16,7 +16,7 @@ export const ProfilePage = ({ user, data }) => {
       <div className="row">
         <b>Email: </b>
         {user.email}
-        <br />
+        <h3>Favourites meals</h3>
         <ul>{data && data.map((d, i) => <CardEntry key={i} item={d} />)}</ul>
       </div>
     </div>

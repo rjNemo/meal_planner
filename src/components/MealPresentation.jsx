@@ -9,7 +9,7 @@ export const MealPresentation = ({ meal }) => {
     mealCategory,
     mealArea,
     isFav,
-    setIsFav,
+    handleFavChange,
   } = meal;
 
   return (
@@ -48,10 +48,7 @@ export const MealPresentation = ({ meal }) => {
                     {"  "}
                     <i
                       className="material-icons tiny"
-                      onClick={(e) => {
-                        e.preventDefault();
-                        setIsFav(!isFav);
-                      }}
+                      onClick={handleFavChange}
                     >
                       {isFav ? "favorite" : "favorite_border"}
                     </i>
