@@ -30,17 +30,10 @@ export const MealController = ({ meal, getMeal, getRandomMeal }) => {
   const [isFav, setIsFav] = useState(false);
 
   useEffect(() => {
-    // console.log(user.email);
-    // console.log(idMeal);
-    // console.log(isFav);
-    console.log(fb);
-
-    // const add2Fav = async (user, idMeal, isFav) => {
-    if (isAuthenticated) {
-      fb.add(user.email, idMeal, isFav);
+    // Not update fav status of the placeholder recipe. TODO: it's ugly...
+    if (idMeal !== "52837" && isAuthenticated) {
+      fb.addToFavs(user.email, idMeal, isFav);
     }
-    // };
-    // add2Fav(user, idMeal, isFav).then((data) => console.log(data));
   }, [user, idMeal, isFav, fb, isAuthenticated]);
 
   const item = {
