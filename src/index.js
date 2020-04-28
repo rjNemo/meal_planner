@@ -5,7 +5,6 @@ import { App } from "./App.jsx";
 import * as serviceWorker from "./serviceWorker";
 import { Auth0Provider } from "./utils/auth0-spa";
 import history from "./utils/history";
-import config from "./utils/auth_config.json"; // for safety reasons this file is not tracked by git
 import Firebase, { FirebaseContext } from "./services/Firebase";
 
 const onRedirectCallBack = (appState) => {
@@ -18,8 +17,8 @@ const onRedirectCallBack = (appState) => {
 
 ReactDOM.render(
   <Auth0Provider
-    domain={config.domain}
-    client_id={config.clientId}
+    domain={process.env.DOMAIN}
+    client_id={process.env.CLIENT_ID}
     redirect_uri={window.location.origin}
     onRedirectCallBack={onRedirectCallBack}
   >
