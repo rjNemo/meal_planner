@@ -2,5 +2,5 @@ image:
   file: .gitpod.Dockerfile
 
 tasks:
-  - init: npm install && npm run build
-    command: npm run start
+  - init: yarn install && yarn build
+    command: yarn start
