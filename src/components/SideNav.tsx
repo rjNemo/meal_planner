@@ -37,7 +37,7 @@ export const SideNav = ({
                 backgroundColor:
                   "rgba(0,0,0,0.5)" /* Black background with opacity */,
                 zIndex:
-                  "2" /* Specify a stack order in case you're using a different order for other elements */,
+                  2 /* Specify a stack order in case you're using a different order for other elements */,
                 // cursor: "pointer" /* Add a pointer on hover */
               }}
               src={require("../images/special_event.svg")}

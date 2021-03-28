@@ -1,7 +1,7 @@
 import React from "react";
 import { RandomButton } from "../components/RandomButton";
 
-export const NotFoundPage = () => {
+export const NotFoundPage = ({handleClick}) => {
   return (
     <div className="container center-align">
       <div className="row">
@@ -16,7 +16,7 @@ export const NotFoundPage = () => {
               />
             </div>
             <div className="card-content">
-              <RandomButton url="/random" />
+              <RandomButton url="/random" handleClick={handleClick} color={null}/>
             </div>
           </div>
         </div>

@@ -62,6 +62,7 @@ const MainLayout = ({
           closeNavClick={closeNavClick}
           links={links}
           buttonUrl={buttonUrl}
+          handleClick={()=>{}}
         />
       </header>
       {children}

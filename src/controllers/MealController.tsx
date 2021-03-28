@@ -27,7 +27,7 @@ export const MealController = ({ meal, getMeal, getRandomMeal }) => {
     strInstructions,
   } = mealItem;
 
-  const [isFav, setIsFav] = useState();
+  const [isFav, setIsFav] = useState<boolean>();
 
   /**
    * Updates fav status in db

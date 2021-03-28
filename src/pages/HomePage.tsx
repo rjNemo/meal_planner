@@ -7,7 +7,7 @@ export const HomePage = ({ buttonUrl }) => {
       <div className="row">
         <div className="col s12 m6">
           <h1 className="logo">Chef's Online Cookbook</h1>
-          <RandomButton url={buttonUrl} size="large" color="orange darken-2" />
+          <RandomButton url={buttonUrl} size="large" color="orange darken-2" handleClick={()=>{}}/>
         </div>
         <div className="col s12 m6">
           <img

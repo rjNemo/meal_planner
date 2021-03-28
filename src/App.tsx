@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {FC, useState} from "react";
 import { Router } from "./utils/router";
 
 import { PreLoader } from "./components/PreLoader";
@@ -11,7 +11,7 @@ import "./index.css";
 import MainLayout from "./layouts/MainLayout";
 import MainRouter from "./controllers/MainRouter";
 
-export const App = () => {
+export const App:FC = () => {
   const { loading } = useAuth0();
   const [searchString, setSearchString] = useState("");
   const [searchResults, setSearchResults] = useState({ meals: [] });
@@ -77,6 +77,7 @@ export const App = () => {
   };
 
   const [meal, setMeal] = useState(mealDef);
+  const buttonUrl = "/random";
 
   const getMeal = (id) => {
     getData(id, setMeal, "lookup");
@@ -95,23 +96,22 @@ export const App = () => {
   const handleChange = (e) => {
     const { value } = e.target;
     setSearchString(value);
-  };
 
-  const buttonUrl = "/random";
+  };
 
   return loading ? (
     <div className="container center-align valign-wrapper">
       <PreLoader />
     </div>
   ) : (
-    <Router history={history}>
+    <Router >
       <MainLayout
         buttonUrl={buttonUrl}
-        meal={meal}
-        getMeal={getMeal}
+        // meal={meal}
+        // getMeal={getMeal}
         getRandomMeal={getRandomMeal}
         searchString={searchString}
-        searchResults={searchResults}
+        // searchResults={searchResults}
         setSearchResults={setSearchResults}
         handleChange={handleChange}
         setSearchString={setSearchString}

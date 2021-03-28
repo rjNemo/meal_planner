@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+
+
 export const CardEntry = ({ item, className = "col s12 m6" }) => {
   const { idMeal, strMeal, strMealThumb } = item;
   return (

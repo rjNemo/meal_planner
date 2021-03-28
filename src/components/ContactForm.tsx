@@ -97,7 +97,7 @@ const ContactFormTextArea = ({ id, value, dispatch }) => {
       <label htmlFor={id}>{id}</label>
       <textarea
         className="materialize-textarea validate"
-        rows="12"
+        rows={12}
         name={id}
         value={value}
         onChange={handleChange}
