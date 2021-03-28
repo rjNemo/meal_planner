@@ -45,7 +45,6 @@ export const App: FC = () => {
         getSearchResults={getSearchResults}
       >
         <AppRouter
-          buttonUrl={buttonUrl}
           getRandomMeal={getRandomMeal}
           searchString={searchString}
           searchResults={searchResults}

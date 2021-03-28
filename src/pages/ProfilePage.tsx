@@ -17,7 +17,7 @@ export const ProfilePage = ({ user, data }) => {
         <b>Email: </b>
         {user.email}
         <h3>Favourites meals</h3>
-        <ul>{data && data.map((d, i) => <CardEntry key={i} item={d} />)}</ul>
+        <ul>{data && data.map((d, i) => <CardEntry key={i} meal={d} />)}</ul>
       </div>
     </div>
   );

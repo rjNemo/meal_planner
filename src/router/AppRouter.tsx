@@ -1,6 +1,7 @@
 import { Redirect, Route, Switch } from "react-router-dom";
-import { CategoryController } from "../containers/CategoryController";
+import { buttonURL } from "../constants";
 import { Categories } from "../containers/Categories";
+import { Category } from "../containers/Category";
 import { Home } from "../containers/Home";
 import { Meal } from "../containers/Meal";
 import { ProfileController } from "../containers/ProfileController";
@@ -11,12 +12,7 @@ import { PrivateRoute } from "./PrivateRoute";
 
 //TODO: remove state from router move to containers
 
-const AppRouter = ({
-  buttonUrl,
-  getRandomMeal,
-  searchString,
-  searchResults,
-}) => (
+const AppRouter = ({ getRandomMeal, searchString, searchResults }) => (
   <Switch>
     <Route exact path="/">
       <Home />
@@ -24,7 +20,7 @@ const AppRouter = ({
 
     <PrivateRoute exact path="/profile" component={ProfileController} />
 
-    <Route exact path={buttonUrl}>
+    <Route exact path={buttonURL}>
       <Meal />
     </Route>
 
@@ -33,7 +29,7 @@ const AppRouter = ({
     </Route>
 
     <Route path="/categories/:strCategory/">
-      <CategoryController />
+      <Category />
     </Route>
 
     <Route exact path="/search">

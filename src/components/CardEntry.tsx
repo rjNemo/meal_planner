@@ -1,12 +1,16 @@
-import React from "react";
+import { FC } from "react";
 import { Link } from "react-router-dom";
+import { MealSummary } from "../types/meal";
 
+type Props = {
+  meal: MealSummary;
+  className?: string;
+};
 
-
-export const CardEntry = ({ item, className = "col s12 m6" }) => {
-  const { idMeal, strMeal, strMealThumb } = item;
+export const CardEntry: FC<Props> = ({ meal, className = "col s12 m6" }) => {
+  const { idMeal, strMeal, strMealThumb } = meal;
   return (
-    <Link to={`${idMeal}`}>
+    <Link to={`/${idMeal}`}>
       <li>
         <div className={className}>
           <div className="card hoverable">
