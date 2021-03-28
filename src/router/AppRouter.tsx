@@ -1,6 +1,6 @@
 import { Redirect, Route, Switch } from "react-router-dom";
 import { CategoryController } from "../containers/CategoryController";
-import { CategoryListController } from "../containers/CategoryListController";
+import { Categories } from "../containers/Categories";
 import { Home } from "../containers/Home";
 import { Meal } from "../containers/Meal";
 import { ProfileController } from "../containers/ProfileController";
@@ -29,7 +29,7 @@ const AppRouter = ({
     </Route>
 
     <Route exact path="/categories">
-      <CategoryListController />
+      <Categories />
     </Route>
 
     <Route path="/categories/:strCategory/">

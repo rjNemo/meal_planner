@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { Link } from "react-router-dom";
-import Meal from "../../../types/Meal";
+import Meal from "../../../types/meal";
 
 type Props = {
   meal: Meal;

@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { PreLoader } from "../components/PreLoader";
-import { CategoryListPage } from "../pages/CategoryListPage";
-import { getData } from "../services/api";
+import { PreLoader } from "../../components/PreLoader";
+import { getData } from "../../services/api";
+import { CategoriesPage } from "./components/CategoriesPage";
 
-export const CategoryListController = () => {
+export const Categories = () => {
   const [categories, setCategories] = useState({ categories: [] });
 
   const getCategories = () => {
@@ -12,12 +12,11 @@ export const CategoryListController = () => {
 
   useEffect(() => {
     getCategories();
-    // eslint-disable-next-line
   }, []);
 
   return categories.categories.length === 0 ? (
     <PreLoader />
   ) : (
-    <CategoryListPage categories={categories.categories} />
+    <CategoriesPage categories={categories.categories} />
   );
 };

@@ -1,8 +1,8 @@
 import { FC } from "react";
-import Meal from "../../types/Meal";
-import { MealIngredientList } from "./components/MealIngredientList";
-import { MealPresentation } from "./components/MealPresentation";
-import { MealRecipe } from "./components/MealRecipe";
+import Meal from "../../../types/meal";
+import { MealIngredientList } from "./MealIngredientList";
+import { MealPresentation } from "./MealPresentation";
+import { MealRecipe } from "./MealRecipe";
 
 type Props = {
   ingredients: string[];

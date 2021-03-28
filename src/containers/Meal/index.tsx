@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { NotFoundPage } from "../../pages/NotFoundPage";
 import { useFirebase } from "../../services/Firebase";
 import { useAuth0 } from "../../utils/auth0-spa";
-import { MealPage } from "./MealPage";
+import { MealPage } from "./components/MealPage";
 import { getMeal, getRandomMeal } from "./service";
 
 export const Meal: FC = () => {
