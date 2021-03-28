@@ -1,17 +1,16 @@
-import React, {FC, useState} from "react";
-import { Router } from "./utils/router";
+import React, { FC, useState } from "react";
+import { Router } from "./router/Router";
 
 import { PreLoader } from "./components/PreLoader";
 
 import { useAuth0 } from "./utils/auth0-spa";
 import { getData } from "./utils/methods";
-import history from "./utils/history";
 
 import "./index.css";
 import MainLayout from "./layouts/MainLayout";
-import MainRouter from "./controllers/MainRouter";
+import { AppRouter } from "./router";
 
-export const App:FC = () => {
+export const App: FC = () => {
   const { loading } = useAuth0();
   const [searchString, setSearchString] = useState("");
   const [searchResults, setSearchResults] = useState({ meals: [] });
@@ -96,7 +95,6 @@ export const App:FC = () => {
   const handleChange = (e) => {
     const { value } = e.target;
     setSearchString(value);
-
   };
 
   return loading ? (
@@ -104,7 +102,7 @@ export const App:FC = () => {
       <PreLoader />
     </div>
   ) : (
-    <Router >
+    <Router>
       <MainLayout
         buttonUrl={buttonUrl}
         // meal={meal}
@@ -117,7 +115,7 @@ export const App:FC = () => {
         setSearchString={setSearchString}
         getSearchResults={getSearchResults}
       >
-        <MainRouter
+        <AppRouter
           buttonUrl={buttonUrl}
           meal={meal}
           getMeal={getMeal}
