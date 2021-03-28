@@ -1,9 +1,10 @@
 import React, { useState } from "react";
+import { Footer } from "../components/Footer";
 import { Navbar } from "../components/Navbar";
 import { SearchBar } from "../components/SearchBar";
-import { Footer } from "../components/Footer";
 import { SideNav } from "../components/SideNav";
 
+// TODO FC...
 const MainLayout = ({
   buttonUrl,
   getRandomMeal,
@@ -62,7 +63,7 @@ const MainLayout = ({
           closeNavClick={closeNavClick}
           links={links}
           buttonUrl={buttonUrl}
-          handleClick={()=>{}}
+          handleClick={() => {}}
         />
       </header>
       {children}
