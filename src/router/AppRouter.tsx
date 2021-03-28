@@ -1,6 +1,6 @@
 import { Switch, Route, Redirect } from "react-router-dom";
 import { SearchController } from "../containers/SearchController";
-import { HomeController } from "../containers/HomeController";
+import { Home } from "../containers/Home";
 import { MealController } from "../containers/MealController";
 import { CategoryController } from "../containers/CategoryController";
 import { CategoryListController } from "../containers/CategoryListController";
@@ -21,7 +21,7 @@ const AppRouter = ({
 }) => (
   <Switch>
     <Route exact path="/">
-      <HomeController buttonUrl={buttonUrl} />
+      <Home />
     </Route>
 
     <PrivateRoute exact path="/profile" component={ProfileController} />
