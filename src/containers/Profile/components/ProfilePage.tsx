@@ -1,7 +1,13 @@
-import React from "react";
-import { CardEntry } from "../components/CardEntry";
+import { FC } from "react";
+import { CardEntry } from "../../../components/CardEntry";
+import { MealSummary } from "../../../types/meal";
 
-export const ProfilePage = ({ user, data }) => {
+type Props = {
+  user: any;
+  meals: MealSummary[];
+};
+
+export const ProfilePage: FC<Props> = ({ user, meals }) => {
   return (
     <div className="container">
       <div className="row valign-wrapper">
@@ -17,7 +23,11 @@ export const ProfilePage = ({ user, data }) => {
         <b>Email: </b>
         {user.email}
         <h3>Favourites meals</h3>
-        <ul>{data && data.map((d, i) => <CardEntry key={i} meal={d} />)}</ul>
+        <ul>
+          {meals?.map((meal) => (
+            <CardEntry key={meal.idMeal} meal={meal} />
+          ))}
+        </ul>
       </div>
     </div>
   );

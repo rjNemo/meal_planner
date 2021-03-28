@@ -4,8 +4,8 @@ import { Categories } from "../containers/Categories";
 import { Category } from "../containers/Category";
 import { Home } from "../containers/Home";
 import { Meal } from "../containers/Meal";
-import { ProfileController } from "../containers/ProfileController";
-import { SearchController } from "../containers/SearchController";
+import { Profile } from "../containers/Profile";
+import { Search } from "../containers/Search";
 import { ContactPage } from "../pages/Contact";
 import { NotFoundPage } from "../pages/NotFoundPage";
 import { PrivateRoute } from "./PrivateRoute";
@@ -18,7 +18,7 @@ const AppRouter = ({ getRandomMeal, searchString, searchResults }) => (
       <Home />
     </Route>
 
-    <PrivateRoute exact path="/profile" component={ProfileController} />
+    <PrivateRoute exact path="/profile" component={Profile} />
 
     <Route exact path={buttonURL}>
       <Meal />
@@ -33,10 +33,7 @@ const AppRouter = ({ getRandomMeal, searchString, searchResults }) => (
     </Route>
 
     <Route exact path="/search">
-      <SearchController
-        searchString={searchString}
-        searchResults={searchResults}
-      />
+      <Search searchString={searchString} searchResults={searchResults} />
     </Route>
 
     <Route path="/contact">
