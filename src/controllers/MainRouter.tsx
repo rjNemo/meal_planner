@@ -1,11 +1,11 @@
 import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
-import { SearchController } from "../controllers/SearchController";
-import { HomeController } from "../controllers/HomeController";
-import { MealController } from "../controllers/MealController";
-import { CategoryController } from "../controllers/CategoryController";
-import { CategoryListController } from "../controllers/CategoryListController";
-import { ProfileController } from "../controllers/ProfileController";
+import { SearchController } from "./SearchController";
+import { HomeController } from "./HomeController";
+import { MealController } from "./MealController";
+import { CategoryController } from "./CategoryController";
+import { CategoryListController } from "./CategoryListController";
+import { ProfileController } from "./ProfileController";
 import { ContactPage } from "../pages/Contact";
 import { NotFoundPage } from "../pages/NotFoundPage";
 import { PrivateRoute } from "../components/PrivateRoute";

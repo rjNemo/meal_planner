@@ -9,9 +9,9 @@ Free meal planner for cooks short on ideas! (like me …)
 ## Feature list
 
 - Random meal suggestion ✓
-- Search by name: you're look for a recipe? Ours are easy to make and Yummy! ✓
+- Search by name: you look for a recipe? Ours are easy to make and Yummy! ✓
 - What's in the fridge ? Choose your main ingredient and get a meal suggestion
-- Choose by category: ✓
+- Choose by a category: ✓
   - Beef
   - Breakfast
   - Chicken
