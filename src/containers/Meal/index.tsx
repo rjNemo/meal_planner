@@ -1,6 +1,6 @@
 import React, { FC, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { NotFoundPage } from "../../pages/NotFoundPage";
+import { NotFound } from "../NotFound";
 import { useFirebase } from "../../services/Firebase";
 import { useAuth0 } from "../../utils/auth0-spa";
 import { MealPage } from "./components/MealPage";
@@ -70,6 +70,6 @@ export const Meal: FC = () => {
       handleFavChange={handleFavChange}
     />
   ) : (
-    <NotFoundPage handleClick={getRandomMeal} />
+    <NotFound handleClick={getRandomMeal} />
   );
 };

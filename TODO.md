@@ -13,3 +13,4 @@
 - [x] Create PageLayout component
 - [ ] Use Css-in-Js
 - [ ] Redirect to 404
+- [x] Typescript

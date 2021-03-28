@@ -6,8 +6,8 @@ import { Home } from "../containers/Home";
 import { Meal } from "../containers/Meal";
 import { Profile } from "../containers/Profile";
 import { Search } from "../containers/Search";
-import { ContactPage } from "../pages/Contact";
-import { NotFoundPage } from "../pages/NotFoundPage";
+import { Contact } from "../containers/Contact";
+import { NotFound } from "../containers/NotFound";
 import { PrivateRoute } from "./PrivateRoute";
 
 //TODO: remove state from router move to containers
@@ -37,11 +37,11 @@ const AppRouter = ({ getRandomMeal, searchString, searchResults }) => (
     </Route>
 
     <Route path="/contact">
-      <ContactPage />
+      <Contact />
     </Route>
 
     <Route path="/404">
-      <NotFoundPage handleClick={getRandomMeal} />
+      <NotFound handleClick={getRandomMeal} />
     </Route>
 
     <Route path="/:id">

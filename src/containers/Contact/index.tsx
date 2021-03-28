@@ -1,15 +1,15 @@
-import React, { useState } from "react";
-import PageLayout from "../layouts/PageLayout";
-import { ContactForm } from "../components/ContactForm";
+import { FC, useState } from "react";
+import PageLayout from "../../layouts/PageLayout";
+import { ContactForm } from "../../components/ContactForm";
 
-export const ContactPage = () => {
+export const Contact: FC = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   return isSubmitted ? (
     <div className="container center-align">
       <img
         className="responsive-img"
-        src={require("../images/mail_sent.svg")}
+        src={require("../../images/mail_sent.svg")}
         alt="mail_sent"
         width="30%"
       />
