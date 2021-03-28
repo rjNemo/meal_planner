@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { getData } from "../utils/methods";
-import { CategoryListPage } from "../pages/CategoryListPage";
 import { PreLoader } from "../components/PreLoader";
+import { CategoryListPage } from "../pages/CategoryListPage";
+import { getData } from "../services/api";
 
 export const CategoryListController = () => {
   const [categories, setCategories] = useState({ categories: [] });

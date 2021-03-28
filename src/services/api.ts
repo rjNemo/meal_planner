@@ -1,6 +1,6 @@
-export const createURI = (keyword, option) => {
+export const createURI = (keyword: string, option: string) => {
   const ROOT = "https://www.themealdb.com/api/json/v1/1/";
-  if (option === null) {
+  if (!option) {
     return `${ROOT}${keyword}.php`;
   } else if (option === "filter") {
     return `${ROOT}${option}.php?c=${keyword}`;
@@ -11,16 +11,10 @@ export const createURI = (keyword, option) => {
   }
 };
 
-export const getData = (keyword, set, option = null) => {
+export const getData = (keyword: string, set, option: string = null) => {
   const URI = createURI(keyword, option);
   fetch(URI)
-    .then(response => response.json())
-    .catch(error => console.info(error + "url:" + URI))
-    .then(data => set(data));
+    .then((response) => response.json())
+    .catch((error) => console.warn(error + "url:" + URI))
+    .then((data) => set(data));
 };
-
-export const upFirstChar = lower => {
-  return lower.replace(/^\w/, c => c.toUpperCase());
-};
-
-export const addToFavourites = () => {};

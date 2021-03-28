@@ -1,7 +1,13 @@
-import React from "react";
+import { FC } from "react";
 import { Link } from "react-router-dom";
+import Meal from "../../../types/Meal";
 
-export const MealPresentation = ({ meal }) => {
+type Props = {
+  meal: Meal;
+  handleFavChange: () => void;
+};
+
+export const MealPresentation: FC<Props> = ({ meal, handleFavChange }) => {
   const {
     mealName,
     imgAddress,
@@ -9,7 +15,6 @@ export const MealPresentation = ({ meal }) => {
     mealCategory,
     mealArea,
     isFav,
-    handleFavChange,
   } = meal;
 
   return (

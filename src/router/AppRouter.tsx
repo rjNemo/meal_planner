@@ -1,10 +1,10 @@
-import { Switch, Route, Redirect } from "react-router-dom";
-import { SearchController } from "../containers/SearchController";
-import { Home } from "../containers/Home";
-import { MealController } from "../containers/MealController";
+import { Redirect, Route, Switch } from "react-router-dom";
 import { CategoryController } from "../containers/CategoryController";
 import { CategoryListController } from "../containers/CategoryListController";
+import { Home } from "../containers/Home";
+import { Meal } from "../containers/Meal";
 import { ProfileController } from "../containers/ProfileController";
+import { SearchController } from "../containers/SearchController";
 import { ContactPage } from "../pages/Contact";
 import { NotFoundPage } from "../pages/NotFoundPage";
 import { PrivateRoute } from "./PrivateRoute";
@@ -13,8 +13,6 @@ import { PrivateRoute } from "./PrivateRoute";
 
 const AppRouter = ({
   buttonUrl,
-  meal,
-  getMeal,
   getRandomMeal,
   searchString,
   searchResults,
@@ -27,11 +25,7 @@ const AppRouter = ({
     <PrivateRoute exact path="/profile" component={ProfileController} />
 
     <Route exact path={buttonUrl}>
-      <MealController
-        meal={meal}
-        getMeal={getMeal}
-        getRandomMeal={getRandomMeal}
-      />
+      <Meal />
     </Route>
 
     <Route exact path="/categories">
@@ -58,11 +52,7 @@ const AppRouter = ({
     </Route>
 
     <Route path="/:id">
-      <MealController
-        meal={meal}
-        getMeal={getMeal}
-        getRandomMeal={getRandomMeal}
-      />
+      <Meal />
     </Route>
 
     <Route path="*">

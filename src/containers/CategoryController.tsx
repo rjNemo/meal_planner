@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
-import { useParams, Redirect } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Redirect, useParams } from "react-router-dom";
 import { CategoryPage } from "../pages/CategoryPage";
-import { getData } from "../utils/methods";
+import { getData } from "../services/api";
 
 export const CategoryController = () => {
   const [meals, setMeals] = useState({ meals: [] });
