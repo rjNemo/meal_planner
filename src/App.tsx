@@ -1,6 +1,5 @@
 import { FC, useState } from "react";
 import { PreLoader } from "./components/PreLoader";
-import { buttonURL } from "./constants";
 import "./index.css";
 import MainLayout from "./layouts/MainLayout";
 import { AppRouter } from "./router";
