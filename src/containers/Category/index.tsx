@@ -7,11 +7,10 @@ export const Category: FC = () => {
   const { strCategory } = useParams();
   const [meals, setMeals] = useState({ meals: [] });
 
-  const getMeals = () => getData(strCategory, setMeals, "filter");
-
   useEffect(() => {
+    const getMeals = () => getData(strCategory, setMeals, "filter");
     getMeals();
-  }, []);
+  }, [strCategory]);
 
   return !meals.meals ? (
     <Redirect to="/404" />

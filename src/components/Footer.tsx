@@ -1,9 +1,11 @@
-import React from "react";
+import { FC } from "react";
+import { links } from "../constants";
 import { CopyrightText } from "./CopyrightText";
-import { GitHubLink } from "./GitHubLink";
 import { FooterLink } from "./FooterLink";
+import { GitHubLink } from "./GitHubLink";
 
-export const Footer = ({ links }) => {
+export const Footer: FC = () => {
+  const footerLinks = [...links, "random"];
   return (
     <footer className="page-footer">
       <div className="row">
@@ -11,7 +13,7 @@ export const Footer = ({ links }) => {
           <div className=" s12">
             <h5 className="black-text">Navigation</h5>
             <ul>
-              {links.map((link, i) => (
+              {footerLinks.map((link, i) => (
                 <FooterLink key={i} link={link} textColor="black" />
               ))}
             </ul>

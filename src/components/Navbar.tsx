@@ -1,13 +1,13 @@
-import React from "react";
 import { Link } from "react-router-dom";
+import { buttonURL, links } from "../constants";
 import { useAuth0 } from "../utils/auth0-spa";
-import { Logo } from "./Logo";
-import { RandomButton } from "./RandomButton";
 import { FooterLink } from "./FooterLink";
 import { LogInButton } from "./LogInButton";
+import { Logo } from "./Logo";
 import { LogOutButton } from "./LogOutButton";
+import { RandomButton } from "./RandomButton";
 
-export const Navbar = ({ openNavClick, links, buttonUrl, handleClick }) => {
+export const Navbar = ({ openNavClick, handleClick }) => {
   const { isAuthenticated } = useAuth0();
 
   return (
@@ -26,7 +26,7 @@ export const Navbar = ({ openNavClick, links, buttonUrl, handleClick }) => {
               <li>
                 <RandomButton
                   handleClick={handleClick}
-                  url={buttonUrl}
+                  url={buttonURL}
                   size="small"
                   color="orange darken-2"
                 />

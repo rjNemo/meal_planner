@@ -1,18 +1,14 @@
-import React from "react";
 import { Link } from "react-router-dom";
+import { buttonURL, links } from "../constants";
+import ChefImage from "../images/chef.svg";
+import SpecialEventImage from "../images/special_event.svg";
 import { useAuth0 } from "../utils/auth0-spa";
-import { RandomButton } from "./RandomButton";
 import { FooterLink } from "./FooterLink";
 import { LogInButton } from "./LogInButton";
 import { LogOutButton } from "./LogOutButton";
+import { RandomButton } from "./RandomButton";
 
-export const SideNav = ({
-  showNav,
-  closeNavClick,
-  links,
-  buttonUrl,
-  handleClick,
-}) => {
+export const SideNav = ({ showNav, closeNavClick, handleClick }) => {
   const { isAuthenticated, user } = useAuth0();
   let transformStyle = {
     transform: showNav ? "translateX(0%)" : "translateX(-105%)",
@@ -25,7 +21,6 @@ export const SideNav = ({
         <div className="user-view" style={{ height: "30vh" }}>
           <div className="background">
             <img
-              // className="responsive-img"
               style={{
                 position: "fixed" /* Sit on top of the page content */,
                 width: "100%" /* Full width (cover the whole page) */,
@@ -36,11 +31,10 @@ export const SideNav = ({
                 bottom: "0",
                 backgroundColor:
                   "rgba(0,0,0,0.5)" /* Black background with opacity */,
-                zIndex:
-                  2 /* Specify a stack order in case you're using a different order for other elements */,
+                zIndex: 2 /* Specify a stack order in case you're using a different order for other elements */,
                 // cursor: "pointer" /* Add a pointer on hover */
               }}
-              src={require("../images/special_event.svg")}
+              src={SpecialEventImage}
               alt="sidenav_background"
             />
           </div>
@@ -49,28 +43,24 @@ export const SideNav = ({
             close
           </i>
 
-          {isAuthenticated ? (
-            <Link to="/profile">
-              <img className="circle" src={user.picture} alt="user_avatar" />
-              <span className="white-text name">{user.name}</span>
-              <span className="white-text email">{user.email}</span>
-            </Link>
-          ) : (
-            // <Link to="/profile">
-            <img
-              className="circle"
-              src={require("../images/chef.svg")}
-              alt="user_avatar"
-            />
-            // </Link>
-          )}
+          <Link to="/profile">
+            {isAuthenticated ? (
+              <div>
+                <img className="circle" src={user.picture} alt="user_avatar" />
+                <span className="white-text name">{user.name}</span>
+                <span className="white-text email">{user.email}</span>
+              </div>
+            ) : (
+              <img className="circle" src={ChefImage} alt="user_avatar" />
+            )}
+          </Link>
         </div>
       </li>
 
       <li>
         <RandomButton
           handleClick={handleClick}
-          url={buttonUrl}
+          url={buttonURL}
           size="small"
           color="orange darken-2"
         />
@@ -86,7 +76,7 @@ export const SideNav = ({
       </li>
 
       <li>
-        <div className="divider"></div>
+        <div className="divider" />
       </li>
       <li>
         <Link to="#" className="subheader">

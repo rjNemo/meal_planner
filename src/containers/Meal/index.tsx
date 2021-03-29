@@ -70,6 +70,6 @@ export const Meal: FC = () => {
       handleFavChange={handleFavChange}
     />
   ) : (
-    <NotFound handleClick={getRandomMeal} />
+    <NotFound />
   );
 };

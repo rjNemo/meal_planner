@@ -6,24 +6,18 @@ import { SideNav } from "../components/SideNav";
 
 // TODO FC...
 const MainLayout = ({
-  buttonUrl,
   getRandomMeal,
-  handleChange,
   searchString,
   setSearchString,
-  getSearchResults,
   setSearchResults,
   children,
 }) => {
   const [showNav, setShowNav] = useState(false);
 
-  const links = ["categories", "contact"];
-
   const openNavClick = (e) => {
     e.preventDefault();
     setShowNav(true);
     document.addEventListener("keydown", handleEscKey);
-    // document.addEventListener("click", handleOutsideClick);
   };
 
   const closeNavClick = (e) => {
@@ -37,37 +31,25 @@ const MainLayout = ({
       setShowNav(false);
     }
   };
-  // const handleOutsideClick = e => {
-  //   console.log(e);
-  // };
 
   return (
     <>
       <header>
-        <Navbar
-          handleClick={getRandomMeal}
-          buttonUrl={buttonUrl}
-          openNavClick={openNavClick}
-          links={links}
-        />
+        <Navbar handleClick={getRandomMeal} openNavClick={openNavClick} />
 
         <SearchBar
           searchString={searchString}
           setSearchString={setSearchString}
-          handleChange={handleChange}
-          onSubmit={getSearchResults}
           setSearchResults={setSearchResults}
         />
         <SideNav
           showNav={showNav}
           closeNavClick={closeNavClick}
-          links={links}
-          buttonUrl={buttonUrl}
           handleClick={() => {}}
         />
       </header>
-      {children}
-      <Footer links={[...links, "random"]} />
+      <main>{children}</main>
+      <Footer />
     </>
   );
 };
