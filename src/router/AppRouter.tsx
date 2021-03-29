@@ -12,7 +12,7 @@ import { PrivateRoute } from "./PrivateRoute";
 
 //TODO: remove state from router move to containers
 
-const AppRouter = ({ getRandomMeal, searchString, searchResults }) => (
+const AppRouter = ({ searchString, searchResults }) => (
   <Switch>
     <Route exact path="/">
       <Home />
@@ -41,7 +41,7 @@ const AppRouter = ({ getRandomMeal, searchString, searchResults }) => (
     </Route>
 
     <Route path="/404">
-      <NotFound handleClick={getRandomMeal} />
+      <NotFound />
     </Route>
 
     <Route path="/:id">

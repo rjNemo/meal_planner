@@ -1,16 +1,26 @@
-import React from "react";
+import { ChangeEvent } from "react";
 import { Link } from "react-router-dom";
+import { getData } from "../services/api";
 
 export const SearchBar = ({
   searchString,
   setSearchString,
   setSearchResults,
-  handleChange,
-  onSubmit,
 }) => {
+  const getSearchResults = (e) => {
+    searchString === ""
+      ? e.preventDefault()
+      : getData(searchString, setSearchResults, "search");
+  };
+
   const clearSearchBar = () => {
     setSearchString("");
     setSearchResults({ meals: [] });
+  };
+
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const { value } = e.target;
+    setSearchString(value);
   };
 
   return (
@@ -44,7 +54,7 @@ export const SearchBar = ({
                     type="submit"
                     name="searchButton"
                     value="Search"
-                    onClick={onSubmit}
+                    onClick={getSearchResults}
                   >
                     <i className="material-icons right">send</i>
                   </button>

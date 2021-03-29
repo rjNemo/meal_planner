@@ -1,11 +1,8 @@
 import { FC } from "react";
 import { RandomButton } from "../../components/RandomButton";
+import { getRandomMeal } from "../Meal/service";
 
-type Props = {
-  handleClick: (any) => void;
-};
-
-export const NotFound: FC<Props> = ({ handleClick }) => (
+export const NotFound: FC = () => (
   <div className="container center-align">
     <div className="row">
       <h1>Wrong Way!</h1>
@@ -21,7 +18,7 @@ export const NotFound: FC<Props> = ({ handleClick }) => (
           <div className="card-content">
             <RandomButton
               url="/random"
-              handleClick={handleClick}
+              handleClick={getRandomMeal}
               color={null}
             />
           </div>

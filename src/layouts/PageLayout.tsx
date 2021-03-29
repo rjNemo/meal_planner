@@ -7,7 +7,7 @@ type Props = {
 const PageLayout: FC<Props> = ({ title, children }) => (
   <div className="container">
     <h1 className="logo">{title}</h1>
-    {children}
+    <main>{children}</main>
   </div>
 );
 

@@ -12,21 +12,9 @@ export const App: FC = () => {
   const [searchString, setSearchString] = useState("");
   const [searchResults, setSearchResults] = useState({ meals: [] });
   const [meal, setMeal] = useState(null);
-  const buttonUrl = "/random";
 
   const getRandomMeal = () => {
     getData("random", setMeal);
-  };
-
-  const getSearchResults = (e) => {
-    searchString === ""
-      ? e.preventDefault()
-      : getData(searchString, setSearchResults, "search");
-  };
-
-  const handleChange = (e) => {
-    const { value } = e.target;
-    setSearchString(value);
   };
 
   return loading ? (
@@ -36,19 +24,12 @@ export const App: FC = () => {
   ) : (
     <Router>
       <MainLayout
-        buttonUrl={buttonUrl}
         getRandomMeal={getRandomMeal}
         searchString={searchString}
         setSearchResults={setSearchResults}
-        handleChange={handleChange}
         setSearchString={setSearchString}
-        getSearchResults={getSearchResults}
       >
-        <AppRouter
-          getRandomMeal={getRandomMeal}
-          searchString={searchString}
-          searchResults={searchResults}
-        />
+        <AppRouter searchString={searchString} searchResults={searchResults} />
       </MainLayout>
     </Router>
   );
