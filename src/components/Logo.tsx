@@ -1,11 +1,10 @@
-import React from "react";
+import { FC } from "react";
 import { Link } from "react-router-dom";
 
-export const Logo = () => {
+export const Logo: FC = () => {
   return (
     <Link to="/" className="brand-logo">
       <img
-        // className="responsive-img"
         src="/logo192.png"
         alt="chef's logo"
         height="30px"

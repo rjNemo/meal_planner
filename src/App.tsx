@@ -5,13 +5,16 @@ import MainLayout from "./layouts/MainLayout";
 import { AppRouter } from "./router";
 import { Router } from "./router/Router";
 import { getData } from "./services/api";
+import { MealSummary } from "./types/meal";
 import { useAuth0 } from "./utils/auth0-spa";
 
 export const App: FC = () => {
   const { loading } = useAuth0();
   const [searchString, setSearchString] = useState("");
-  const [searchResults, setSearchResults] = useState({ meals: [] });
-  const [meal, setMeal] = useState(null);
+  const [searchResults, setSearchResults] = useState({
+    meals: [] as MealSummary[],
+  });
+  const [_, setMeal] = useState(null);
 
   const getRandomMeal = () => {
     getData("random", setMeal);

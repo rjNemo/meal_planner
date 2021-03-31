@@ -1,7 +1,7 @@
-import React from "react";
+import { FC } from "react";
 import { useAuth0 } from "../utils/auth0-spa";
 
-export const LogOutButton = () => {
+export const LogOutButton: FC = () => {
   const { logout } = useAuth0();
   const handleClick = () => {
     logout();

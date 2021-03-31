@@ -29,6 +29,6 @@ nav {
     font-family: "Marck Script", cursive;
 }
 
-i.material-icons {
+a>i.material-icons {
     color: #ff9800;
 }

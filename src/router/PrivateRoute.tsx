@@ -1,9 +1,16 @@
-import { useEffect } from "react";
-import { Route } from "react-router-dom";
+import { FC, useEffect } from "react";
+import { Route, RouteProps } from "react-router-dom";
 import { useAuth0 } from "../utils/auth0-spa";
 
-// TODO use FC and props
-export const PrivateRoute = ({ component: Component, path, ...rest }) => {
+type Props = {
+  component: FC;
+} & RouteProps;
+
+export const PrivateRoute: FC<Props> = ({
+  component: Component,
+  path,
+  ...rest
+}) => {
   const { loading, isAuthenticated, loginWithRedirect } = useAuth0();
 
   useEffect(() => {
@@ -18,7 +25,8 @@ export const PrivateRoute = ({ component: Component, path, ...rest }) => {
     fn();
   }, [loading, isAuthenticated, loginWithRedirect, path]);
 
-  const render = (props) => (isAuthenticated ? <Component {...props} /> : null);
+  const render = (props: any) =>
+    isAuthenticated ? <Component {...props} /> : null;
 
   return <Route path={path} render={render} {...rest} />;
 };

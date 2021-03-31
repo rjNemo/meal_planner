@@ -1,3 +1,4 @@
+import React, { FC } from "react";
 import { Link } from "react-router-dom";
 import { buttonURL, links } from "../constants";
 import { useAuth0 } from "../utils/auth0-spa";
@@ -7,7 +8,12 @@ import { Logo } from "./Logo";
 import { LogOutButton } from "./LogOutButton";
 import { RandomButton } from "./RandomButton";
 
-export const Navbar = ({ openNavClick, handleClick }) => {
+type Props = {
+  openNavClick: React.MouseEventHandler;
+  handleClick: () => void;
+};
+
+export const Navbar: FC<Props> = ({ openNavClick, handleClick }) => {
   const { isAuthenticated } = useAuth0();
 
   return (

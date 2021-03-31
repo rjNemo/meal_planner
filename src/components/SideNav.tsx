@@ -1,3 +1,4 @@
+import React, { FC } from "react";
 import { Link } from "react-router-dom";
 import { buttonURL, links } from "../constants";
 import ChefImage from "../images/chef.svg";
@@ -8,7 +9,13 @@ import { LogInButton } from "./LogInButton";
 import { LogOutButton } from "./LogOutButton";
 import { RandomButton } from "./RandomButton";
 
-export const SideNav = ({ showNav, closeNavClick, handleClick }) => {
+type Props = {
+  showNav: boolean;
+  closeNavClick: React.MouseEventHandler;
+  handleClick: () => void;
+};
+
+export const SideNav: FC<Props> = ({ showNav, closeNavClick, handleClick }) => {
   const { isAuthenticated, user } = useAuth0();
   let transformStyle = {
     transform: showNav ? "translateX(0%)" : "translateX(-105%)",

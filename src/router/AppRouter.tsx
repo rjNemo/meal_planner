@@ -1,3 +1,4 @@
+import { FC } from "react";
 import { Redirect, Route, Switch } from "react-router-dom";
 import { buttonURL } from "../constants";
 import { Categories } from "../containers/Categories";
@@ -8,11 +9,14 @@ import { Profile } from "../containers/Profile";
 import { Search } from "../containers/Search";
 import { Contact } from "../containers/Contact";
 import { NotFound } from "../containers/NotFound";
+import { MealSummary } from "../types/meal";
 import { PrivateRoute } from "./PrivateRoute";
 
-//TODO: remove state from router move to containers
-
-const AppRouter = ({ searchString, searchResults }) => (
+type Props = {
+  searchString: string;
+  searchResults: { meals: MealSummary[] };
+};
+const AppRouter: FC<Props> = ({ searchString, searchResults }) => (
   <Switch>
     <Route exact path="/">
       <Home />

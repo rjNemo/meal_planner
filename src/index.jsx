@@ -22,7 +22,8 @@ ReactDOM.render(
     redirect_uri={window.location.origin}
     onRedirectCallBack={onRedirectCallBack}
   >
-    <FirebaseContext.Provider value={new Firebase()}>
+    {/*<FirebaseContext.Provider value={new Firebase()}> todo fix Firebase app*/}
+    <FirebaseContext.Provider>
       <App />
     </FirebaseContext.Provider>
   </Auth0Provider>,
