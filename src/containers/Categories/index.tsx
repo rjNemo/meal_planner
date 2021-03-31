@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { PreLoader } from "../../components/PreLoader";
 import { getData } from "../../services/api";
 import { CategoriesPage } from "./components/CategoriesPage";

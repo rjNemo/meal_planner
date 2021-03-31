@@ -1,13 +1,22 @@
-import { ChangeEvent } from "react";
+import React, { ChangeEvent, FC } from "react";
 import { Link } from "react-router-dom";
 import { getData } from "../services/api";
+import { MealSummary } from "../types/meal";
 
-export const SearchBar = ({
+type Props = {
+  searchString: string;
+  setSearchString: React.Dispatch<React.SetStateAction<string>>;
+  setSearchResults: React.Dispatch<
+    React.SetStateAction<{ meals: MealSummary[] }>
+  >;
+};
+
+export const SearchBar: FC<Props> = ({
   searchString,
   setSearchString,
   setSearchResults,
 }) => {
-  const getSearchResults = (e) => {
+  const getSearchResults: React.MouseEventHandler<HTMLButtonElement> = (e) => {
     searchString === ""
       ? e.preventDefault()
       : getData(searchString, setSearchResults, "search");

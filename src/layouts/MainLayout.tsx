@@ -1,11 +1,19 @@
-import React, { useState } from "react";
+import React, { FC, useState } from "react";
 import { Footer } from "../components/Footer";
 import { Navbar } from "../components/Navbar";
 import { SearchBar } from "../components/SearchBar";
 import { SideNav } from "../components/SideNav";
+import { MealSummary } from "../types/meal";
 
-// TODO FC...
-const MainLayout = ({
+type Props = {
+  getRandomMeal: () => void;
+  searchString: string;
+  setSearchString: React.Dispatch<React.SetStateAction<string>>;
+  setSearchResults: React.Dispatch<
+    React.SetStateAction<{ meals: MealSummary[] }>
+  >;
+};
+const MainLayout: FC<Props> = ({
   getRandomMeal,
   searchString,
   setSearchString,
@@ -14,19 +22,19 @@ const MainLayout = ({
 }) => {
   const [showNav, setShowNav] = useState(false);
 
-  const openNavClick = (e) => {
+  const openNavClick: React.MouseEventHandler = (e) => {
     e.preventDefault();
     setShowNav(true);
     document.addEventListener("keydown", handleEscKey);
   };
 
-  const closeNavClick = (e) => {
+  const closeNavClick = (e: React.MouseEvent) => {
     e.preventDefault();
     setShowNav(false);
     document.removeEventListener("keydown", handleEscKey);
   };
 
-  const handleEscKey = (e) => {
+  const handleEscKey = (e: KeyboardEvent) => {
     if (e.key === "Escape") {
       setShowNav(false);
     }

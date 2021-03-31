@@ -1,7 +1,19 @@
-import React from "react";
+import { FC } from "react";
 import { Link } from "react-router-dom";
 
-export const RandomButton = ({ url, size = "large", handleClick, color }) => {
+type Props = {
+  url: string;
+  size?: string;
+  handleClick: () => void;
+  color?: string;
+};
+
+export const RandomButton: FC<Props> = ({
+  url,
+  size = "large",
+  handleClick,
+  color,
+}) => {
   const classString = `waves-effect waves-light btn-${size} ${color}`;
   return (
     <Link to={url}>

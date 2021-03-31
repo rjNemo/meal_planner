@@ -1,8 +1,13 @@
-import React from "react";
+import { FC } from "react";
 import { Link } from "react-router-dom";
 import { upFirstChar } from "../utils/methods";
 
-export const FooterLink = ({ link, textColor = "" }) => {
+type Props = {
+  link: string;
+  textColor?: string;
+};
+
+export const FooterLink: FC<Props> = ({ link, textColor = "" }) => {
   const textColorClass = `${textColor}-text`;
   return (
     <li>

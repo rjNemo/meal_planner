@@ -1,7 +1,7 @@
 import { FC } from "react";
 
 type Props = {
-  ingredients: string[];
+  ingredients: string[][];
 };
 
 export const MealIngredientList: FC<Props> = ({ ingredients }) => (

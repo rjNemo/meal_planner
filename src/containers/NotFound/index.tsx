@@ -1,6 +1,5 @@
 import { FC } from "react";
 import { RandomButton } from "../../components/RandomButton";
-import { getRandomMeal } from "../Meal/service";
 
 export const NotFound: FC = () => (
   <div className="container center-align">
@@ -16,11 +15,7 @@ export const NotFound: FC = () => (
             />
           </div>
           <div className="card-content">
-            <RandomButton
-              url="/random"
-              handleClick={getRandomMeal}
-              color={null}
-            />
+            <RandomButton url="/random" handleClick={() => {}} />
           </div>
         </div>
       </div>

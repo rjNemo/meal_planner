@@ -4,7 +4,7 @@ import { getData } from "../../services/api";
 import { CategoryPage } from "./components/CategoryPage";
 
 export const Category: FC = () => {
-  const { strCategory } = useParams();
+  const { strCategory } = useParams<{ strCategory: string }>();
   const [meals, setMeals] = useState({ meals: [] });
 
   useEffect(() => {

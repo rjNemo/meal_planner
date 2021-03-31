@@ -5,7 +5,7 @@ import { MealPresentation } from "./MealPresentation";
 import { MealRecipe } from "./MealRecipe";
 
 type Props = {
-  ingredients: string[];
+  ingredients: string[][];
   recipe: string;
   meal: Meal;
   handleFavChange: () => void;
