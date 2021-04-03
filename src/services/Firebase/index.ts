@@ -1,4 +1,4 @@
-// This file centralize all Firebase related exports
+// This file centralizes all Firebase related exports
 
 import Firebase from "./firebase";
 import FirebaseContext, { useFirebase } from "./context";

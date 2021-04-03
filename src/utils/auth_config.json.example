@@ -1,5 +1,0 @@
-/* This is a dummy auth0 config file. Use https://auth0.com/ to create your own set of keys */
-{
-    "domain": "{DOMAIN}",
-    "clientId": "{CLIENT_ID}"
-}

@@ -5,7 +5,7 @@ import { App } from "./App";
 import * as serviceWorker from "./serviceWorker";
 import { Auth0Provider } from "./utils/auth0-spa";
 import history from "./utils/history";
-import Firebase, { FirebaseContext } from "./services/Firebase";
+import { FirebaseContext } from "./services/Firebase";
 
 const onRedirectCallBack = (appState) => {
   history.push(
