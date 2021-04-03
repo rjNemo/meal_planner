@@ -1,8 +1,5 @@
 import app from "firebase/app";
 import "firebase/firestore";
-import CollectionReference = app.firestore.CollectionReference;
-import Firestore = app.firestore.Firestore;
-import DocumentData = app.firestore.DocumentData;
 
 const CONFIG = {
   apiKey: process.env.REACT_APP_API_KEY,
@@ -22,8 +19,8 @@ const FAVS = "favs";
  * Firebase services as auth and firestore.
  */
 export default class Firebase {
-  #db: Firestore;
-  #collection: CollectionReference;
+  #db: any;
+  #collection: any;
 
   constructor() {
     app.initializeApp(CONFIG);
@@ -49,7 +46,7 @@ export default class Firebase {
    * Get user's favourite recipes
    * */
   getFavsByEmail = async (email: string) => {
-    let favs = [] as DocumentData[];
+    let favs = [] as any[];
     const query = await this.#collection
       .doc(email)
       .collection(FAVS)
@@ -57,7 +54,7 @@ export default class Firebase {
       .limit(10)
       .get();
 
-    query.forEach((doc) => favs.push(doc.data()));
+    query.forEach((doc: any) => favs.push(doc.data()));
 
     return favs;
   };
@@ -94,6 +91,6 @@ export default class Firebase {
         strMealThumb,
         isFav,
       })
-      .catch((err) => console.error("Error adding favs to database", err));
+      .catch((err: any) => console.error("Error adding favs to database", err));
   };
 }
