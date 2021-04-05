@@ -2,6 +2,8 @@ import { AppState } from "./index";
 
 export const appReducer = (state: AppState, action: Action) => {
   switch (action.type) {
+    case "setMeal":
+      return { meals: action.payload };
     case "fetchMeal":
       return { meals: state.meals };
     case "fetchRandomMeal":
@@ -14,5 +16,8 @@ export const appReducer = (state: AppState, action: Action) => {
   }
 };
 
-export type Action = { type: "fetchMeal" | "fetchRandomMeal" | "toggleFav" };
+export type Action = {
+  payload?: any;
+  type: "setMeal" | "fetchMeal" | "fetchRandomMeal" | "toggleFav";
+};
 export type Dispatch = (action: Action) => void;

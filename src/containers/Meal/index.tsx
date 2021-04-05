@@ -1,8 +1,8 @@
-import React, { FC, useEffect, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getData } from "../../services/api";
 import { useFirebase } from "../../services/Firebase";
-import { MealApi as MealType } from "../../types/meal";
+import { useMeal } from "../../store/meal";
+import { fetchMeal, fetchRandomMeal } from "../../store/meal/async";
 import { useAuth0 } from "../../utils/auth0-spa";
 import { NotFound } from "../NotFound";
 import { MealPage } from "./components/MealPage";
@@ -12,31 +12,18 @@ export const Meal: FC = () => {
   // hooks
   const { user, isAuthenticated } = useAuth0();
   const { id } = useParams<{ id: string }>();
+  const { state, dispatch } = useMeal();
   const fb = useFirebase();
   // local state
-  const [meal, setMeal] = useState({ meals: [] as MealType[] });
   const [isFav, setIsFav] = useState<boolean>();
   // variables
-  const mealItem = meal?.meals?.[0];
-
-  const getMeal = (
-    id: string,
-    setMeal: React.Dispatch<React.SetStateAction<{ meals: MealType[] }>>
-  ) => {
-    getData(id, setMeal, "lookup");
-  };
-
-  const getRandomMeal = (
-    setMeal: React.Dispatch<React.SetStateAction<{ meals: MealType[] }>>
-  ) => {
-    getData("random", setMeal);
-  };
-
+  const mealItem = state.meals?.[0];
   // effects
   /** Fetch meal from db */
   useEffect(() => {
-    !id ? getRandomMeal(setMeal) : getMeal(id, setMeal);
-  }, [id]);
+    !id ? fetchRandomMeal(dispatch) : fetchMeal(dispatch, id);
+  }, [id, dispatch]);
+
   /** Updates fav status in db */
   useEffect(() => {
     if (isAuthenticated) {
@@ -63,7 +50,7 @@ export const Meal: FC = () => {
   const item = buildMealProps(mealItem, isFav!);
   const ingredients = buildIngredientList(mealItem);
 
-  return !!meal?.meals ? (
+  return !!state.meals ? (
     <MealPage
       meal={item}
       ingredients={ingredients}
