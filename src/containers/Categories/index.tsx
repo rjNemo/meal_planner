@@ -7,7 +7,7 @@ export const Categories = () => {
   const [categories, setCategories] = useState({ categories: [] });
 
   const getCategories = () => {
-    getData("categories", setCategories);
+    getData("categories").then((data) => setCategories(data));
   };
 
   useEffect(() => {

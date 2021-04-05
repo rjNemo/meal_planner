@@ -1,30 +1,20 @@
-import React, { ChangeEvent, FC } from "react";
+import React, { ChangeEvent, FC, useState } from "react";
 import { Link } from "react-router-dom";
-import { getData } from "../services/api";
-import { MealSummary } from "../types/meal";
+import { useMeal } from "../store/meal";
+import { fetchSearchResults } from "../store/meal/async";
 
-type Props = {
-  searchString: string;
-  setSearchString: React.Dispatch<React.SetStateAction<string>>;
-  setSearchResults: React.Dispatch<
-    React.SetStateAction<{ meals: MealSummary[] }>
-  >;
-};
-
-export const SearchBar: FC<Props> = ({
-  searchString,
-  setSearchString,
-  setSearchResults,
-}) => {
+export const SearchBar: FC = () => {
+  const { dispatch } = useMeal();
+  const [searchString, setSearchString] = useState("");
   const getSearchResults: React.MouseEventHandler<HTMLButtonElement> = (e) => {
     searchString === ""
       ? e.preventDefault()
-      : getData(searchString, setSearchResults, "search");
+      : fetchSearchResults(dispatch, searchString);
   };
 
   const clearSearchBar = () => {
     setSearchString("");
-    setSearchResults({ meals: [] });
+    dispatch({ type: "clearSearchResults" });
   };
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {

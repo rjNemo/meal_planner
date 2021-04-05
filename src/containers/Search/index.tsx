@@ -1,12 +1,13 @@
 import { FC } from "react";
-import { MealSummary } from "../../types/meal";
+import { useMeal } from "../../store/meal";
 import { SearchPage } from "./components/SearchPage";
 
-type Props = {
-  searchString: string;
-  searchResults: { meals: MealSummary[] };
+export const Search: FC = () => {
+  const { state } = useMeal();
+  return (
+    <SearchPage
+      searchString={state.searchString}
+      searchResults={state.search}
+    />
+  );
 };
-
-export const Search: FC<Props> = ({ searchString, searchResults }) => (
-  <SearchPage searchString={searchString} searchResults={searchResults} />
-);

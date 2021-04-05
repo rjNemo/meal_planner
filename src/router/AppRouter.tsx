@@ -3,20 +3,15 @@ import { Redirect, Route, Switch } from "react-router-dom";
 import { buttonURL } from "../constants";
 import { Categories } from "../containers/Categories";
 import { Category } from "../containers/Category";
+import { Contact } from "../containers/Contact";
 import { Home } from "../containers/Home";
 import { Meal } from "../containers/Meal";
+import { NotFound } from "../containers/NotFound";
 import { Profile } from "../containers/Profile";
 import { Search } from "../containers/Search";
-import { Contact } from "../containers/Contact";
-import { NotFound } from "../containers/NotFound";
-import { MealSummary } from "../types/meal";
 import { PrivateRoute } from "./PrivateRoute";
 
-type Props = {
-  searchString: string;
-  searchResults: { meals: MealSummary[] };
-};
-const AppRouter: FC<Props> = ({ searchString, searchResults }) => (
+const AppRouter: FC = () => (
   <Switch>
     <Route exact path="/">
       <Home />
@@ -37,7 +32,7 @@ const AppRouter: FC<Props> = ({ searchString, searchResults }) => (
     </Route>
 
     <Route exact path="/search">
-      <Search searchString={searchString} searchResults={searchResults} />
+      <Search />
     </Route>
 
     <Route path="/contact">

@@ -1,8 +1,6 @@
 import { FC } from "react";
 
-type Props = {
-  title: string;
-};
+type Props = { title: string };
 
 const PageLayout: FC<Props> = ({ title, children }) => (
   <div className="container">

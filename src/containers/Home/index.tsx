@@ -8,12 +8,7 @@ export const Home: FC = () => (
     <div className="row">
       <div className="col s12 m6">
         <h1 className="logo">Chef's Online Cookbook</h1>
-        <RandomButton
-          url={buttonURL}
-          size="large"
-          color="orange darken-2"
-          handleClick={() => {}}
-        />
+        <RandomButton url={buttonURL} size="large" color="orange darken-2" />
       </div>
       <picture className="col s12 m6">
         <img src={HeroImage} alt="hero_image" width="100%" />
