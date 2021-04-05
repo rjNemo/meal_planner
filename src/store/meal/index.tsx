@@ -2,18 +2,12 @@
 
 import { createContext, FC, useContext, useReducer } from "react";
 import { MealApi } from "../../types/meal";
-import { Dispatch } from "./actions";
-import { appReducer } from "./reducer";
-
-const AppContext = createContext<
-  | {
-      state: AppState;
-      dispatch: Dispatch;
-    }
-  | undefined
->(undefined);
+import { appReducer, Dispatch } from "./reducer";
 
 export type AppState = { meals: MealApi[] };
+type ContextType = { state: AppState; dispatch: Dispatch } | undefined;
+
+const AppContext = createContext<ContextType>(undefined);
 
 export const useMeal = () => {
   const context = useContext(AppContext);
