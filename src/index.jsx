@@ -6,6 +6,7 @@ import * as serviceWorker from "./serviceWorker";
 import { Auth0Provider } from "./utils/auth0-spa";
 import history from "./utils/history";
 import { FirebaseContext } from "./services/Firebase";
+import { AppProvider } from "./store/meal";
 
 const onRedirectCallBack = (appState) => {
   history.push(
@@ -24,7 +25,9 @@ ReactDOM.render(
   >
     {/*<FirebaseContext.Provider value={new Firebase()}> todo fix Firebase app*/}
     <FirebaseContext.Provider>
-      <App />
+      <AppProvider>
+        <App />
+      </AppProvider>
     </FirebaseContext.Provider>
   </Auth0Provider>,
   document.getElementById("root")
