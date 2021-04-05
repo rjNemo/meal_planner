@@ -1,20 +1,21 @@
-import React from "react";
+import { apiRoot } from "../constants";
 
-export const createURI = (keyword: string, option?: string) => {
-  const ROOT = "https://www.themealdb.com/api/json/v1/1/";
+type Option = "filter" | "lookup" | "search";
+
+const createURI = (keyword: string, option?: Option) => {
   if (!option) {
-    return `${ROOT}${keyword}.php`;
+    return `${apiRoot}${keyword}.php`;
   }
 
   switch (option) {
     case "filter": {
-      return `${ROOT}${option}.php?c=${keyword}`;
+      return `${apiRoot}${option}.php?c=${keyword}`;
     }
     case "lookup": {
-      return `${ROOT}${option}.php?i=${keyword}`;
+      return `${apiRoot}${option}.php?i=${keyword}`;
     }
     case "search": {
-      return `${ROOT}${option}.php?s=${keyword}`;
+      return `${apiRoot}${option}.php?s=${keyword}`;
     }
     default: {
       throw Error("Unexpected URI");
@@ -22,15 +23,10 @@ export const createURI = (keyword: string, option?: string) => {
   }
 };
 
-export const getData = (
-  keyword: string,
-  set: React.Dispatch<React.SetStateAction<any>>,
-  option?: string
-) => {
+export const getData = (keyword: string, option?: Option) => {
   const URI = createURI(keyword, option);
 
-  fetch(URI)
+  return fetch(URI)
     .then((response) => response.json())
-    .catch((error) => console.warn(error + "url:" + URI))
-    .then((data) => set(data));
+    .catch((error) => console.warn(error + "url:" + URI));
 };

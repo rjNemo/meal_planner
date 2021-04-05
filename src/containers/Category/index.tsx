@@ -8,8 +8,8 @@ export const Category: FC = () => {
   const [meals, setMeals] = useState({ meals: [] });
 
   useEffect(() => {
-    const getMeals = () => getData(strCategory, setMeals, "filter");
-    getMeals();
+    const getMeals = () => getData(strCategory, "filter");
+    getMeals().then((data) => setMeals(data));
   }, [strCategory]);
 
   return !meals.meals ? (

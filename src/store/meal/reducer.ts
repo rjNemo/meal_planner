@@ -1,3 +1,4 @@
+import { MealSummary } from "../../types/meal";
 import { AppState } from "./index";
 
 export const appReducer = (state: AppState, action: Action) => {
@@ -11,7 +12,7 @@ export const appReducer = (state: AppState, action: Action) => {
         searchString: action.payload.searchString,
       };
     case "clearSearchResults":
-      return { ...state, search: [] };
+      return { ...state, search: [] as MealSummary[] };
     default: {
       throw new Error(`Unhandled action type: ${action.type}`);
     }
