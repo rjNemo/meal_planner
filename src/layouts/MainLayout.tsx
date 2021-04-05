@@ -3,21 +3,8 @@ import { Footer } from "../components/Footer";
 import { Navbar } from "../components/Navbar";
 import { SearchBar } from "../components/SearchBar";
 import { SideNav } from "../components/SideNav";
-import { MealSummary } from "../types/meal";
 
-type Props = {
-  searchString: string;
-  setSearchString: React.Dispatch<React.SetStateAction<string>>;
-  setSearchResults: React.Dispatch<
-    React.SetStateAction<{ meals: MealSummary[] }>
-  >;
-};
-const MainLayout: FC<Props> = ({
-  searchString,
-  setSearchString,
-  setSearchResults,
-  children,
-}) => {
+const MainLayout: FC = ({ children }) => {
   const [showNav, setShowNav] = useState(false);
 
   const openNavClick: React.MouseEventHandler = (e) => {
@@ -42,12 +29,7 @@ const MainLayout: FC<Props> = ({
     <>
       <header>
         <Navbar openNavClick={openNavClick} />
-
-        <SearchBar
-          searchString={searchString}
-          setSearchString={setSearchString}
-          setSearchResults={setSearchResults}
-        />
+        <SearchBar />
         <SideNav showNav={showNav} closeNavClick={closeNavClick} />
       </header>
       <main>{children}</main>

@@ -23,3 +23,20 @@ export const fetchMeal = async (dispatch: Dispatch, id: string) => {
 
   dispatch({ type: "setMeal", payload: meal.meals });
 };
+
+export const fetchSearchResults = async (
+  dispatch: Dispatch,
+  searchString: string
+) => {
+  //TODO: refactor to use Meal client
+  const URI = createURI(searchString, "search");
+
+  const meals = await fetch(URI)
+    .then((response) => response.json())
+    .catch((error) => console.warn(error + "url:" + URI));
+
+  dispatch({
+    type: "setSearchResults",
+    payload: { search: meals.meals, searchString },
+  });
+};

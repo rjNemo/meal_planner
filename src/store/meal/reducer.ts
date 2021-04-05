@@ -3,13 +3,15 @@ import { AppState } from "./index";
 export const appReducer = (state: AppState, action: Action) => {
   switch (action.type) {
     case "setMeal":
-      return { meals: action.payload };
-    case "fetchMeal":
-      return { meals: state.meals };
-    case "fetchRandomMeal":
-      return { meals: state.meals };
-    case "toggleFav":
-      return { meals: state.meals };
+      return { ...state, meals: action.payload };
+    case "setSearchResults":
+      return {
+        ...state,
+        search: action.payload.search,
+        searchString: action.payload.searchString,
+      };
+    case "clearSearchResults":
+      return { ...state, search: [] };
     default: {
       throw new Error(`Unhandled action type: ${action.type}`);
     }
@@ -18,6 +20,7 @@ export const appReducer = (state: AppState, action: Action) => {
 
 export type Action = {
   payload?: any;
-  type: "setMeal" | "fetchMeal" | "fetchRandomMeal" | "toggleFav";
+  type: "setMeal" | "setSearchResults" | "clearSearchResults";
 };
+
 export type Dispatch = (action: Action) => void;
