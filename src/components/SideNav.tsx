@@ -9,13 +9,9 @@ import { LogInButton } from "./LogInButton";
 import { LogOutButton } from "./LogOutButton";
 import { RandomButton } from "./RandomButton";
 
-type Props = {
-  showNav: boolean;
-  closeNavClick: React.MouseEventHandler;
-  handleClick: () => void;
-};
+type Props = { showNav: boolean; closeNavClick: React.MouseEventHandler };
 
-export const SideNav: FC<Props> = ({ showNav, closeNavClick, handleClick }) => {
+export const SideNav: FC<Props> = ({ showNav, closeNavClick }) => {
   const { isAuthenticated, user } = useAuth0();
   let transformStyle = {
     transform: showNav ? "translateX(0%)" : "translateX(-105%)",
@@ -65,12 +61,7 @@ export const SideNav: FC<Props> = ({ showNav, closeNavClick, handleClick }) => {
       </li>
 
       <li>
-        <RandomButton
-          handleClick={handleClick}
-          url={buttonURL}
-          size="small"
-          color="orange darken-2"
-        />
+        <RandomButton url={buttonURL} size="small" color="orange darken-2" />
       </li>
       <li>
         <Link to="#">

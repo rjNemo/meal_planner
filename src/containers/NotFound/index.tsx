@@ -15,7 +15,7 @@ export const NotFound: FC = () => (
             />
           </div>
           <div className="card-content">
-            <RandomButton url="/random" handleClick={() => {}} />
+            <RandomButton url="/random" />
           </div>
         </div>
       </div>

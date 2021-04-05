@@ -8,12 +8,9 @@ import { Logo } from "./Logo";
 import { LogOutButton } from "./LogOutButton";
 import { RandomButton } from "./RandomButton";
 
-type Props = {
-  openNavClick: React.MouseEventHandler;
-  handleClick: () => void;
-};
+type Props = { openNavClick: React.MouseEventHandler };
 
-export const Navbar: FC<Props> = ({ openNavClick, handleClick }) => {
+export const Navbar: FC<Props> = ({ openNavClick }) => {
   const { isAuthenticated } = useAuth0();
 
   return (
@@ -31,7 +28,6 @@ export const Navbar: FC<Props> = ({ openNavClick, handleClick }) => {
               )}
               <li>
                 <RandomButton
-                  handleClick={handleClick}
                   url={buttonURL}
                   size="small"
                   color="orange darken-2"

@@ -6,7 +6,6 @@ import { SideNav } from "../components/SideNav";
 import { MealSummary } from "../types/meal";
 
 type Props = {
-  getRandomMeal: () => void;
   searchString: string;
   setSearchString: React.Dispatch<React.SetStateAction<string>>;
   setSearchResults: React.Dispatch<
@@ -14,7 +13,6 @@ type Props = {
   >;
 };
 const MainLayout: FC<Props> = ({
-  getRandomMeal,
   searchString,
   setSearchString,
   setSearchResults,
@@ -43,18 +41,14 @@ const MainLayout: FC<Props> = ({
   return (
     <>
       <header>
-        <Navbar handleClick={getRandomMeal} openNavClick={openNavClick} />
+        <Navbar openNavClick={openNavClick} />
 
         <SearchBar
           searchString={searchString}
           setSearchString={setSearchString}
           setSearchResults={setSearchResults}
         />
-        <SideNav
-          showNav={showNav}
-          closeNavClick={closeNavClick}
-          handleClick={() => {}}
-        />
+        <SideNav showNav={showNav} closeNavClick={closeNavClick} />
       </header>
       <main>{children}</main>
       <Footer />
