@@ -1,4 +1,3 @@
-import { FC } from "react";
 import { CardEntry } from "../../../components/CardEntry";
 import PageLayout from "../../../layouts/PageLayout";
 import { MealSummary } from "../../../types/meal";
@@ -8,7 +7,7 @@ type Props = {
   strCategory: string;
 };
 
-export const CategoryPage: FC<Props> = ({ meals, strCategory }) => (
+export const CategoryPage = ({ meals, strCategory }: Props) => (
   <PageLayout title={`Chef's ${strCategory} Recipes`}>
     <ul>
       <div className="row">

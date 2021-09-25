@@ -1,10 +1,6 @@
-import { FC } from "react";
+type Props = { recipe: string };
 
-type Props = {
-  recipe: string;
-};
-
-export const MealRecipe: FC<Props> = ({ recipe }) => (
+export const MealRecipe = ({ recipe }: Props) => (
   <div className="recipe">
     <div className="divider" />
     <h3>Instructions</h3>

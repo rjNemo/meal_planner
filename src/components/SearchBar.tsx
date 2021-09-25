@@ -1,15 +1,13 @@
-import React, { ChangeEvent, FC, useState } from "react";
+import { ChangeEvent, MouseEventHandler, useState } from "react";
 import { Link } from "react-router-dom";
 import { useMeal } from "../store/meal";
 import { fetchSearchResults } from "../store/meal/async";
 
-export const SearchBar: FC = () => {
+export const SearchBar = () => {
   const { dispatch } = useMeal();
   const [searchString, setSearchString] = useState("");
-  const getSearchResults: React.MouseEventHandler<HTMLButtonElement> = (e) => {
-    searchString === ""
-      ? e.preventDefault()
-      : fetchSearchResults(dispatch, searchString);
+  const getSearchResults: MouseEventHandler<HTMLButtonElement> = (e) => {
+    searchString === "" ? e.preventDefault() : fetchSearchResults(dispatch, searchString);
   };
 
   const clearSearchBar = () => {
@@ -17,10 +15,8 @@ export const SearchBar: FC = () => {
     dispatch({ type: "clearSearchResults" });
   };
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const { value } = e.target;
+  const handleChange = ({ target: { value } }: ChangeEvent<HTMLInputElement>) =>
     setSearchString(value);
-  };
 
   return (
     <div className="section">

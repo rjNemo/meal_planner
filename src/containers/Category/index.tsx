@@ -1,9 +1,9 @@
-import { FC, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Redirect, useParams } from "react-router-dom";
 import { getData } from "../../services/api";
 import { CategoryPage } from "./components/CategoryPage";
 
-export const Category: FC = () => {
+export const Category = () => {
   const { strCategory } = useParams<{ strCategory: string }>();
   const [meals, setMeals] = useState({ meals: [] });
 

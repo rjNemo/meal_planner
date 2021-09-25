@@ -6,9 +6,7 @@ import { CategoriesPage } from "./components/CategoriesPage";
 export const Categories = () => {
   const [categories, setCategories] = useState({ categories: [] });
 
-  const getCategories = () => {
-    getData("categories").then((data) => setCategories(data));
-  };
+  const getCategories = () => getData("categories").then((data) => setCategories(data));
 
   useEffect(() => {
     getCategories();

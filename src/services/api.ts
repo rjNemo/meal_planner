@@ -23,10 +23,13 @@ const createURI = (keyword: string, option?: Option) => {
   }
 };
 
-export const getData = (keyword: string, option?: Option) => {
+export const getData = async (keyword: string, option?: Option) => {
   const URI = createURI(keyword, option);
 
-  return fetch(URI)
-    .then((response) => response.json())
-    .catch((error) => console.warn(error + "url:" + URI));
+  try {
+    const response = await fetch(URI);
+    return await response.json();
+  } catch (error) {
+    return console.warn(error + "url:" + URI);
+  }
 };

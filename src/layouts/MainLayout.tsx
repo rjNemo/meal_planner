@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import { FC, MouseEvent, MouseEventHandler, useState } from "react";
 import { Footer } from "../components/Footer";
 import { Navbar } from "../components/Navbar";
 import { SearchBar } from "../components/SearchBar";
@@ -7,20 +7,20 @@ import { SideNav } from "../components/SideNav";
 const MainLayout: FC = ({ children }) => {
   const [showNav, setShowNav] = useState(false);
 
-  const openNavClick: React.MouseEventHandler = (e) => {
+  const openNavClick: MouseEventHandler = (e) => {
     e.preventDefault();
     setShowNav(true);
     document.addEventListener("keydown", handleEscKey);
   };
 
-  const closeNavClick = (e: React.MouseEvent) => {
+  const closeNavClick = (e: MouseEvent) => {
     e.preventDefault();
     setShowNav(false);
     document.removeEventListener("keydown", handleEscKey);
   };
 
-  const handleEscKey = (e: KeyboardEvent) => {
-    if (e.key === "Escape") {
+  const handleEscKey = ({ key }: KeyboardEvent) => {
+    if (key === "Escape") {
       setShowNav(false);
     }
   };

@@ -1,9 +1,9 @@
-import { FC, useState } from "react";
+import { useState } from "react";
 import PageLayout from "../../layouts/PageLayout";
 import { ContactForm } from "./components/ContactForm";
 import { ContactFormSubmitted } from "./components/ContactFormSubmitted";
 
-export const Contact: FC = () => {
+export const Contact = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   return isSubmitted ? (

@@ -1,22 +1,15 @@
-import { FC } from "react";
 import { Link } from "react-router-dom";
-import Meal from "../../../types/meal";
+import { Meal } from "../../../types/meal";
 
 type Props = {
   meal: Meal;
   handleFavChange: () => void;
 };
 
-export const MealPresentation: FC<Props> = ({ meal, handleFavChange }) => {
-  const {
-    mealName,
-    imgAddress,
-    videoAddress,
-    mealCategory,
-    mealArea,
-    isFav,
-  } = meal;
-
+export const MealPresentation = ({
+  meal: { mealName, imgAddress, videoAddress, mealCategory, mealArea, isFav },
+  handleFavChange,
+}: Props) => {
   return (
     <div className="row">
       <div className="col s12">
@@ -45,16 +38,11 @@ export const MealPresentation: FC<Props> = ({ meal, handleFavChange }) => {
                 </div>
 
                 <div className="chip">
-                  <b>
-                    {isFav ? "Remove from favourites" : "Add to favourites"}:
-                  </b>
+                  <b>{isFav ? "Remove from favourites" : "Add to favourites"}:</b>
 
                   <Link to="#">
                     {"  "}
-                    <i
-                      className="material-icons tiny"
-                      onClick={handleFavChange}
-                    >
+                    <i className="material-icons tiny" onClick={handleFavChange}>
                       {isFav ? "favorite" : "favorite_border"}
                     </i>
                   </Link>

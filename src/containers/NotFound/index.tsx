@@ -1,7 +1,6 @@
-import { FC } from "react";
 import { RandomButton } from "../../components/RandomButton";
 
-export const NotFound: FC = () => (
+export const NotFound = () => (
   <div className="container center-align">
     <div className="row">
       <h1>Wrong Way!</h1>

@@ -1,4 +1,3 @@
-import { FC } from "react";
 import { Redirect, Route, Switch } from "react-router-dom";
 import { buttonURL } from "../constants";
 import { Categories } from "../containers/Categories";
@@ -11,7 +10,7 @@ import { Profile } from "../containers/Profile";
 import { Search } from "../containers/Search";
 import { PrivateRoute } from "./PrivateRoute";
 
-const AppRouter: FC = () => (
+export const AppRouter = () => (
   <Switch>
     <Route exact path="/">
       <Home />
@@ -52,5 +51,3 @@ const AppRouter: FC = () => (
     </Route>
   </Switch>
 );
-
-export default AppRouter;

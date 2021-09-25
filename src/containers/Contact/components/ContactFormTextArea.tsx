@@ -1,13 +1,13 @@
-import React, { FC } from "react";
+import { ChangeEventHandler, Dispatch, FC, SetStateAction } from "react";
 
 type Props = {
   id: string;
   value: string;
-  dispatch: React.Dispatch<React.SetStateAction<string>>;
+  dispatch: Dispatch<SetStateAction<string>>;
 };
 
 export const ContactFormTextArea: FC<Props> = ({ id, value, dispatch }) => {
-  const handleChange: React.ChangeEventHandler<HTMLTextAreaElement> = (e) => {
+  const handleChange: ChangeEventHandler<HTMLTextAreaElement> = (e) => {
     e.preventDefault();
     dispatch(e.target.value);
   };

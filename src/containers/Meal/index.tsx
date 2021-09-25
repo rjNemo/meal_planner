@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useFirebase } from "../../services/Firebase";
 import { useMeal } from "../../store/meal";
@@ -8,7 +8,7 @@ import { NotFound } from "../NotFound";
 import { MealPage } from "./components/MealPage";
 import { buildIngredientList, buildMealProps } from "./service";
 
-export const Meal: FC = () => {
+export const Meal = () => {
   // hooks
   const { user, isAuthenticated } = useAuth0();
   const { id } = useParams<{ id: string }>();

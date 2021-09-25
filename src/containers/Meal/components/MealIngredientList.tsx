@@ -1,10 +1,6 @@
-import { FC } from "react";
+type Props = { ingredients: string[][] };
 
-type Props = {
-  ingredients: string[][];
-};
-
-export const MealIngredientList: FC<Props> = ({ ingredients }) => (
+export const MealIngredientList = ({ ingredients }: Props) => (
   <div className="ingredientList">
     <table className="striped highlight responsive-table">
       <thead>

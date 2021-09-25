@@ -1,9 +1,8 @@
-import { FC } from "react";
 import { RandomButton } from "../../components/RandomButton";
 import { buttonURL } from "../../constants";
 import HeroImage from "../../images/chef.svg";
 
-export const Home: FC = () => (
+export const Home = () => (
   <section className="container ">
     <div className="row">
       <div className="col s12 m6">

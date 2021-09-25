@@ -1,5 +1,4 @@
-import { FC } from "react";
-import Meal from "../../../types/meal";
+import { Meal } from "../../../types/meal";
 import { MealIngredientList } from "./MealIngredientList";
 import { MealPresentation } from "./MealPresentation";
 import { MealRecipe } from "./MealRecipe";
@@ -11,12 +10,7 @@ type Props = {
   handleFavChange: () => void;
 };
 
-export const MealPage: FC<Props> = ({
-  meal,
-  ingredients,
-  recipe,
-  handleFavChange,
-}) => (
+export const MealPage = ({ meal, ingredients, recipe, handleFavChange }: Props) => (
   <section className="container">
     <div className="row">
       <div className="col s12 l6">

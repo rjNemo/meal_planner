@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import { MouseEventHandler } from "react";
 import { Link } from "react-router-dom";
 import { buttonURL, links } from "../constants";
 import { useAuth0 } from "../utils/auth0-spa";
@@ -8,9 +8,9 @@ import { Logo } from "./Logo";
 import { LogOutButton } from "./LogOutButton";
 import { RandomButton } from "./RandomButton";
 
-type Props = { openNavClick: React.MouseEventHandler };
+type Props = { openNavClick: MouseEventHandler };
 
-export const Navbar: FC<Props> = ({ openNavClick }) => {
+export const Navbar = ({ openNavClick }: Props) => {
   const { isAuthenticated } = useAuth0();
 
   return (
@@ -23,22 +23,12 @@ export const Navbar: FC<Props> = ({ openNavClick }) => {
               {links.map((link, i) => (
                 <FooterLink key={i} link={link} textColor="black" />
               ))}
-              {isAuthenticated && (
-                <FooterLink link="profile" textColor="black" />
-              )}
+              {isAuthenticated && <FooterLink link="profile" textColor="black" />}
               <li>
-                <RandomButton
-                  url={buttonURL}
-                  size="small"
-                  color="orange darken-2"
-                />
+                <RandomButton url={buttonURL} size="small" color="orange darken-2" />
               </li>
               <li>
-                {!isAuthenticated ? (
-                  <LogInButton color="orange lighten-1" />
-                ) : (
-                  <LogOutButton />
-                )}
+                {!isAuthenticated ? <LogInButton color="orange lighten-1" /> : <LogOutButton />}
               </li>
             </ul>
             <Link

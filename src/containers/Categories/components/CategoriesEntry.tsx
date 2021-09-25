@@ -1,4 +1,3 @@
-import { FC } from "react";
 import { Link, useRouteMatch } from "react-router-dom";
 
 type Props = {
@@ -6,7 +5,7 @@ type Props = {
   strCategoryThumb: string;
 };
 
-const CategoriesEntry: FC<Props> = ({ strCategory, strCategoryThumb }) => {
+const CategoriesEntry = ({ strCategory, strCategoryThumb }: Props) => {
   const { url } = useRouteMatch();
 
   return (

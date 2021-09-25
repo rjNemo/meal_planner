@@ -1,4 +1,3 @@
-import { FC } from "react";
 import { CardEntry } from "../../../components/CardEntry";
 import { MealSummary } from "../../../types/meal";
 
@@ -7,15 +6,10 @@ type Props = {
   meals: MealSummary[];
 };
 
-export const ProfilePage: FC<Props> = ({ user, meals }) => (
+export const ProfilePage = ({ user, meals }: Props) => (
   <div className="container">
     <div className="row valign-wrapper">
-      <img
-        className="left circle responsive-img"
-        src={user.picture}
-        alt="Avatar"
-        width="15%"
-      />
+      <img className="left circle responsive-img" src={user.picture} alt="Avatar" width="15%" />
       <h2 className="col s9">{user.name}</h2>
     </div>
     <div className="row">

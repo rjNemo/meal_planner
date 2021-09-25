@@ -1,6 +1,4 @@
-import { FC } from "react";
-
-export const PreLoader: FC = () => (
+export const PreLoader = () => (
   <div className="preloader-wrapper active">
     <div className="spinner-layer spinner-red-only">
       <div className="circle-clipper left">

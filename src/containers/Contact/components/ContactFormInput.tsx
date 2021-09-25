@@ -1,19 +1,14 @@
-import React, { FC } from "react";
+import { ChangeEventHandler, Dispatch, SetStateAction } from "react";
 
 type Props = {
   id: string;
   type?: string;
   value: string;
-  dispatch: React.Dispatch<React.SetStateAction<string>>;
+  dispatch: Dispatch<SetStateAction<string>>;
 };
 
-export const ContactFormInput: FC<Props> = ({
-  id,
-  type = "text",
-  value,
-  dispatch,
-}) => {
-  const handleChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
+export const ContactFormInput = ({ id, type = "text", value, dispatch }: Props) => {
+  const handleChange: ChangeEventHandler<HTMLInputElement> = (e) => {
     e.preventDefault();
     dispatch(e.target.value);
   };

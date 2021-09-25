@@ -2,15 +2,9 @@ import { FC, useEffect } from "react";
 import { Route, RouteProps } from "react-router-dom";
 import { useAuth0 } from "../utils/auth0-spa";
 
-type Props = {
-  component: FC;
-} & RouteProps;
+type Props = { component: FC } & RouteProps;
 
-export const PrivateRoute: FC<Props> = ({
-  component: Component,
-  path,
-  ...rest
-}) => {
+export const PrivateRoute = ({ component: Component, path, ...rest }: Props) => {
   const { loading, isAuthenticated, loginWithRedirect } = useAuth0();
 
   useEffect(() => {
@@ -25,8 +19,7 @@ export const PrivateRoute: FC<Props> = ({
     fn();
   }, [loading, isAuthenticated, loginWithRedirect, path]);
 
-  const render = (props: any) =>
-    isAuthenticated ? <Component {...props} /> : null;
+  const render = (props: any) => (isAuthenticated ? <Component {...props} /> : null);
 
   return <Route path={path} render={render} {...rest} />;
 };

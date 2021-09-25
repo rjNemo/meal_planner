@@ -1,10 +1,9 @@
-import { FC } from "react";
 import { links } from "../constants";
 import { CopyrightText } from "./CopyrightText";
 import { FooterLink } from "./FooterLink";
 import { GitHubLink } from "./GitHubLink";
 
-export const Footer: FC = () => {
+export const Footer = () => {
   const footerLinks = [...links, "random"];
   return (
     <footer className="page-footer">

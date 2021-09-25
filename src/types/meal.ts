@@ -1,4 +1,4 @@
-export default interface Meal {
+export interface Meal {
   mealName: string;
   imgAddress: string;
   videoAddress: string;

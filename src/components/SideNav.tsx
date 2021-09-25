@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import { MouseEventHandler } from "react";
 import { Link } from "react-router-dom";
 import { buttonURL, links } from "../constants";
 import ChefImage from "../images/chef.svg";
@@ -9,9 +9,12 @@ import { LogInButton } from "./LogInButton";
 import { LogOutButton } from "./LogOutButton";
 import { RandomButton } from "./RandomButton";
 
-type Props = { showNav: boolean; closeNavClick: React.MouseEventHandler };
+type Props = {
+  showNav: boolean;
+  closeNavClick: MouseEventHandler;
+};
 
-export const SideNav: FC<Props> = ({ showNav, closeNavClick }) => {
+export const SideNav = ({ showNav, closeNavClick }: Props) => {
   const { isAuthenticated, user } = useAuth0();
   let transformStyle = {
     transform: showNav ? "translateX(0%)" : "translateX(-105%)",
@@ -32,8 +35,7 @@ export const SideNav: FC<Props> = ({ showNav, closeNavClick }) => {
                 left: "0",
                 right: "0",
                 bottom: "0",
-                backgroundColor:
-                  "rgba(0,0,0,0.5)" /* Black background with opacity */,
+                backgroundColor: "rgba(0,0,0,0.5)" /* Black background with opacity */,
                 zIndex: 2 /* Specify a stack order in case you're using a different order for other elements */,
                 // cursor: "pointer" /* Add a pointer on hover */
               }}
@@ -65,11 +67,7 @@ export const SideNav: FC<Props> = ({ showNav, closeNavClick }) => {
       </li>
       <li>
         <Link to="#">
-          {!isAuthenticated ? (
-            <LogInButton color="orange lighten-1" />
-          ) : (
-            <LogOutButton />
-          )}
+          {!isAuthenticated ? <LogInButton color="orange lighten-1" /> : <LogOutButton />}
         </Link>
       </li>
 

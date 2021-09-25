@@ -1,11 +1,11 @@
-import { FC, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { PreLoader } from "../../components/PreLoader";
 import { useFirebase } from "../../services/Firebase";
 import { MealSummary } from "../../types/meal";
 import { useAuth0 } from "../../utils/auth0-spa";
 import { ProfilePage } from "./components/ProfilePage";
 
-export const Profile: FC = () => {
+export const Profile = () => {
   const { loading, user } = useAuth0();
   const [favs, setFavs] = useState([] as MealSummary[]);
   const db = useFirebase();
