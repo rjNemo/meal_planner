@@ -1,10 +1,28 @@
-[![Gitpod ready-to-code](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/rjNemo/meal_planner)
-
 # Chef's Meal Planner
+
+![header image](https://socialify.git.ci/rjnemo/meal_planner/image?description=1&font=Raleway&language=1&logo=https%3A%2F%2Fchefs-meal-planner.onrender.com%2Flogo192.png&owner=1&pattern=Diagonal%20Stripes&stargazers=1&theme=Dark)
+
+[![Gitpod ready-to-code](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod&style=for-the-badge)](https://gitpod.io/#https://github.com/rjNemo/meal_planner)
+![license](https://img.shields.io/github/license/rjNemo/meal_planner?style=for-the-badge)
+![release tag](https://img.shields.io/github/v/release/rjNemo/meal_planner?style=for-the-badge)
 
 Free meal planner for cooks short on ideas! (like me …)
 
-[v.0.1 Available Here!](https://chefs-meal-planner.onrender.com/)
+## Demo
+
+[🚀 App live at this address!](https://chefs-meal-planner.onrender.com/)
+
+![Screenshot](docs/short_clip.gif)
+
+### Screenshot
+
+#### Home page
+
+![Screenshot](docs/homepage.png)
+
+#### Meal page
+
+![Screenshot](docs/mealpage.png)
 
 ## Feature list
 
