@@ -14,4 +14,4 @@
 - [ ] Use Css-in-Js
 - [ ] Redirect to 404
 - [x] Typescript
-- [ ] strict typing
+- [x] strict typing

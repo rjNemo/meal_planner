@@ -14,7 +14,7 @@ Free meal planner for cooks short on ideas! (like me …)
 
 ![Screenshot](docs/short_clip.gif)
 
-### Screenshot
+### Screenshots
 
 #### Home page
 

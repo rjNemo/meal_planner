@@ -5,8 +5,6 @@ import ChefImage from "../images/chef.svg";
 import SpecialEventImage from "../images/special_event.svg";
 import { useAuth0 } from "../utils/auth0-spa";
 import { FooterLink } from "./FooterLink";
-import { LogInButton } from "./LogInButton";
-import { LogOutButton } from "./LogOutButton";
 import { RandomButton } from "./RandomButton";
 
 type Props = {
@@ -35,9 +33,8 @@ export const SideNav = ({ showNav, closeNavClick }: Props) => {
                 left: "0",
                 right: "0",
                 bottom: "0",
-                backgroundColor: "rgba(0,0,0,0.5)" /* Black background with opacity */,
-                zIndex: 2 /* Specify a stack order in case you're using a different order for other elements */,
-                // cursor: "pointer" /* Add a pointer on hover */
+                backgroundColor: "rgba(0,0,0,0.5)",
+                zIndex: 2,
               }}
               src={SpecialEventImage}
               alt="sidenav_background"
@@ -65,12 +62,6 @@ export const SideNav = ({ showNav, closeNavClick }: Props) => {
       <li>
         <RandomButton url={buttonURL} size="small" color="orange darken-2" />
       </li>
-      <li>
-        <Link to="#">
-          {!isAuthenticated ? <LogInButton color="orange lighten-1" /> : <LogOutButton />}
-        </Link>
-      </li>
-
       <li>
         <div className="divider" />
       </li>
