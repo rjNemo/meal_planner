@@ -6,17 +6,13 @@ import { Contact } from "../containers/Contact";
 import { Home } from "../containers/Home";
 import { Meal } from "../containers/Meal";
 import { NotFound } from "../containers/NotFound";
-import { Profile } from "../containers/Profile";
 import { Search } from "../containers/Search";
-import { PrivateRoute } from "./PrivateRoute";
 
 export const AppRouter = () => (
   <Switch>
     <Route exact path="/">
       <Home />
     </Route>
-
-    <PrivateRoute exact path="/profile" component={Profile} />
 
     <Route exact path={buttonURL}>
       <Meal />

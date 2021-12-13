@@ -3,12 +3,10 @@ import { Meal } from "../../../types/meal";
 
 type Props = {
   meal: Meal;
-  handleFavChange: () => void;
 };
 
 export const MealPresentation = ({
-  meal: { mealName, imgAddress, videoAddress, mealCategory, mealArea, isFav },
-  handleFavChange,
+  meal: { mealName, imgAddress, videoAddress, mealCategory, mealArea },
 }: Props) => {
   return (
     <div className="row">
@@ -35,17 +33,6 @@ export const MealPresentation = ({
 
                 <div className="chip">
                   <b>Origin:</b> {mealArea}
-                </div>
-
-                <div className="chip">
-                  <b>{isFav ? "Remove from favourites" : "Add to favourites"}:</b>
-
-                  <Link to="#">
-                    {"  "}
-                    <i className="material-icons tiny" onClick={handleFavChange}>
-                      {isFav ? "favorite" : "favorite_border"}
-                    </i>
-                  </Link>
                 </div>
               </li>
             </ul>

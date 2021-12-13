@@ -1,9 +1,7 @@
 import { MouseEventHandler } from "react";
 import { Link } from "react-router-dom";
 import { buttonURL, links } from "../constants";
-import ChefImage from "../images/chef.svg";
 import SpecialEventImage from "../images/special_event.svg";
-import { useAuth0 } from "../utils/auth0-spa";
 import { FooterLink } from "./FooterLink";
 import { RandomButton } from "./RandomButton";
 
@@ -13,7 +11,6 @@ type Props = {
 };
 
 export const SideNav = ({ showNav, closeNavClick }: Props) => {
-  const { isAuthenticated, user } = useAuth0();
   let transformStyle = {
     transform: showNav ? "translateX(0%)" : "translateX(-105%)",
     transition: "0.5s",
@@ -44,18 +41,6 @@ export const SideNav = ({ showNav, closeNavClick }: Props) => {
           <i className="material-icons right" onClick={closeNavClick}>
             close
           </i>
-
-          <Link to="/profile">
-            {isAuthenticated ? (
-              <div>
-                <img className="circle" src={user.picture} alt="user_avatar" />
-                <span className="white-text name">{user.name}</span>
-                <span className="white-text email">{user.email}</span>
-              </div>
-            ) : (
-              <img className="circle" src={ChefImage} alt="user_avatar" />
-            )}
-          </Link>
         </div>
       </li>
 
@@ -73,7 +58,6 @@ export const SideNav = ({ showNav, closeNavClick }: Props) => {
       {links.map((link, i) => (
         <FooterLink key={i} link={link} />
       ))}
-      {isAuthenticated && <FooterLink link="profile" />}
     </ul>
   );
 };

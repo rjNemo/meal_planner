@@ -7,14 +7,13 @@ type Props = {
   ingredients: string[][];
   recipe: string;
   meal: Meal;
-  handleFavChange: () => void;
 };
 
-export const MealPage = ({ meal, ingredients, recipe, handleFavChange }: Props) => (
+export const MealPage = ({ meal, ingredients, recipe }: Props) => (
   <section className="container">
     <div className="row">
       <div className="col s12 l6">
-        <MealPresentation meal={meal} handleFavChange={handleFavChange} />
+        <MealPresentation meal={meal} />
       </div>
       <div className="col s12 l6">
         <MealIngredientList ingredients={ingredients} />

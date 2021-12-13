@@ -14,11 +14,10 @@ export const buildIngredientList = (mealItem: MealApi): string[][] => {
   return ingredients;
 };
 
-export const buildMealProps = (mealItem: MealApi, isFav: boolean) => ({
+export const buildMealProps = (mealItem: MealApi) => ({
   mealName: mealItem?.strMeal,
   imgAddress: mealItem?.strMealThumb,
   videoAddress: mealItem?.strYoutube,
   mealCategory: mealItem?.strCategory,
   mealArea: mealItem?.strArea,
-  isFav,
 });
