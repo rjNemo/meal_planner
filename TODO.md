@@ -1,8 +1,6 @@
 # TO DO
 
 - [ ] send message after contact form validation (confirm to sender and msg+info to admin)
-- [ ] Local storage of preferences
-- [ ] Firebase firestore and functions
 - [ ] Breadcrumb
 - [ ] Cookie bar
 - [x] code cleanup (props and refactoring)
@@ -12,6 +10,6 @@
 - [ ] Decoupled application and data layers. Abstract such that the front end does not know where the data comes from.
 - [x] Create PageLayout component
 - [ ] Use Css-in-Js
-- [ ] Redirect to 404
+- [x] Redirect to 404
 - [x] Typescript
 - [x] strict typing
