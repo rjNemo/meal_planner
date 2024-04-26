@@ -1,9 +1,9 @@
 <template>
   <div data-theme="cupcake" class="flex flex-col h-screen">
-    <Navbar />
+    <AppNavbar />
     <main class="flex-grow">
       <NuxtPage />
     </main>
-    <Footer />
+    <AppFooter />
   </div>
 </template>
