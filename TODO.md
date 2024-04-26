@@ -1,7 +1,7 @@
 # TO DO
 
 - [x] use bun package manager
-- [ ] use nuxt framework
+- [x] use nuxt framework
 - [ ] rewrite the random page, the current landing page
 - [ ] rewrite the recipe page
 - [ ] deploy
