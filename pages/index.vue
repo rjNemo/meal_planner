@@ -5,7 +5,7 @@
       <div>
         <h1 class="text-5xl font-bold prose">Eat Something New</h1>
         <p class="py-6 prose">Generate a random recipe.</p>
-        <NuxtLink to="/random" class="btn btn-primary"
+        <NuxtLink to="/random" class="btn btn-primary">
           >Random Recipe Now
         </NuxtLink>
       </div>
