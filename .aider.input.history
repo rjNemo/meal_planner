@@ -1,0 +1,276 @@
+
+# 2024-12-13 21:39:55.512352
++n
+
+# 2024-12-13 21:40:09.266770
++/add components/AppNavbar.vue
+
+# 2024-12-13 21:41:08.087873
++change the nuxt-link to random. It must be a button that triggers the useREcipeRandom composable. If the user is not on the /random url we must navigate to it
+
+# 2024-12-13 21:41:57.546012
++/add components/AppNavbar.vue
+
+# 2024-12-13 22:37:21.637830
++/add package.json
+
+# 2024-12-13 22:38:15.345890
++/add pages/[id].vue
+
+# 2024-12-13 22:45:55.419537
++/add pages/index.vue
+
+# 2024-12-13 22:50:08.132910
++/add app.vue
+
+# 2024-12-13 22:57:55.838401
++/add pages/[id].vue
+
+# 2024-12-13 22:58:23.470174
++/add components/recipe/card.vue components/recipe/index.vue components/recipe/ingredients.vue
+
+# 2024-12-13 22:58:50.995437
++I want to add a skeleton when the page loads that matches the card and ingredient list and content layout
+
+# 2024-12-13 23:00:37.864463
++/add pages/[id].vue
+
+# 2024-12-13 23:10:51.785039
++/add components/AppFooter.vue
+
+# 2024-12-13 23:17:52.755408
++/drop gitsigns:///Users/ruidy/Dev/node/meal_planner/.git//:0:components/AppFooter.vue
+
+# 2024-12-13 23:29:25.130188
++/add README.md
+
+# 2024-12-14 10:11:48.291791
++/add composables/useRecipeSearch.ts
+
+# 2024-12-14 10:13:08.935799
++create a research page on the /search url taking the search query as a query parameter. use daisyui for the layout
+
+# 2024-12-14 10:14:09.451269
++/add components/recipe/search.vue
+
+# 2024-12-14 10:14:21.375661
++/add server/trpc/routers/recipes.ts
+
+# 2024-12-14 10:14:28.419016
++now implement
+
+# 2024-12-14 10:16:11.974208
++/add pages/search.vue
+
+# 2024-12-14 10:31:29.372232
++/add components/recipe/search.vue
+
+# 2024-12-14 10:40:24.170866
++/add .nuxt/types/imports.d.ts
+
+# 2024-12-14 10:42:09.952541
++/add node_modules/nuxt/dist/app/composables/asyncData.d.ts
+
+# 2024-12-14 10:46:07.185510
++/add server/trpc/routers/recipes.ts
+
+# 2024-12-14 10:46:11.532349
++/add utils/recipes.ts
+
+# 2024-12-14 10:46:15.907096
++/add types/recipe.ts
+
+# 2024-12-14 15:08:57.920043
++/drop
+
+# 2024-12-14 15:09:15.291578
++create a categories page
+
+# 2024-12-14 15:11:08.473107
++/add server/trpc/routers/recipes.ts
+
+# 2024-12-14 15:11:28.898754
++/drop server/trpc/routers/recipes.ts
+
+# 2024-12-14 15:11:28.976166
++/add server/trpc/routers/recipes.ts
+
+# 2024-12-14 15:11:32.962219
++/drop neo-tree filesystem [1]
+
+# 2024-12-14 15:11:46.767029
++/add server/trpc/routers/categories.ts
+
+# 2024-12-14 15:13:15.829646
++create the category page calling the router you created
+
+# 2024-12-14 15:14:00.601188
++/add composables/useCategories.ts
+
+# 2024-12-14 15:14:48.317381
++/add server/trpc/trpc.ts
+
+# 2024-12-14 15:14:55.169821
++/add server/trpc/context.ts
+
+# 2024-12-14 15:14:57.297636
++/add server/trpc/routers/index.ts
+
+# 2024-12-14 15:16:08.866486
++/drop ~/Dev/node/meal_planner
+
+# 2024-12-14 15:17:30.807622
++/add pages/categories.vue
+
+# 2024-12-14 15:19:32.874574
++/add pages/search.vue
+
+# 2024-12-14 15:19:44.835990
++improve the layout by taking example on the search page
+
+# 2024-12-14 15:20:10.531362
++add pages/categories.vue
+
+# 2024-12-14 15:20:56.212560
++/add src/components/Navbar.tsx
+
+# 2024-12-14 15:20:56.245090
++/drop ~/Dev/node/meal_planner
+
+# 2024-12-14 15:20:56.274982
++/add ~/Dev/node/meal_planner
+
+# 2024-12-14 15:20:56.287118
++/add components/app/navbar.vue
+
+# 2024-12-14 15:23:50.021356
++/drop
+
+# 2024-12-14 15:24:02.867277
++/add pages/categories.vue
+
+# 2024-12-14 15:24:35.057752
++remove the header and set a fixed height the card. use ellipsis if the description is longer that the max allowed height. make it responseive 
+
+# 2024-12-14 15:25:28.155546
++/add server/trpc/routers/categories.ts
+
+# 2024-12-14 15:25:55.220084
++/add types/recipe.ts
+
+# 2024-12-14 15:27:09.955135
++parse the categories fetch call response similarly to the recipes
+
+# 2024-12-14 15:28:04.976045
++parse the categories fetch call similarly to the recipes
+
+# 2024-12-14 15:28:22.265520
++/add types/recipe.ts
+
+# 2024-12-14 15:28:32.201929
++/add server/trpc/routers/categories.ts
+
+# 2024-12-14 15:29:18.224388
++/add server/trpc/routers/recipes.ts
+
+# 2024-12-14 15:29:27.965664
++/add utils/recipes.ts
+
+# 2024-12-14 15:31:29.546270
++/add pages/categories/index.vue
+
+# 2024-12-14 15:31:29.727185
++/drop pages/categories/index.vue
+
+# 2024-12-14 15:31:29.775294
++/add pages/categories/index.vue
+
+# 2024-12-14 15:32:43.034734
++/add composables/useCategories.ts
+
+# 2024-12-14 15:32:52.855244
++/add node_modules/zod/lib/types.d.ts
+
+# 2024-12-14 15:33:24.249300
++/add types/category.ts
+
+# 2024-12-14 15:38:28.584427
++/add ~/Dev/node/meal_planner
+
+# 2024-12-14 15:38:28.657843
++/drop ~/Dev/node/meal_planner
+
+# 2024-12-14 15:38:28.663316
++/add ~/Dev/node/meal_planner
+
+# 2024-12-14 15:38:38.367339
++/drop ~/Dev/node/meal_planner
+
+# 2024-12-14 15:38:38.373518
++/add ~/Dev/node/meal_planner
+
+# 2024-12-14 15:38:49.446018
++/add components/CategoryCard.vue
+
+# 2024-12-14 15:44:12.403700
++n
+
+# 2024-12-14 15:45:04.918485
++add a category details page use the image as a header background with the name inside. add the description below then cards with the related recipes
+
+# 2024-12-14 15:46:47.445160
++/add pages/category/[name].vue
+
+# 2024-12-14 15:47:22.637607
++/add server/trpc/routers/recipes.ts
+
+# 2024-12-14 15:47:50.065673
++/add composables/useCategoryRecipes.ts
+
+# 2024-12-14 15:55:04.811952
++/add src/containers/Category/index.tsx
+
+# 2024-12-14 15:55:10.429945
++/add src/services/api.ts
+
+# 2024-12-14 18:53:11.975975
++/drop types/recipe.ts
+
+# 2024-12-14 18:53:14.326984
++/drop utils/recipes.ts
+
+# 2024-12-14 18:53:15.873485
++/drop composables/useCategories.ts
+
+# 2024-12-14 18:53:20.204915
++/add composables/useCategories.ts
+
+# 2024-12-14 18:53:43.120147
++/add ~/Dev/node/meal_planner
+
+# 2024-12-14 18:53:43.148579
++/drop ~/Dev/node/meal_planner
+
+# 2024-12-14 18:53:43.160247
++/add ~/Dev/node/meal_planner
+
+# 2024-12-14 18:53:57.723720
++/add server/trpc/routers/index.ts
+
+# 2024-12-14 19:19:40.694592
++/add ~/Dev/node/meal_planner
+
+# 2024-12-14 19:19:40.708960
++/drop ~/Dev/node/meal_planner
+
+# 2024-12-14 19:19:40.716279
++/add ~/Dev/node/meal_planner
+
+# 2024-12-14 23:44:44.873544
++/drop ~/Dev/node/meal_planner
+
+# 2024-12-14 23:46:59.255410
++/add pages/categories/[name].vue
+
+# 2024-12-14 23:46:59.262787
++/drop pages/category/[name].vue
