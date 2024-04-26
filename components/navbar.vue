@@ -26,7 +26,7 @@
         </ul>
       </div>
       <nuxt-link to="/" class="btn btn-ghost text-xl">
-        <img src="/public/logo192.png" width="50" />
+        <img src="/public/logo192.png" width="50" >
         <span style="font-family: cursive"> Chefs </span>
       </nuxt-link>
     </div>
