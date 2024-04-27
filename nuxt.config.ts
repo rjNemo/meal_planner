@@ -9,4 +9,11 @@ export default defineNuxtConfig({
       autoprefixer: {},
     },
   },
+  runtimeConfig: {
+    // The private keys which are only available server-side
+    apiUrl: process.env.API_URL,
+    // Keys within public are also exposed client-side
+    public: {},
+  },
+  ssr: true,
 });

@@ -7,6 +7,7 @@
 - [ ] deploy
 - [ ] nuxt image
 - [x] prettier and eslint
+- [ ] transition
 - [ ] pwa
 - [ ] seo, robots.txt
 - [ ] update the README
