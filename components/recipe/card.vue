@@ -9,7 +9,7 @@ defineProps<{
 </script>
 
 <template>
-  <div class="card-body items-center text-center">
+  <div class="card-body items-center text-center bg-base-200">
     <h2 class="card-title">{{ title }}</h2>
     <figure class="px-10 py-5">
       <NuxtImg :src="pictureUrl" alt="Shoes" class="rounded-xl" />
