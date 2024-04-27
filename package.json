@@ -16,6 +16,7 @@
     "@nuxt/eslint": "^0.3.10",
     "@nuxt/image": "^1.6.0",
     "nuxt": "^3.11.2",
+    "nuxt-icon": "^0.6.10",
     "vue": "^3.4.21",
     "vue-router": "^4.3.0"
   },

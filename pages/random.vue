@@ -1,15 +1,18 @@
 <script setup lang="ts">
-const { data, pending, error, refresh } = await useFetch(
-  "https://www.themealdb.com/api/json/v1/1/random.php",
-);
+const { recipe, error } = await useRecipe();
 </script>
 
 <template>
-  <div>
-    <div v-if="pending">Loading</div>
-    <div v-else-if="error">Failed: {{ error }}</div>
-    <pre v-else>
-      {{ data?.meals?.[0] }}
-    </pre>
-  </div>
+  <div v-if="error">Failed: {{ error }}</div>
+  <section v-else>
+    <div class="card w-96 bg-base-100 shadow-xl">
+      <RecipeCard
+        :title="recipe.title"
+        :pictureUrl="recipe.pictureUrl"
+        :videoUrl="recipe.videoUrl"
+        :category="recipe.category"
+        :origin="recipe.origin"
+      />
+    </div>
+  </section>
 </template>
