@@ -5,14 +5,15 @@ type Recipe = {
   category: string;
   origin: string;
   ingredients: { name: string; quantitiy: number };
+  instructions: string;
 };
 
 export default async function () {
   const { data, pending, error } = await useAsyncData(
     "random",
-    () => {
+    async () => {
       const config = useRuntimeConfig();
-      return $fetch(`${config.apiUrl}random.php`);
+      return await $fetch(`${config.apiUrl}random.php`);
     },
     { lazy: true },
   );
@@ -38,6 +39,7 @@ export default async function () {
     category: tmp.value.strCategory,
     origin: tmp.value.strArea,
     ingredients: names.map((name, i) => ({ name, quantity: quantities[i] })),
+    instructions: tmp.value.strInstructions,
   });
 
   return {
