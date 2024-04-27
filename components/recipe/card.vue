@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const props = defineProps<{
+defineProps<{
   title: string;
   pictureUrl: string;
   videoUrl: string;
