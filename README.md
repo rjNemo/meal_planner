@@ -2,7 +2,6 @@
 
 ![header image](https://socialify.git.ci/rjnemo/meal_planner/image?description=1&font=Raleway&language=1&logo=https%3A%2F%2Fchefs-meal-planner.onrender.com%2Flogo192.png&owner=1&pattern=Diagonal%20Stripes&stargazers=1&theme=Dark)
 
-[![Gitpod ready-to-code](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod&style=for-the-badge)](https://gitpod.io/#https://github.com/rjNemo/meal_planner)
 ![license](https://img.shields.io/github/license/rjNemo/meal_planner?style=for-the-badge)
 ![release tag](https://img.shields.io/github/v/release/rjNemo/meal_planner?style=for-the-badge)
 
@@ -10,7 +9,7 @@ Free meal planner for cooks short on ideas! (like me …)
 
 ## Demo
 
-[🚀 App live at this address!](https://chefs-meal-planner.onrender.com/)
+[🚀 App live at this address!](https://mood2food.netlify.app/)
 
 ![Screenshot](docs/short_clip.gif)
 
@@ -24,51 +23,51 @@ Free meal planner for cooks short on ideas! (like me …)
 
 ![Screenshot](docs/mealpage.png)
 
-## Feature list
+## Features
 
 - Random meal suggestion ✓
 - Search by name: you look for a recipe? Ours are easy to make and Yummy! ✓
 - What's in the fridge ? Choose your main ingredient and get a meal suggestion
 - Choose by a category: ✓
-  - Beef
-  - Breakfast
-  - Chicken
-  - Dessert
-  - Goat
-  - Lamb
-  - Miscellaneous
-  - Pasta
-  - Pork
-  - Seafood
-  - Side
-  - Starter
-  - Vegan
-  - Vegetarian
+    - Beef
+    - Breakfast
+    - Chicken
+    - Dessert
+    - Goat
+    - Lamb
+    - Miscellaneous
+    - Pasta
+    - Pork
+    - Seafood
+    - Side
+    - Starter
+    - Vegan
+    - Vegetarian
 - Choose by area:
-  - American
-  - British
-  - Canadian
-  - Chinese
-  - Dutch
-  - Egyptian
-  - French
-  - Greek
-  - Indian
-  - Irish
-  - Italian
-  - Jamaican
-  - Japanese
-  - Kenyan
-  - Malaysian
-  - Mexican
-  - Moroccan
-  - Russian
-  - Spanish
-  - Thai
-  - Tunisian
-  - Turkish
-  - Unknown
-  - Vietnamese
+    - American
+    - British
+    - Canadian
+    - Chinese
+    - Dutch
+    - Egyptian
+    - French
+    - Greek
+    - Indian
+    - Irish
+    - Italian
+    - Jamaican
+    - Japanese
+    - Kenyan
+    - Malaysian
+    - Mexican
+    - Moroccan
+    - Russian
+    - Spanish
+    - Thai
+    - Tunisian
+    - Turkish
+    - Unknown
+    - Vietnamese
 - Cocktail selection
 - Create a profile and save your favourite meals ✓
 - Notation system: know what are the most loved meals
@@ -90,35 +89,32 @@ Free meal planner for cooks short on ideas! (like me …)
 
 ## Deployment
 
-The application is hosted on [Render](https://render.com/) at the following address: [link](https://chefs-meal-planner.onrender.com/).
+The application is hosted on [Netlify](https://netlify.com/) at the following
+address: [link](https://mood2food.netlify.app/).
 
 ## Built With
 
-- [React](https://reactjs.org/) - A JavaScript library for building user interfaces
-- [Materialize](https://materializecss.com) - Modern responsive CSS framework based on Material Design by Google
+- [Nuxt](https://nuxt.com/) - The Intuitive Vue Framework
+- [Tailwindcss](https://tailwindcss.com) -Rapidly build modern websites without ever leaving your HTML.
 - [TheMealDb](https://www.themealdb.com/api.php) - An open, crowd-sourced database of Recipes from around the world
-<!-- - and [TheCocktailDb](https://www.thecocktaildb.com/api.php) -->
-- [Auth0](https://auth0.com/) - Rapidly integrate authentication and authorization
-- [Firebase](https://firebase.google.com/) - Firebase helps mobile and web app teams succeed
-- [Render](https://render.com/) - The Easiest Cloud For All Your Apps and Websites
-<!-- - Analytics : Google Analytics & Mixpanel -->
 
 ## Contributing
 
-Please read [CONTRIBUTING.md](https://github.com/rjNemo/meal_planner/contributors) for details on our code of conduct, and the process for submitting pull requests to us.
+Please read [CONTRIBUTING.md](https://github.com/rjNemo/meal_planner/contributors) for details on our code of conduct,
+and the process for submitting pull requests to us.
 
 ## Versioning
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/rjNemo/meal_planner/tags).
+We use [SemVer](http://semver.org/) for versioning. For the versions available, see
+the [tags on this repository](https://github.com/rjNemo/meal_planner/tags).
 
 ## Authors
 
 - **Ruidy Nemausat** - _Initial work_ - [GitHub](https://github.com/rjNemo)
 
-See also the list of [contributors](https://github.com/rjNemo/meal_planner/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/rjNemo/meal_planner/contributors) who participated in this
+project.
 
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-<!-- ## Acknowledgments -->
