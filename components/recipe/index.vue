@@ -1,7 +1,7 @@
 <script setup lang="ts">
-const props = defineProps<{
-  recipe: Recipe;
-}>();
+import type { Recipe } from "~/types/recipe";
+
+defineProps<{ recipe: Recipe }>();
 </script>
 
 <template>

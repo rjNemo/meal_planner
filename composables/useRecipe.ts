@@ -1,14 +1,7 @@
-type Recipe = {
-  title: string;
-  pictureUrl: string;
-  videoUrl: string;
-  category: string;
-  origin: string;
-  ingredients: { name: string; quantitiy: number };
-  instructions: string;
-};
+import type { Recipe } from "~/types/recipe";
 
 type Keyword = "random" | "filter" | "lookup" | "search";
+
 export default async function (keyword: Keyword, param?: string) {
   const { data, pending, error } = await useAsyncData(
     keyword,
@@ -40,16 +33,14 @@ export default async function (keyword: Keyword, param?: string) {
 
   const tmp = computed(() => data.value?.meals?.[0]);
 
-  let names = [];
-  let quantities = [];
-  let i = 0;
+  const names: string[] = [];
+  const quantities: number[] = [];
   for (const [k, v] of Object.entries(tmp.value)) {
     if (k.startsWith("strIngredient") && !!v) {
       names.push(v);
     } else if (k.startsWith("strMeasure") && !!v) {
       quantities.push(v);
     }
-    i++;
   }
 
   const recipe = reactive<Recipe>({
