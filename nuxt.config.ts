@@ -2,6 +2,9 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
   css: ["~/assets/css/main.css"],
+  image: {
+    domains: ["www.themealdb.com"],
+  },
   modules: ["@nuxt/eslint", "@nuxt/image", "nuxt-icon"],
   postcss: {
     plugins: {
