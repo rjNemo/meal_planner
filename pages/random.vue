@@ -1,10 +1,4 @@
 <script setup lang="ts">
-definePageMeta({
-  pageTransition: {
-    name: "custom-flip",
-    mode: "out-in",
-  },
-});
 const { recipe, pending, error } = await useRecipe("random");
 </script>
 
@@ -12,22 +6,6 @@ const { recipe, pending, error } = await useRecipe("random");
   <div v-if="pending">Loading</div>
   <div v-else-if="error">Failed: {{ error }}</div>
   <section v-else>
-    <div class="lg:flex space-y-4 lg:justify-evenly py-4">
-      <div class="card w-96 bg-base-100 shadow-xl mx-auto lg:mx-2 min-h-32">
-        <RecipeCard
-          :title="recipe.title"
-          :picture-url="recipe.pictureUrl"
-          :video-url="recipe.videoUrl"
-          :category="recipe.category"
-          :origin="recipe.origin"
-        />
-      </div>
-
-      <RecipeIngredients :ingredients="recipe.ingredients" />
-    </div>
-    <div class="flex flex-col items-center p-4">
-      <h2 class="prose lg:prose-xl">Instructions</h2>
-      <p class="prose">{{ recipe.instructions }}</p>
-    </div>
+    <Recipe :recipe="recipe" />
   </section>
 </template>
