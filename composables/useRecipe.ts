@@ -8,12 +8,32 @@ type Recipe = {
   instructions: string;
 };
 
-export default async function () {
+type Keyword = "random" | "filter" | "lookup" | "search";
+export default async function (keyword: Keyword, param?: string) {
   const { data, pending, error } = await useAsyncData(
-    "random",
+    keyword,
     async () => {
       const config = useRuntimeConfig();
-      return await $fetch(`${config.apiUrl}random.php`);
+
+      let url = "";
+
+      switch (keyword) {
+        case "random":
+          url = `${config.apiUrl}random.php`;
+          break;
+        case "filter":
+          url = "";
+          break;
+        case "lookup":
+          url = `${config.apiUrl}${keyword}.php?i=${param}`;
+          break;
+        case "search":
+          url = "";
+          break;
+        default:
+          throw Error("unexpected URI parameters");
+      }
+      return await $fetch(url);
     },
     { lazy: true },
   );

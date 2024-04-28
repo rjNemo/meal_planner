@@ -1,11 +1,6 @@
 <script setup lang="ts">
-definePageMeta({
-  pageTransition: {
-    name: "custom-flip",
-    mode: "out-in",
-  },
-});
-const { recipe, pending, error } = await useRecipe("random");
+const { params } = useRoute();
+const { recipe, pending, error } = await useRecipe("lookup", params.id);
 </script>
 
 <template>
@@ -25,7 +20,7 @@ const { recipe, pending, error } = await useRecipe("random");
 
       <RecipeIngredients :ingredients="recipe.ingredients" />
     </div>
-    <div class="flex flex-col items-center p-4">
+    <div class="flex flex-col items-center">
       <h2 class="prose lg:prose-xl">Instructions</h2>
       <p class="prose">{{ recipe.instructions }}</p>
     </div>
