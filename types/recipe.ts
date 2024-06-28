@@ -4,6 +4,6 @@ export type Recipe = {
   videoUrl: string;
   category: string;
   origin: string;
-  ingredients: { name: string; quantity: number }[];
+  ingredients: { name: string; quantity: string }[];
   instructions: string;
 };
