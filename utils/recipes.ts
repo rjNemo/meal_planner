@@ -17,6 +17,7 @@ export function parseRecipeData(data: ApiResponse): Recipe[] {
     }
 
     return {
+      id: meal.idMeal,
       title: meal.strMeal,
       pictureUrl: meal.strMealThumb,
       videoUrl: meal.strYoutube,

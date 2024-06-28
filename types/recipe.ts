@@ -1,6 +1,7 @@
 import { z } from "zod";
 
 export type Recipe = {
+  id: string;
   title: string;
   pictureUrl: string;
   videoUrl: string;
