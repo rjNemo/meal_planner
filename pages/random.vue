@@ -1,5 +1,9 @@
 <script setup lang="ts">
-const { recipe, pending, error } = await useRecipe("random");
+const {
+  data: recipe,
+  pending,
+  error,
+} = await useFetch("/api/recipes", { lazy: true });
 </script>
 
 <template>

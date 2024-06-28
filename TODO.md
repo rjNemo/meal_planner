@@ -4,10 +4,10 @@
 - [x] use nuxt framework
 - [x] rewrite the random page, the current landing page
 - [x] rewrite the recipe page
-- [ ] deploy
-- [ ] nuxt image
+- [x] deploy
+- [x] nuxt image
 - [x] prettier and eslint
 - [ ] transition
 - [ ] pwa
 - [ ] seo, robots.txt
-- [ ] update the README
+- [x] update the README
