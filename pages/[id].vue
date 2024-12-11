@@ -1,6 +1,17 @@
 <script setup lang="ts">
+import { idSchema } from "~/types/id";
+
 const { params } = useRoute();
-const id = params.id;
+const routeParam = params.id;
+
+const parsed = idSchema.safeParse(routeParam);
+
+if (!parsed.success) {
+  throw createError({
+    statusCode: 400,
+    statusMessage: "Invalid recipe id",
+  });
+}
 
 const {
   data: recipe,
