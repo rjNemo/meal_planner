@@ -15,8 +15,11 @@
   "dependencies": {
     "@nuxt/eslint": "^0.3.10",
     "@nuxt/image": "^1.6.0",
+    "@trpc/client": "^10.45.2",
+    "@trpc/server": "^10.45.2",
     "nuxt": "^3.11.2",
     "nuxt-icon": "^0.6.10",
+    "trpc-nuxt": "^0.10.22",
     "vue": "^3.4.21",
     "vue-router": "^4.3.0",
     "zod": "^3.23.8"

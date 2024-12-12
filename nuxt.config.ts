@@ -1,6 +1,9 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
+  build: {
+    transpile: ["trpc-nuxt"],
+  },
   css: ["~/assets/css/main.css"],
   image: {
     domains: ["www.themealdb.com"],
