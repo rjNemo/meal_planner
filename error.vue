@@ -26,7 +26,7 @@
             {{ error?.statusCode || "Error" }}
           </h1>
           <p class="text-xl mb-6">
-            {{ error?.message || "Something went wrong" }}
+            {{ error?.statusMessage || "Something went wrong" }}
           </p>
 
           <!-- Action Buttons -->

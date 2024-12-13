@@ -8,7 +8,6 @@ export async function createContext(event: H3Event) {
   const authorization = getRequestHeader(event, "authorization");
   async function getUserFromHeader() {
     if (authorization) {
-      console.log("authorization:", authorization);
       return { isAdmin: true };
     }
     return null;

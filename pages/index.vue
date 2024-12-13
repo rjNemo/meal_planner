@@ -1,7 +1,3 @@
-<script setup lang="ts">
-const { data } = useGreeting("chef");
-</script>
-
 <template>
   <div class="hero min-h-full bg-base-200">
     <div class="hero-content flex-col lg:flex-row-reverse">
@@ -9,7 +5,6 @@ const { data } = useGreeting("chef");
       <div>
         <h1 class="text-5xl font-bold prose">Eat Something New</h1>
 
-        <p class="py-6 prose">{{ data?.greeting }}</p>
         <p class="py-6 prose">Generate a random recipe.</p>
         <NuxtLink to="/random" class="btn btn-primary">
           Random Recipe Now

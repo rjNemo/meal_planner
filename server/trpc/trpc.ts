@@ -11,6 +11,7 @@ const t = initTRPC.context<Context>().create();
 export const publicProcedure = t.procedure;
 export const router = t.router;
 export const middleware = t.middleware;
+export const mergeRouters = t.mergeRouters;
 
 export const authMiddleware = middleware(({ next, ctx }) => {
   if (!ctx.user?.isAdmin) {
@@ -22,4 +23,5 @@ export const authMiddleware = middleware(({ next, ctx }) => {
     },
   });
 });
+
 export const privateProcedure = t.procedure.use(authMiddleware);

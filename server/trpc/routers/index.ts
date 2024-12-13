@@ -1,8 +1,9 @@
 import type { inferRouterOutputs } from "@trpc/server";
 import { z } from "zod";
-import { publicProcedure, privateProcedure, router } from "../trpc";
+import { privateProcedure, router, mergeRouters } from "../trpc";
+import { recipeRouter } from "./recipes";
 
-export const appRouter = router({
+export const helloRouter = router({
   // hello: publicProcedure
   hello: privateProcedure
     .input(
@@ -17,6 +18,7 @@ export const appRouter = router({
     }),
 });
 
+export const appRouter = mergeRouters(helloRouter, recipeRouter);
 // export type definition of API
 export type AppRouter = typeof appRouter;
 export type RouterOutput = inferRouterOutputs<AppRouter>;

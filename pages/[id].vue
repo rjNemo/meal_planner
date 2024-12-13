@@ -1,31 +1,32 @@
 <script setup lang="ts">
-import { idSchema } from "~/types/id";
-
 const { params } = useRoute();
 const routeParam = params.id;
 
-const parsed = idSchema.safeParse(routeParam);
+const id =
+  typeof routeParam === "string" ? Number(routeParam) : Number(routeParam[0]);
 
-if (!parsed.success) {
+const { data: recipe, pending, error } = await useRecipeById(id);
+
+if (error.value) {
+  let statusCode = 400;
+  if (error.value.message === "Recipe not found") {
+    throw createError({
+      statusCode: 404,
+      statusMessage: "Recipe not found",
+    });
+  }
+
   throw createError({
-    statusCode: 400,
+    statusCode,
     statusMessage: "Invalid recipe id",
+    message: error.value.message,
   });
 }
-
-const {
-  data: recipe,
-  pending,
-  error,
-} = await useFetch(`/api/recipes/${id}`, {
-  lazy: true,
-});
 </script>
 
 <template>
   <div v-if="pending">Loading</div>
-  <div v-else-if="error">Failed: {{ error.statusMessage }}</div>
   <section v-else>
-    <Recipe :recipe="recipe" />
+    <Recipe :recipe="recipe!" />
   </section>
 </template>
