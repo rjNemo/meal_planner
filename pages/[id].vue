@@ -40,7 +40,11 @@ useSeoMeta({
 </script>
 
 <template>
-  <div v-if="status !== 'success'">Loading</div>
+  <div v-if="status !== 'success'" class="container mx-auto px-4 lg:px-8">
+    <span
+      class="loading loading-bars loading-lg flex justify-center items-center min-h-screen mx-auto"
+    />
+  </div>
   <section v-else>
     <Recipe :recipe="recipe!" />
   </section>
