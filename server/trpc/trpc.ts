@@ -1,6 +1,5 @@
-import { initTRPC } from "@trpc/server";
+import { initTRPC , TRPCError } from "@trpc/server";
 import type { Context } from "~/server/trpc/context";
-import { TRPCError } from "@trpc/server";
 // import { authMiddleware } from "~/server/trpc/middleware";
 
 const t = initTRPC.context<Context>().create();

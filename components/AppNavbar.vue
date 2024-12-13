@@ -49,7 +49,7 @@ const handleRandomClick = async () => {
       </ul>
     </div>
     <div class="navbar-end">
-      <button @click="handleRandomClick" class="btn btn-primary">Random</button>
+      <button class="btn btn-primary" @click="handleRandomClick">Random</button>
     </div>
   </nav>
 </template>

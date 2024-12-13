@@ -24,7 +24,6 @@ const {
 } = id === "random" ? await useRecipeRandom() : await useRecipeById(Number(id));
 
 if (error.value) {
-  let statusCode = 400;
   if (error.value.message === "Recipe not found") {
     throw createError({
       statusCode: 404,
@@ -33,7 +32,7 @@ if (error.value) {
   }
 
   throw createError({
-    statusCode,
+    statusCode: 400,
     statusMessage: "Invalid recipe id",
     message: error.value.message,
   });
