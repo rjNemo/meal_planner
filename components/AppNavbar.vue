@@ -1,3 +1,16 @@
+<script setup lang="ts">
+const router = useRouter();
+const route = useRoute();
+const { execute } = useRecipeRandom();
+
+const handleRandomClick = async () => {
+  if (route.path !== "/random") {
+    await router.push("/random");
+  }
+  await execute();
+};
+</script>
+
 <template>
   <nav class="navbar bg-base-300">
     <div class="navbar-start">
@@ -36,7 +49,7 @@
       </ul>
     </div>
     <div class="navbar-end">
-      <nuxt-link to="/random" class="btn btn-primary">Random</nuxt-link>
+      <button @click="handleRandomClick" class="btn btn-primary">Random</button>
     </div>
   </nav>
 </template>
