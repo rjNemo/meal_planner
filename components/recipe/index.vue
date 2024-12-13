@@ -5,23 +5,30 @@ defineProps<{ recipe: Recipe }>();
 </script>
 
 <template>
-  <div>
-    <div class="lg:flex space-y-4 lg:justify-evenly py-4">
-      <div class="card w-96 bg-base-100 shadow-xl mx-auto lg:mx-2 min-h-32">
-        <RecipeCard
-          :title="recipe.title"
-          :picture-url="recipe.pictureUrl"
-          :video-url="recipe.videoUrl"
-          :category="recipe.category"
-          :origin="recipe.origin"
-        />
+  <div class="container mx-auto px-4 lg:px-8">
+    <div class="flex flex-col lg:flex-row lg:justify-start gap-6 py-4">
+      <div class="w-full lg:w-[480px]">
+        <div class="card bg-base-100 shadow-xl mx-auto lg:mx-0">
+          <RecipeCard
+            :title="recipe.title"
+            :picture-url="recipe.pictureUrl"
+            :video-url="recipe.videoUrl"
+            :category="recipe.category"
+            :origin="recipe.origin"
+          />
+        </div>
       </div>
 
-      <RecipeIngredients :ingredients="recipe.ingredients" />
+      <div class="w-full lg:w-[480px]">
+        <RecipeIngredients :ingredients="recipe.ingredients" />
+      </div>
     </div>
-    <div class="flex flex-col items-center p-4">
-      <h2 class="prose lg:prose-xl">Instructions</h2>
-      <p class="prose">{{ recipe.instructions }}</p>
+    
+    <div class="flex flex-col items-center py-6">
+      <h2 class="text-2xl lg:text-3xl font-semibold mb-4">Instructions</h2>
+      <div class="prose prose-lg max-w-none w-full">
+        {{ recipe.instructions }}
+      </div>
     </div>
   </div>
 </template>
