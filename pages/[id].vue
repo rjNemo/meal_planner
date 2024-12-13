@@ -15,10 +15,13 @@ useHead({
 const { params } = useRoute();
 const routeParam = params.id;
 
-const id =
-  typeof routeParam === "string" ? Number(routeParam) : Number(routeParam[0]);
+const id = typeof routeParam === "string" ? routeParam : routeParam[0];
 
-const { data: recipe, status, error } = await useRecipeById(id);
+const {
+  data: recipe,
+  status,
+  error,
+} = id === "random" ? await useRecipeRandom() : await useRecipeById(Number(id));
 
 if (error.value) {
   let statusCode = 400;

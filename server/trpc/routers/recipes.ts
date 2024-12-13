@@ -29,4 +29,17 @@ export const recipeRouter = router({
       const recipes = parseRecipeData(data);
       return recipes[0];
     }),
+  recipeRandom: publicProcedure.query(async () => {
+    const data = await $fetch<{ meals: Meal[] }>(
+      new URL("random.php", apiUrl).toString(),
+    );
+    if (!data?.meals) {
+      throw createError({
+        statusCode: 500,
+      });
+    }
+
+    const recipes = parseRecipeData(data);
+    return recipes[0];
+  }),
 });
