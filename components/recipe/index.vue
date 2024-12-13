@@ -23,12 +23,12 @@ defineProps<{ recipe: Recipe }>();
         <RecipeIngredients :ingredients="recipe.ingredients" />
       </div>
     </div>
-    
+
     <div class="flex flex-col items-center py-6">
       <h2 class="text-2xl lg:text-3xl font-semibold mb-4">Instructions</h2>
-      <div class="prose prose-lg max-w-none w-full">
+      <p class="prose prose-lg max-w-none w-full">
         {{ recipe.instructions }}
-      </div>
+      </p>
     </div>
   </div>
 </template>

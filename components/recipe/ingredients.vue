@@ -1,6 +1,6 @@
 <script setup lang="ts">
 defineProps<{
-  ingredients: { name: string; quantity: number }[];
+  ingredients: { name: string; quantity: string }[];
 }>();
 </script>
 

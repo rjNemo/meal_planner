@@ -1,11 +1,24 @@
 <script setup lang="ts">
+useHead({
+  htmlAttrs: {
+    lang: "en",
+  },
+  link: [
+    {
+      rel: "icon",
+      type: "image/png",
+      href: "/favicon.png",
+    },
+  ],
+});
+
 const { params } = useRoute();
 const routeParam = params.id;
 
 const id =
   typeof routeParam === "string" ? Number(routeParam) : Number(routeParam[0]);
 
-const { data: recipe, pending, error } = await useRecipeById(id);
+const { data: recipe, status, error } = await useRecipeById(id);
 
 if (error.value) {
   let statusCode = 400;
@@ -22,10 +35,23 @@ if (error.value) {
     message: error.value.message,
   });
 }
+const url = useRequestURL();
+useSeoMeta({
+  title: `${recipe.value!.title} | Mood2Food`,
+  description: "The perfect meal that fits your mood",
+  ogTitle: `${recipe.value!.title} | Mood2Food`,
+  ogDescription: "The perfect meal that fits your mood",
+  ogImage: recipe.value!.pictureUrl,
+  ogUrl: url.href,
+  twitterTitle: `${recipe.value!.title} | Mood2Food`,
+  twitterDescription: "The perfect meal that fits your mood",
+  twitterImage: recipe.value!.pictureUrl,
+  twitterCard: "summary",
+});
 </script>
 
 <template>
-  <div v-if="pending">Loading</div>
+  <div v-if="status !== 'success'">Loading</div>
   <section v-else>
     <Recipe :recipe="recipe!" />
   </section>
