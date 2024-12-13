@@ -4,21 +4,38 @@ export default defineNuxtConfig({
 
   modules: ["@nuxt/eslint", "@nuxt/image", "nuxt-icon", "nuxt-delay-hydration"],
 
+  app: {
+    head: {
+      title: "Meal Planner",
+      meta: [
+        { charset: "utf-8" },
+        { name: "viewport", content: "width=device-width, initial-scale=1" },
+        {
+          hid: "description",
+          name: "description",
+          content: "Meal Planner",
+        },
+      ],
+      link: [{ rel: "icon", type: "image/png", href: "/favicon.png" }],
+    },
+  },
+
   build: {
     transpile: ["trpc-nuxt"],
   },
 
   css: ["~/assets/css/main.css"],
 
-  image: {
-    domains: ["www.themealdb.com"],
-  },
-
   delayHydration: {
     mode: "init",
     // enables nuxt-delay-hydration in dev mode for testing
     debug: process.env.NODE_ENV === "development",
   },
+
+  image: {
+    domains: ["www.themealdb.com"],
+  },
+
   postcss: {
     plugins: {
       tailwindcss: {},
@@ -35,4 +52,3 @@ export default defineNuxtConfig({
   ssr: true,
   compatibilityDate: "2024-12-13",
 });
-

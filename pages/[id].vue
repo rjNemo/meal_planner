@@ -1,17 +1,4 @@
 <script setup lang="ts">
-useHead({
-  htmlAttrs: {
-    lang: "en",
-  },
-  link: [
-    {
-      rel: "icon",
-      type: "image/png",
-      href: "/favicon.png",
-    },
-  ],
-});
-
 const { params } = useRoute();
 const routeParam = params.id;
 
