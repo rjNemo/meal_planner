@@ -10,20 +10,40 @@ if (!recipes.value) {
     statusMessage: "Category not found",
   });
 }
+
+const { data: categories } = await useCategories();
+const category = categories.value?.find((c) => c.name === categoryName);
+
+const url = useRequestURL();
+useSeoMeta({
+  title: `${categoryName} | Mood2Food`,
+  description: "The perfect meal that fits your mood",
+  ogTitle: `${categoryName} | Mood2Food`,
+  ogDescription: "The perfect meal that fits your mood",
+  ogImage: category!.picture,
+  ogUrl: url.href,
+  twitterTitle: `${categoryName} | Mood2Food`,
+  twitterDescription: "The perfect meal that fits your mood",
+  twitterImage: category!.picture,
+  twitterCard: "summary",
+});
 </script>
 
 <template>
   <div>
-    <div class="hero h-[40vh] bg-cover bg-center relative">
+    <div
+      class="hero h-[40vh] bg-cover bg-center relative"
+      :style="`background-image: url(${category!.picture})`"
+    >
       <div class="hero-overlay bg-opacity-60"></div>
       <div class="hero-content text-center text-neutral-content">
-        <h1 class="text-5xl font-bold">{{ categoryName }}</h1>
+        <h1 class="text-5xl font-bold">{{ category?.name || categoryName }}</h1>
       </div>
     </div>
 
     <div class="container mx-auto px-4 py-8">
       <div class="prose max-w-none mb-12">
-        <!-- <p>{{ category!.description }}</p> -->
+        <p>{{ category!.description }}</p>
       </div>
 
       <div v-if="status === 'pending'" class="flex justify-center my-8">

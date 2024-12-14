@@ -7,6 +7,19 @@ if (error.value) {
     message: error.value.message,
   });
 }
+const url = useRequestURL();
+useSeoMeta({
+  title: `Recipe categories | Mood2Food`,
+  description: "The perfect meal that fits your mood",
+  ogTitle: `Recipe categories | Mood2Food`,
+  ogDescription: "The perfect meal that fits your mood",
+  ogImage: "/logo192.png",
+  ogUrl: url.href,
+  twitterTitle: `Recipe categories | Mood2Food`,
+  twitterDescription: "The perfect meal that fits your mood",
+  twitterImage: "/logo192.png",
+  twitterCard: "summary",
+});
 </script>
 
 <template>
