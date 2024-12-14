@@ -62,7 +62,7 @@ if (route.path === "/search") {
           tabindex="0"
           class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-200 rounded-box w-52"
         >
-          <li><a>Categories</a></li>
+          <li><nuxt-link to="/categories">Categories</nuxt-link></li>
         </ul>
       </div>
       <nuxt-link to="/" class="btn btn-ghost text-xl">
@@ -72,7 +72,7 @@ if (route.path === "/search") {
     </div>
     <div class="navbar-center hidden lg:flex">
       <ul class="menu menu-horizontal px-1">
-        <li><a>Categories</a></li>
+        <li><nuxt-link to="/categories">Categories</nuxt-link></li>
       </ul>
     </div>
     <div class="navbar-end gap-2">
