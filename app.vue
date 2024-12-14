@@ -1,10 +1,10 @@
 <template>
   <div data-theme="cupcake" class="flex flex-col h-screen">
-    <AppNavbar />
+    <app-navbar />
     <main class="flex-grow">
-      <NuxtPage />
+      <nuxt-page />
     </main>
-    <AppFooter />
+    <app-footer />
   </div>
 </template>
 
