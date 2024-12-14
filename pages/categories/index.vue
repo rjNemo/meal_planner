@@ -1,6 +1,8 @@
 <script setup lang="ts">
 const { data: categories, status, error } = useCategories();
 
+console.log(categories.value);
+
 if (error.value) {
   throw createError({
     statusCode: 500,
@@ -15,25 +17,26 @@ if (error.value) {
       <span class="loading loading-spinner loading-lg text-primary" />
     </div>
 
-
     <div
-      v-else-if="categories?.length > 0"
+      v-else-if="categories!.length > 0"
       class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 my-8"
     >
       <div
         v-for="category in categories"
-        :key="category.strCategory"
+        :key="category.name"
         class="card bg-base-100 shadow-xl h-[28rem] sm:h-[32rem] md:h-[36rem] lg:h-[32rem]"
       >
         <figure>
-          <img :src="category.strCategoryThumb" :alt="category.strCategory" />
+          <img :src="category.picture" :alt="category.name" />
         </figure>
         <div class="card-body">
-          <h2 class="card-title">{{ category.strCategory }}</h2>
-          <p class="line-clamp-6 text-sm">{{ category.strCategoryDescription }}</p>
+          <h2 class="card-title">{{ category.name }}</h2>
+          <p class="line-clamp-6 text-sm">
+            {{ category.description }}
+          </p>
           <div class="card-actions justify-end">
             <nuxt-link
-              :to="`/category/${category.strCategory}`"
+              :to="`/category/${category.name}`"
               class="btn btn-primary"
             >
               View Recipes

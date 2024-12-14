@@ -1,27 +1,28 @@
 import { publicProcedure, router } from "../trpc";
+import {} from "~/types/recipe";
+import {
+  categoriesResponseSchema,
+  type CategoriesResponse,
+} from "~/types/category";
 
 const { apiUrl } = useRuntimeConfig();
 
-type Category = {
-  idCategory: string;
-  strCategory: string;
-  strCategoryThumb: string;
-  strCategoryDescription: string;
-};
-
 export const categoryRouter = router({
   listCategories: publicProcedure.query(async () => {
-    const data = await $fetch<{ categories: Category[] }>(
-      new URL("categories.php", apiUrl).toString(),
+    const response = await $fetch<CategoriesResponse>(
+      new URL("categories.php", apiUrl).href,
     );
 
-    if (!data?.categories) {
+    const result = categoriesResponseSchema.safeParse(response);
+
+    if (!result.success) {
       throw createError({
         statusCode: 500,
-        statusMessage: "Failed to fetch categories",
+        statusMessage: "Invalid API response format",
+        data: result.error,
       });
     }
 
-    return data.categories;
+    return result.data.categories.sort((a, b) => a.name.localeCompare(b.name));
   }),
 });

@@ -72,4 +72,5 @@ export const apiResponseSchema = z.object({
 });
 
 export type Meal = z.infer<typeof mealSchema>;
+
 export type ApiResponse = z.infer<typeof apiResponseSchema>;
