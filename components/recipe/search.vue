@@ -5,10 +5,11 @@
     <input
       type="text"
       class="grow"
-      placeholder="Search"
-      v-model="searchQuery"
+      placeholder="Search recipes..."
+      v-model="model"
       @focus="isFocused = true"
       @blur="isFocused = false"
+      @keydown.enter="$emit('search')"
     />
     <kbd class="kbd kbd-sm" :class="{ 'opacity-50': !isFocused }">⌘</kbd>
     <kbd class="kbd kbd-sm" :class="{ 'opacity-50': !isFocused }">K</kbd>
@@ -16,21 +17,11 @@
 </template>
 
 <script setup lang="ts">
-const searchQuery = ref("");
+defineEmits(["search"]);
+const model = defineModel<string>();
+
 const isFocused = ref(false);
 
-// Debounced search function
-const debouncedSearch = useDebounceFn(async (query: string) => {
-  const { data, status, error } = await useRecipeSearch(query);
-  console.log("result", data.value, status.value, error.value);
-}, 500);
-
-// Watch for changes in searchQuery
-watch(searchQuery, (newQuery) => {
-  debouncedSearch(newQuery);
-});
-
-// Optional: Handle keyboard shortcut
 onMounted(() => {
   const handleKeydown = (e: KeyboardEvent) => {
     if ((e.metaKey || e.ctrlKey) && e.key === "k") {

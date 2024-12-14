@@ -1,13 +1,26 @@
 <script setup lang="ts">
+import type { Recipe } from "~/types/recipe";
+
 const route = useRoute();
 const searchQuery = computed(() => route.query.q as string);
+const searchResults = ref<Recipe[]>([]);
+const { data, status, error, execute } = await useRecipeSearch(
+  searchQuery.value || "",
+);
 
-const { data, status, error } = await useRecipeSearch(searchQuery.value || "");
+searchResults.value = data.value;
+
+watch(searchQuery, async (newQuery) => {
+  const { data, status, error, execute } = await useRecipeSearch(
+    newQuery.trim(),
+  );
+  searchResults.value = data.value;
+});
 </script>
 
 <template>
   <div class="container mx-auto px-4">
-    <div v-if="status" class="flex justify-center my-8">
+    <div v-if="false" class="flex justify-center my-8">
       <span class="loading loading-spinner loading-lg text-primary"></span>
     </div>
 
@@ -33,7 +46,7 @@ const { data, status, error } = await useRecipeSearch(searchQuery.value || "");
       class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 my-8"
     >
       <div
-        v-for="recipe in data"
+        v-for="recipe in searchResults"
         :key="recipe.id"
         class="card bg-base-100 shadow-xl"
       >
@@ -42,8 +55,8 @@ const { data, status, error } = await useRecipeSearch(searchQuery.value || "");
           <h2 class="card-title">{{ recipe.title }}</h2>
           <p>{{ recipe.category }} • {{ recipe.origin }}</p>
           <div class="card-actions justify-end">
-            <NuxtLink :to="`/recipe/${recipe.id}`" class="btn btn-primary"
-              >View Recipe</NuxtLink
+            <nuxt-link :to="`/${recipe.id}`" class="btn btn-primary"
+              >View Recipe</nuxt-link
             >
           </div>
         </div>

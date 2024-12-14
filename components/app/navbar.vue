@@ -1,6 +1,8 @@
 <script setup lang="ts">
 const router = useRouter();
 const route = useRoute();
+const searchQuery = ref((route.query.q as string) || "");
+
 const { execute } = useRecipeRandom();
 
 const handleRandomClick = async () => {
@@ -9,6 +11,31 @@ const handleRandomClick = async () => {
   }
   await execute();
 };
+
+const debouncedSearch = useDebounceFn(async (query: string) => {
+  if (searchQuery.value.trim()) {
+    router.push({
+      path: "/search",
+      query: { q: query.trim() },
+    });
+  }
+}, 500);
+
+const handleSubmit = () => {
+  if (searchQuery.value.trim()) {
+    router.push({
+      path: "/search",
+      query: { q: searchQuery.value.trim() },
+    });
+  }
+};
+
+if (route.path === "/search") {
+  // Watch for changes in searchQuery
+  watch(searchQuery, (newQuery) => {
+    debouncedSearch(newQuery);
+  });
+}
 </script>
 
 <template>
@@ -49,7 +76,7 @@ const handleRandomClick = async () => {
       </ul>
     </div>
     <div class="navbar-end gap-2">
-      <recipe-search />
+      <recipe-search @search="handleSubmit" v-model="searchQuery" />
       <button class="btn btn-primary" @click="handleRandomClick">Random</button>
     </div>
   </nav>
