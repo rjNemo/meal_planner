@@ -29,15 +29,17 @@ useSeoMeta({
 
 <template>
   <div class="hero min-h-full bg-base-200">
-    <div class="hero-content flex-col lg:flex-row-reverse">
-      <NuxtImg src="/chef.svg" class="max-w-sm rounded-lg shadow-2xl" />
-      <div>
+    <div class="hero-content flex-col lg:flex-row-reverse h-full">
+      <nuxt-img
+        src="/chef.svg"
+        class="max-w-sm h-[80vh] object-contain rounded-lg"
+      />
+      <div class="flex flex-col justify-center">
         <h1 class="text-5xl font-bold prose">Eat Something New</h1>
-
         <p class="py-6 prose">Generate a random recipe.</p>
-        <NuxtLink to="/random" class="btn btn-primary">
+        <nuxt-link to="/random" class="btn btn-primary">
           Random Recipe Now
-        </NuxtLink>
+        </nuxt-link>
       </div>
     </div>
   </div>
