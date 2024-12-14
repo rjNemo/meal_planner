@@ -9,7 +9,7 @@ defineProps<{ recipe: Recipe }>();
     <div class="flex flex-col lg:flex-row lg:justify-start gap-6 py-4">
       <div class="w-full lg:w-[480px]">
         <div class="card bg-base-100 shadow-xl mx-auto lg:mx-0">
-          <RecipeCard
+          <recipe-card
             :title="recipe.title"
             :picture-url="recipe.pictureUrl"
             :video-url="recipe.videoUrl"
@@ -20,7 +20,7 @@ defineProps<{ recipe: Recipe }>();
       </div>
 
       <div class="w-full lg:w-[480px]">
-        <RecipeIngredients :ingredients="recipe.ingredients" />
+        <recipe-ingredients :ingredients="recipe.ingredients" />
       </div>
     </div>
 

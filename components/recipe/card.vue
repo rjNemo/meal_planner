@@ -12,17 +12,17 @@ defineProps<{
   <div class="card-body items-center text-center bg-base-200">
     <h2 class="card-title">{{ title }}</h2>
     <figure class="px-10 py-5">
-      <NuxtImg :src="pictureUrl" alt="Shoes" class="rounded-xl" />
+      <nuxt-img :src="pictureUrl" alt="Recipe picture" />
     </figure>
     <div class="card-actions space-between">
-      <NuxtLink class="badge badge-outline" :to="videoUrl">
-        <Icon name="cib:youtube" color="red" />
-      </NuxtLink>
+      <nuxt-link :to="videoUrl" target="_blank">
+        <icon name="cib:youtube" color="red" />
+      </nuxt-link>
       <div class="badge badge-secondary">
-        <Icon name="cil:apple" /> {{ category }}
+        <icon name="cil:apple" /> {{ category }}
       </div>
       <div class="badge badge-secondary">
-        <Icon name="cil:location-pin" /> {{ origin }}
+        <icon name="cil:location-pin" /> {{ origin }}
       </div>
     </div>
   </div>

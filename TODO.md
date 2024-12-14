@@ -12,7 +12,7 @@
 - [ ] seo, robots.txt
 - [x] update the README
 - [ ] create image provider
-- [ ] fetch recipe per id
+- [x] fetch recipe per id
 - [ ] add mood section
   - [ ] store recipes into my db (SQLite)
   - [ ] process them using AI

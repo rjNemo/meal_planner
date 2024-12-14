@@ -46,6 +46,6 @@ useSeoMeta({
     />
   </div>
   <section v-else>
-    <Recipe :recipe="recipe!" />
+    <recipe-view :recipe="recipe!" />
   </section>
 </template>
