@@ -42,4 +42,23 @@ export const recipeRouter = router({
     const recipes = parseRecipeData(data);
     return recipes[0];
   }),
+  recipeSearch: publicProcedure
+    .input(
+      z.string({
+        required_error: "search query is required",
+      }),
+    )
+    .query(async ({ input }) => {
+      const data = await $fetch<{ meals: Meal[] }>(
+        new URL(`search.php?s=${input}`, apiUrl).href,
+      );
+      if (!data?.meals) {
+        throw createError({
+          statusCode: 404,
+          statusMessage: "Recipe not found",
+        });
+      }
+      const recipes = parseRecipeData(data);
+      return recipes;
+    }),
 });

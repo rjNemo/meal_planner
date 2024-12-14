@@ -8,6 +8,7 @@ export default defineNuxtConfig({
     "nuxt-icon",
     "nuxt-delay-hydration",
     "@nuxtjs/robots",
+    "@vueuse/nuxt",
   ],
 
   app: {
@@ -60,4 +61,3 @@ export default defineNuxtConfig({
   ssr: true,
   compatibilityDate: "2024-12-13",
 });
-

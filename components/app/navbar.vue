@@ -48,7 +48,8 @@ const handleRandomClick = async () => {
         <li><a>Categories</a></li>
       </ul>
     </div>
-    <div class="navbar-end">
+    <div class="navbar-end gap-2">
+      <recipe-search />
       <button class="btn btn-primary" @click="handleRandomClick">Random</button>
     </div>
   </nav>
