@@ -10,10 +10,7 @@ const { data: categories, status, error } = useCategories();
       <span class="loading loading-spinner loading-lg text-primary" />
     </div>
 
-    <div
-      v-else-if="error"
-      class="alert alert-error my-8 flex-col items-center"
-    >
+    <div v-else-if="error" class="alert alert-error my-8 flex-col items-center">
       <div class="flex items-center">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -43,10 +40,7 @@ const { data: categories, status, error } = useCategories();
       />
     </div>
 
-    <div
-      v-else
-      class="alert alert-info my-8 flex-col items-center"
-    >
+    <div v-else class="alert alert-info my-8 flex-col items-center">
       <div class="flex items-center">
         <svg
           xmlns="http://www.w3.org/2000/svg"
