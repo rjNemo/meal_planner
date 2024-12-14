@@ -13,6 +13,20 @@ type Category = {
 };
 
 export const recipeRouter = router({
+  recipesByCategory: publicProcedure
+    .input(z.string())
+    .query(async ({ input }) => {
+      const data = await $fetch<{ meals: Meal[] }>(
+        new URL(`filter.php?c=${input}`, apiUrl).href,
+      );
+      
+      if (!data?.meals) {
+        return [];
+      }
+      
+      const recipes = parseRecipeData(data);
+      return recipes;
+    }),
   recipeGet: publicProcedure
     .input(
       z.coerce
