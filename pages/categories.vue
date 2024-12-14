@@ -11,8 +11,6 @@ if (error.value) {
 
 <template>
   <div class="container mx-auto px-4">
-    <h1 class="text-4xl font-bold mb-8 text-center">Recipe Categories</h1>
-
     <div v-if="status === 'pending'" class="flex justify-center my-8">
       <span class="loading loading-spinner loading-lg text-primary" />
     </div>
@@ -25,14 +23,14 @@ if (error.value) {
       <div
         v-for="category in categories"
         :key="category.strCategory"
-        class="card bg-base-100 shadow-xl"
+        class="card bg-base-100 shadow-xl h-[28rem] sm:h-[32rem] md:h-[36rem] lg:h-[32rem]"
       >
         <figure>
           <img :src="category.strCategoryThumb" :alt="category.strCategory" />
         </figure>
         <div class="card-body">
           <h2 class="card-title">{{ category.strCategory }}</h2>
-          <p>{{ category.strCategoryDescription }}</p>
+          <p class="line-clamp-6 text-sm">{{ category.strCategoryDescription }}</p>
           <div class="card-actions justify-end">
             <nuxt-link
               :to="`/category/${category.strCategory}`"
