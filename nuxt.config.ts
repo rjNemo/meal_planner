@@ -2,7 +2,13 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
 
-  modules: ["@nuxt/eslint", "@nuxt/image", "nuxt-icon", "nuxt-delay-hydration"],
+  modules: [
+    "@nuxt/eslint",
+    "@nuxt/image",
+    "nuxt-icon",
+    "nuxt-delay-hydration",
+    "@nuxtjs/robots",
+  ],
 
   app: {
     head: {
@@ -19,6 +25,7 @@ export default defineNuxtConfig({
       link: [{ rel: "icon", type: "image/png", href: "/favicon.png" }],
     },
     pageTransition: { name: "page", mode: "out-in" },
+    layoutTransition: { name: "slide", mode: "out-in" },
   },
 
   build: {
@@ -53,3 +60,4 @@ export default defineNuxtConfig({
   ssr: true,
   compatibilityDate: "2024-12-13",
 });
+

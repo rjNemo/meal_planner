@@ -9,7 +9,7 @@
 - [x] prettier and eslint
 - [x] transition and loading times
 - [ ] pwa
-- [ ] seo, robots.txt
+- [x] seo, robots.txt
 - [x] update the README
 - [ ] create image provider
 - [x] fetch recipe per id
