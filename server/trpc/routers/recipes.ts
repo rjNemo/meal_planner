@@ -65,18 +65,4 @@ export const recipeRouter = router({
       const recipes = parseRecipeData(data);
       return recipes;
     }),
-  categories: publicProcedure.query(async () => {
-    const data = await $fetch<{ categories: Category[] }>(
-      new URL("categories.php", apiUrl).toString(),
-    );
-    
-    if (!data?.categories) {
-      throw createError({
-        statusCode: 500,
-        statusMessage: "Failed to fetch categories",
-      });
-    }
-
-    return data.categories;
-  }),
 });
