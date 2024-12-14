@@ -7,7 +7,7 @@
 - [x] deploy
 - [x] nuxt image
 - [x] prettier and eslint
-- [ ] transition and loading times
+- [x] transition and loading times
 - [ ] pwa
 - [ ] seo, robots.txt
 - [x] update the README
