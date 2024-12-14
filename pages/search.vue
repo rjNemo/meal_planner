@@ -4,45 +4,38 @@ import type { Recipe } from "~/types/recipe";
 const route = useRoute();
 const searchQuery = computed(() => route.query.q as string);
 const searchResults = ref<Recipe[]>([]);
-const { data, status, error, execute } = await useRecipeSearch(
-  searchQuery.value || "",
-);
+
+const { data, status, error } = await useRecipeSearch(searchQuery.value || "");
+if (error.value) {
+  throw createError({
+    statusCode: 500,
+    message: error.value.message,
+  });
+}
 
 searchResults.value = data.value;
 
 watch(searchQuery, async (newQuery) => {
-  const { data, status, error, execute } = await useRecipeSearch(
-    newQuery.trim(),
-  );
+  const { data, error } = await useRecipeSearch(newQuery.trim());
+  if (error.value) {
+    throw createError({
+      statusCode: 500,
+      message: error.value.message,
+    });
+  }
+
   searchResults.value = data.value;
 });
 </script>
 
 <template>
   <div class="container mx-auto px-4">
-    <div v-if="false" class="flex justify-center my-8">
-      <span class="loading loading-spinner loading-lg text-primary"></span>
-    </div>
-
-    <div v-else-if="error" class="alert alert-error my-8">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        class="stroke-current shrink-0 h-6 w-6"
-        fill="none"
-        viewBox="0 0 24 24"
-      >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
-        />
-      </svg>
-      <span>Error: {{ error.message }}</span>
+    <div v-if="status === 'pending'" class="flex justify-center my-8">
+      <span class="loading loading-spinner loading-lg text-primary" />
     </div>
 
     <div
-      v-else-if="data"
+      v-else-if="searchResults.length > 0"
       class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 my-8"
     >
       <div
@@ -55,29 +48,34 @@ watch(searchQuery, async (newQuery) => {
           <h2 class="card-title">{{ recipe.title }}</h2>
           <p>{{ recipe.category }} • {{ recipe.origin }}</p>
           <div class="card-actions justify-end">
-            <nuxt-link :to="`/${recipe.id}`" class="btn btn-primary"
-              >View Recipe</nuxt-link
-            >
+            <nuxt-link :to="`/${recipe.id}`" class="btn btn-primary">
+              View Recipe
+            </nuxt-link>
           </div>
         </div>
       </div>
     </div>
 
-    <div v-else-if="searchQuery" class="alert alert-info my-8">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 24 24"
-        class="stroke-current shrink-0 w-6 h-6"
-      >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-        ></path>
-      </svg>
-      <span>No recipes found for "{{ searchQuery }}"</span>
+    <div
+      v-else-if="searchQuery"
+      class="alert alert-info my-8 flex-col items-center"
+    >
+      <div class="flex items-center">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          class="stroke-current shrink-0 w-6 h-6"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+          />
+        </svg>
+        <span>No recipes found for "{{ searchQuery }}"</span>
+      </div>
     </div>
   </div>
 </template>

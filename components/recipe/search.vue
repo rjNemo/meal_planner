@@ -3,14 +3,14 @@
     class="input input-bordered input-primary flex items-center gap-2 container mx-auto px-4 lg:px-8 my-4"
   >
     <input
+      v-model="model"
       type="text"
       class="grow"
       placeholder="Search recipes..."
-      v-model="model"
       @focus="isFocused = true"
       @blur="isFocused = false"
       @keydown.enter="$emit('search')"
-    />
+    >
     <kbd class="kbd kbd-sm" :class="{ 'opacity-50': !isFocused }">⌘</kbd>
     <kbd class="kbd kbd-sm" :class="{ 'opacity-50': !isFocused }">K</kbd>
   </label>

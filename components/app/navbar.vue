@@ -76,7 +76,7 @@ if (route.path === "/search") {
       </ul>
     </div>
     <div class="navbar-end gap-2">
-      <recipe-search @search="handleSubmit" v-model="searchQuery" />
+      <recipe-search v-model="searchQuery" @search="handleSubmit" />
       <button class="btn btn-primary" @click="handleRandomClick">Random</button>
     </div>
   </nav>

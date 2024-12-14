@@ -53,10 +53,7 @@ export const recipeRouter = router({
         new URL(`search.php?s=${input}`, apiUrl).href,
       );
       if (!data?.meals) {
-        throw createError({
-          statusCode: 404,
-          statusMessage: "Recipe not found",
-        });
+        return [];
       }
       const recipes = parseRecipeData(data);
       return recipes;
