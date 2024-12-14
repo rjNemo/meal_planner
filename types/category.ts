@@ -20,3 +20,23 @@ export const categoriesResponseSchema = z.object({
 
 export type Category = z.infer<typeof categorySchema>;
 export type CategoriesResponse = z.infer<typeof categoriesResponseSchema>;
+
+export const categoryRecipeSchema = z
+  .object({
+    strMeal: z.string(),
+    strMealThumb: z.string().url(),
+    idMeal: z.string(),
+  })
+  .transform((meal) => ({
+    title: meal.strMeal,
+    pictureUrl: meal.strMealThumb,
+    id: meal.idMeal,
+  }));
+
+export const categoryRecipesResponseSchema = z
+  .object({
+    meals: z.array(categoryRecipeSchema),
+  })
+  .transform((data) => ({
+    recipes: data.meals,
+  }));

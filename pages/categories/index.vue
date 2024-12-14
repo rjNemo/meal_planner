@@ -1,8 +1,6 @@
 <script setup lang="ts">
 const { data: categories, status, error } = useCategories();
 
-console.log(categories.value);
-
 if (error.value) {
   throw createError({
     statusCode: 500,
@@ -36,7 +34,7 @@ if (error.value) {
           </p>
           <div class="card-actions justify-end">
             <nuxt-link
-              :to="`/category/${category.name}`"
+              :to="`/categories/${category.name}`"
               class="btn btn-primary"
             >
               View Recipes

@@ -2,36 +2,28 @@
 const route = useRoute();
 const categoryName = route.params.name as string;
 
-const { data: categories } = useCategories();
-const { data: recipes, status } = useCategoryRecipes(categoryName);
+const { data: recipes, status } = await useCategoryRecipes(categoryName);
 
-const category = computed(() => 
-  categories.value?.find((c) => c.name === categoryName)
-);
-
-if (!category.value) {
+if (!recipes.value) {
   throw createError({
     statusCode: 404,
-    message: 'Category not found',
+    statusMessage: "Category not found",
   });
 }
 </script>
 
 <template>
   <div>
-    <div 
-      class="hero h-[40vh] bg-cover bg-center relative"
-      :style="`background-image: url(${category.value.picture})`"
-    >
+    <div class="hero h-[40vh] bg-cover bg-center relative">
       <div class="hero-overlay bg-opacity-60"></div>
       <div class="hero-content text-center text-neutral-content">
-        <h1 class="text-5xl font-bold">{{ category.value.name }}</h1>
+        <h1 class="text-5xl font-bold">{{ categoryName }}</h1>
       </div>
     </div>
 
     <div class="container mx-auto px-4 py-8">
       <div class="prose max-w-none mb-12">
-        <p>{{ category.value.description }}</p>
+        <!-- <p>{{ category!.description }}</p> -->
       </div>
 
       <div v-if="status === 'pending'" class="flex justify-center my-8">

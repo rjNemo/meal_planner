@@ -2,15 +2,9 @@ import { z } from "zod";
 import { publicProcedure, router } from "../trpc";
 import type { Meal } from "~/types/recipe";
 import { parseRecipeData } from "~/utils/recipes";
+import { categoryRecipesResponseSchema } from "~/types/category";
 
 const { apiUrl } = useRuntimeConfig();
-
-type Category = {
-  idCategory: string;
-  strCategory: string;
-  strCategoryThumb: string;
-  strCategoryDescription: string;
-};
 
 export const recipeRouter = router({
   recipesByCategory: publicProcedure
@@ -19,13 +13,17 @@ export const recipeRouter = router({
       const data = await $fetch<{ meals: Meal[] }>(
         new URL(`filter.php?c=${input}`, apiUrl).href,
       );
-      
-      if (!data?.meals) {
-        return [];
+
+      const result = categoryRecipesResponseSchema.safeParse(data);
+
+      if (!result.success) {
+        throw createError({
+          statusCode: 404,
+          statusMessage: "Recipes for category not found",
+        });
       }
-      
-      const recipes = parseRecipeData(data);
-      return recipes;
+
+      return result.data.recipes;
     }),
   recipeGet: publicProcedure
     .input(
