@@ -95,8 +95,11 @@ address: [link](https://mood2food.netlify.app/).
 ## Built With
 
 - [Nuxt](https://nuxt.com/) - The Intuitive Vue Framework
-- [Tailwindcss](https://tailwindcss.com) -Rapidly build modern websites without
+- [tRPC](https://trpc.io/) - End-to-end typesafe APIs made easy
+- [Tailwindcss](https://tailwindcss.com) - Rapidly build modern websites without
   ever leaving your HTML.
+- [daisyUI](https://daisyui.com/) - The most popular component library for
+  Tailwind CSS
 - [TheMealDb](https://www.themealdb.com/api.php) - An open, crowd-sourced database
   of Recipes from around the world
 

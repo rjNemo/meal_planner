@@ -65,7 +65,7 @@ useSeoMeta({
           <div class="card-body">
             <h2 class="card-title">{{ recipe.title }}</h2>
             <div class="card-actions justify-end">
-              <nuxt-link :to="`/recipe/${recipe.id}`" class="btn btn-primary">
+              <nuxt-link :to="`/${recipe.id}`" class="btn btn-primary">
                 View Recipe
               </nuxt-link>
             </div>
