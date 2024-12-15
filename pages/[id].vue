@@ -24,6 +24,7 @@ if (error.value) {
     message: error.value.message,
   });
 }
+
 const url = useRequestURL();
 useSeoMeta({
   title: `${recipe.value!.title} | Mood2Food`,

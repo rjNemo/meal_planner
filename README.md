@@ -95,13 +95,16 @@ address: [link](https://mood2food.netlify.app/).
 ## Built With
 
 - [Nuxt](https://nuxt.com/) - The Intuitive Vue Framework
-- [Tailwindcss](https://tailwindcss.com) -Rapidly build modern websites without ever leaving your HTML.
-- [TheMealDb](https://www.themealdb.com/api.php) - An open, crowd-sourced database of Recipes from around the world
+- [Tailwindcss](https://tailwindcss.com) -Rapidly build modern websites without
+  ever leaving your HTML.
+- [TheMealDb](https://www.themealdb.com/api.php) - An open, crowd-sourced database
+  of Recipes from around the world
 
 ## Contributing
 
-Please read [CONTRIBUTING.md](https://github.com/rjNemo/meal_planner/contributors) for details on our code of conduct,
-and the process for submitting pull requests to us.
+Please read [CONTRIBUTING.md](https://github.com/rjNemo/meal_planner/contributors)
+for details on our code of conduct, and the process for submitting pull requests
+to us.
 
 ## Versioning
 
@@ -112,9 +115,10 @@ the [tags on this repository](https://github.com/rjNemo/meal_planner/tags).
 
 - **Ruidy Nemausat** - _Initial work_ - [GitHub](https://github.com/rjNemo)
 
-See also the list of [contributors](https://github.com/rjNemo/meal_planner/contributors) who participated in this
-project.
+See also the list of [contributors](https://github.com/rjNemo/meal_planner/contributors)
+who participated in this project.
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md)
+file for details
