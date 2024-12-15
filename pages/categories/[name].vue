@@ -60,7 +60,12 @@ useSeoMeta({
           class="card bg-base-100 shadow-xl"
         >
           <figure>
-            <img :src="recipe.pictureUrl" :alt="recipe.title" />
+            <nuxt-img
+              :src="recipe.pictureUrl"
+              :alt="recipe.title"
+              :placeholder="[300]"
+              format="webp"
+            />
           </figure>
           <div class="card-body">
             <h2 class="card-title">{{ recipe.title }}</h2>

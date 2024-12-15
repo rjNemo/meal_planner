@@ -38,7 +38,13 @@ useSeoMeta({
         class="card bg-base-100 shadow-xl h-[28rem] sm:h-[32rem] md:h-[36rem] lg:h-[32rem]"
       >
         <figure>
-          <img :src="category.picture" :alt="category.name" />
+          <nuxt-img
+            :src="category.picture"
+            :alt="category.name"
+            :placeholder="[160, 100]"
+            format="webp"
+            loading="lazy"
+          />
         </figure>
         <div class="card-body">
           <h2 class="card-title">{{ category.name }}</h2>

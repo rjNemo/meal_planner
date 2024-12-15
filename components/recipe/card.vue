@@ -12,7 +12,12 @@ defineProps<{
   <div class="card-body items-center text-center bg-base-200">
     <h2 class="card-title">{{ title }}</h2>
     <figure class="px-10 py-5">
-      <nuxt-img :src="pictureUrl" alt="Recipe picture" />
+      <nuxt-img
+        :src="pictureUrl"
+        alt="`${title} picture`"
+        :placeholder="[300]"
+        format="webp"
+      />
     </figure>
     <div class="card-actions space-between">
       <nuxt-link :to="videoUrl" target="_blank">

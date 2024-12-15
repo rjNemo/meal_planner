@@ -33,6 +33,8 @@ useSeoMeta({
       <nuxt-img
         src="/chef.svg"
         class="max-w-sm h-[80vh] object-contain rounded-lg"
+        :placeholder="[400, 800]"
+        format="webp"
       />
       <div class="flex flex-col justify-center">
         <h1 class="text-5xl font-bold prose">Eat Something New</h1>

@@ -43,7 +43,14 @@ watch(searchQuery, async (newQuery) => {
         :key="recipe.id"
         class="card bg-base-100 shadow-xl"
       >
-        <figure><img :src="recipe.pictureUrl" :alt="recipe.title" /></figure>
+        <figure>
+          <nuxt-img
+            :src="recipe.pictureUrl"
+            :alt="recipe.title"
+            format="webp"
+            loading="lazy"
+          />
+        </figure>
         <div class="card-body">
           <h2 class="card-title">{{ recipe.title }}</h2>
           <p>{{ recipe.category }} • {{ recipe.origin }}</p>
