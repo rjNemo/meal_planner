@@ -42,7 +42,12 @@ if (route.path === "/search") {
   <nav class="navbar bg-base-300">
     <div class="navbar-start">
       <div class="dropdown">
-        <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+        <div
+          tabindex="0"
+          role="button"
+          class="btn btn-ghost lg:hidden"
+          arial-label="Menu button"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             class="h-5 w-5"
@@ -66,7 +71,7 @@ if (route.path === "/search") {
         </ul>
       </div>
       <nuxt-link to="/" class="btn btn-ghost text-xl">
-        <nuxt-img src="/logo192.png" width="50" />
+        <nuxt-img src="/logo192.png" width="50" alt="logo" />
         <span style="font-family: cursive"> Chefs </span>
       </nuxt-link>
     </div>

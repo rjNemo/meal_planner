@@ -1,17 +1,4 @@
 <script setup lang="ts">
-useHead({
-  htmlAttrs: {
-    lang: "en",
-  },
-  link: [
-    {
-      rel: "icon",
-      type: "image/png",
-      href: "/favicon.png",
-    },
-  ],
-});
-
 const url = useRequestURL();
 useSeoMeta({
   title: `Mood2Food`,
@@ -32,7 +19,8 @@ useSeoMeta({
     <div class="hero-content flex-col lg:flex-row-reverse h-full">
       <nuxt-img
         src="/chef.svg"
-        class="max-w-sm h-[80vh] object-contain rounded-lg"
+        alt="Chef holding a knife"
+        class="max-w-sm h-[50vh] lg:h-[80vh] object-contain rounded-lg"
         :placeholder="[400, 800]"
         format="webp"
       />

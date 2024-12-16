@@ -20,7 +20,11 @@ defineProps<{
       />
     </figure>
     <div class="card-actions space-between">
-      <nuxt-link :to="videoUrl" target="_blank">
+      <nuxt-link
+        :to="videoUrl"
+        target="_blank"
+        aria-label="watch the recipe in video"
+      >
         <icon name="cib:youtube" color="red" />
       </nuxt-link>
       <div class="badge badge-secondary">

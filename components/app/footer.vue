@@ -8,6 +8,7 @@
         to="https://github.com/rjNemo/meal_planner"
         :external="true"
         target="_blank"
+        aria-label="navigate to the source code on GitHub"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -25,6 +26,7 @@
         to="https://ruidy.nemausat.com"
         :external="true"
         target="_blank"
+        aria-label="navigate to my website"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
