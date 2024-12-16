@@ -71,7 +71,7 @@ if (route.path === "/search") {
         </ul>
       </div>
       <nuxt-link to="/" class="btn btn-ghost text-xl">
-        <nuxt-img src="/logo192.png" width="50" alt="logo" />
+        <nuxt-img src="/logo192.png" width="50" height="50" alt="logo" />
         <span style="font-family: cursive"> Chefs </span>
       </nuxt-link>
     </div>

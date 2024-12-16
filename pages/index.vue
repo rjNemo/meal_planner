@@ -23,6 +23,8 @@ useSeoMeta({
         class="max-w-sm h-[50vh] lg:h-[80vh] object-contain rounded-lg"
         :placeholder="[400, 800]"
         format="webp"
+        height="800"
+        width="400"
       />
       <div class="flex flex-col justify-center">
         <h1 class="text-5xl font-bold prose">Eat Something New</h1>

@@ -35,7 +35,7 @@ useSeoMeta({
       class="hero h-[40vh] bg-cover bg-center relative"
       :style="`background-image: url(${category!.picture})`"
     >
-      <div class="hero-overlay bg-opacity-60"></div>
+      <div class="hero-overlay bg-opacity-60" />
       <div class="hero-content text-center text-neutral-content">
         <h1 class="text-5xl font-bold">{{ category?.name || categoryName }}</h1>
       </div>
@@ -64,6 +64,8 @@ useSeoMeta({
               :src="recipe.pictureUrl"
               :alt="recipe.title"
               :placeholder="[300]"
+              height="300"
+              width="300"
               format="webp"
             />
           </figure>

@@ -49,6 +49,9 @@ watch(searchQuery, async (newQuery) => {
             :alt="recipe.title"
             format="webp"
             loading="lazy"
+            :placeholder="[350]"
+            height="350"
+            width="350"
           />
         </figure>
         <div class="card-body">

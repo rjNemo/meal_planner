@@ -42,6 +42,8 @@ useSeoMeta({
             :src="category.picture"
             :alt="category.name"
             :placeholder="[160, 100]"
+            height="100"
+            width="160"
             format="webp"
             loading="lazy"
           />

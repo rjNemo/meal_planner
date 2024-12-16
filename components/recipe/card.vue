@@ -16,6 +16,8 @@ defineProps<{
         :src="pictureUrl"
         alt="`${title} picture`"
         :placeholder="[300]"
+        width="300"
+        height="300"
         format="webp"
       />
     </figure>
