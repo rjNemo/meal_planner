@@ -1,6 +1,10 @@
 <template>
   <div data-theme="cupcake" class="flex flex-col h-screen">
-    <app-navbar />
+    <app-navbar>
+      <template #menu>
+        <li><nuxt-link to="/categories">Categories</nuxt-link></li>
+      </template>
+    </app-navbar>
     <main class="flex-grow">
       <nuxt-page />
     </main>
