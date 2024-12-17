@@ -4,18 +4,24 @@ import type { Recipe } from "~/types/recipe";
 const route = useRoute();
 const searchQuery = computed(() => route.query.q as string);
 const searchResults = ref<Recipe[]>([]);
+const loading = ref(false);
 
-const { data, status, error } = await useRecipeSearch(searchQuery.value || "");
-if (error.value) {
-  throw createError({
-    statusCode: 500,
-    message: error.value.message,
-  });
+if (searchQuery.value) {
+  loading.value = true;
+  const { data, error } = await useRecipeSearch(searchQuery.value);
+  if (error.value) {
+    throw createError({
+      statusCode: 500,
+      message: error.value.message,
+    });
+  }
+
+  searchResults.value = data.value!;
+  loading.value = false;
 }
 
-searchResults.value = data.value;
-
 watch(searchQuery, async (newQuery) => {
+  loading.value = true;
   const { data, error } = await useRecipeSearch(newQuery.trim());
   if (error.value) {
     throw createError({
@@ -24,21 +30,26 @@ watch(searchQuery, async (newQuery) => {
     });
   }
 
-  searchResults.value = data.value;
+  searchResults.value = data.value!;
+  loading.value = false;
 });
 </script>
 
 <template>
   <div class="container mx-auto px-4">
-    <div v-if="status === 'pending'" class="flex justify-center my-8">
+    <recipe-search
+      class="md:hidden mb-6"
+      :initial-query="searchQuery"
+      :autofocus="true"
+    />
+    <div v-if="loading" class="flex justify-center my-8">
       <span class="loading loading-spinner loading-lg text-primary" />
     </div>
 
     <div
-      v-else-if="searchResults.length > 0"
+      v-if="searchResults.length > 0"
       class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 my-8"
     >
-      <recipe-search class="md:hidden mb-6" :initial-query="searchQuery" />
       <div
         v-for="recipe in searchResults"
         :key="recipe.id"
