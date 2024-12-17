@@ -9,18 +9,35 @@
       placeholder="Search recipes..."
       @focus="isFocused = true"
       @blur="isFocused = false"
-      @keydown.enter="$emit('search')"
     >
-    <kbd class="kbd kbd-sm" :class="{ 'opacity-50': !isFocused }">⌘</kbd>
-    <kbd class="kbd kbd-sm" :class="{ 'opacity-50': !isFocused }">K</kbd>
+    <kbd
+      class="hidden md:inline-block kbd kbd-sm"
+      :class="{ 'opacity-50': !isFocused }"
+    >
+      ⌘
+    </kbd>
+    <kbd
+      class="hidden md:inline-block kbd kbd-sm"
+      :class="{ 'opacity-50': !isFocused }"
+    >
+      K
+    </kbd>
   </label>
 </template>
 
 <script setup lang="ts">
-defineEmits(["search"]);
 const model = defineModel<string>();
-
 const isFocused = ref(false);
+
+// Debounced navigation
+const debouncedSearch = useDebounceFn((query: string) => {
+  navigateTo(`/search?q=${encodeURIComponent(query || "")}`);
+}, 200);
+
+// Watch for changes in model
+watch(model, (newQuery) => {
+  debouncedSearch(newQuery || "");
+});
 
 onMounted(() => {
   const handleKeydown = (e: KeyboardEvent) => {

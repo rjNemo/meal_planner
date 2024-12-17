@@ -11,31 +11,6 @@ const handleRandomClick = async () => {
   }
   await execute();
 };
-
-const debouncedSearch = useDebounceFn(async (query: string) => {
-  if (searchQuery.value.trim()) {
-    router.push({
-      path: "/search",
-      query: { q: query.trim() },
-    });
-  }
-}, 500);
-
-const handleSubmit = () => {
-  if (searchQuery.value.trim()) {
-    router.push({
-      path: "/search",
-      query: { q: searchQuery.value.trim() },
-    });
-  }
-};
-
-if (route.path === "/search") {
-  // Watch for changes in searchQuery
-  watch(searchQuery, (newQuery) => {
-    debouncedSearch(newQuery);
-  });
-}
 </script>
 
 <template>
@@ -78,11 +53,7 @@ if (route.path === "/search") {
         <icon name="uil:search" class="w-6 h-6" />
       </nuxt-link>
       <!-- Search bar for larger screens -->
-      <recipe-search
-        v-model="searchQuery"
-        @search="handleSubmit"
-        class="hidden sm:flex"
-      />
+      <recipe-search v-model="searchQuery" class="hidden sm:flex" />
       <button class="btn btn-primary" @click="handleRandomClick">Random</button>
     </div>
   </nav>

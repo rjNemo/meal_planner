@@ -38,6 +38,7 @@ watch(searchQuery, async (newQuery) => {
       v-else-if="searchResults.length > 0"
       class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 my-8"
     >
+      <recipe-search class="md:hidden mb-6" :initial-query="searchQuery" />
       <div
         v-for="recipe in searchResults"
         :key="recipe.id"
