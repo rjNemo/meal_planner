@@ -1,9 +1,16 @@
 <template>
-  <footer class="footer bg-base-300 text-base-content items-center p-4">
-    <aside class="grid-flow-col items-center">
-      <p>Copyright &copy; {{ new Date().getFullYear() }} – Made with ❤️</p>
+  <footer
+    class="footer bg-base-300 text-base-content items-center p-4 flex justify-between"
+  >
+    <aside class="items-center">
+      <p>
+        <span class="hidden sm:inline"
+          >Copyright &copy; {{ new Date().getFullYear() }} –
+        </span>
+        Made with ❤️
+      </p>
     </aside>
-    <nav class="grid-flow-col gap-4 md:place-self-center md:justify-self-end">
+    <nav class="grid-flow-col gap-4">
       <nuxt-link
         to="https://github.com/rjNemo/meal_planner"
         :external="true"
