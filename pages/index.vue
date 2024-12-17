@@ -20,10 +20,10 @@ useSeoMeta({
       <nuxt-img
         src="/chef.svg"
         alt="Chef holding a knife"
-        class="max-w-sm h-[50vh] lg:h-[80vh] object-contain rounded-lg"
-        :placeholder="[400, 800]"
+        class="max-w-sm object-contain rounded-lg"
+        :placeholder="[400, 300]"
         format="webp"
-        height="800"
+        height="300"
         width="400"
       />
       <div class="flex flex-col justify-center">
