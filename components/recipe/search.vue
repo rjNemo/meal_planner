@@ -7,10 +7,10 @@
       type="text"
       class="grow"
       placeholder="Search recipes..."
+      :autofocus="autofocus"
       @focus="isFocused = true"
       @blur="isFocused = false"
-      :autofocus="autofocus"
-    />
+    >
     <kbd
       class="hidden md:inline-block kbd kbd-sm"
       :class="{ 'opacity-50': !isFocused }"
@@ -28,9 +28,8 @@
 
 <script setup lang="ts">
 const model = defineModel<string>();
-const props = defineProps<{
-  autofocus?: boolean;
-}>();
+defineProps<{ autofocus?: boolean }>();
+
 const isFocused = ref(false);
 
 // Debounced navigation

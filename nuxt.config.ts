@@ -5,15 +5,15 @@ export default defineNuxtConfig({
   modules: [
     "@nuxt/eslint",
     "@nuxt/image",
-    "nuxt-icon",
-    "nuxt-delay-hydration",
     "@nuxtjs/robots",
     "@vueuse/nuxt",
+    "nuxt-delay-hydration",
+    "nuxt-icon",
   ],
 
   app: {
     head: {
-      title: "Meal Planner",
+      title: "Mood2Food",
       htmlAttrs: { lang: "en" },
       meta: [
         { charset: "utf-8" },
