@@ -1,6 +1,6 @@
 # Chef's Meal Planner
 
-![header image](https://socialify.git.ci/rjnemo/meal_planner/image?description=1&font=Raleway&language=1&logo=https%3A%2F%2Fchefs-meal-planner.onrender.com%2Flogo192.png&owner=1&pattern=Diagonal%20Stripes&stargazers=1&theme=Dark)
+![header image](https://socialify.git.ci/rjnemo/meal_planner/image?description=1&font=Raleway&language=1&logo=https%3A%2F%2Fmood2food.netlify.app%2Flogo192.png&owner=1&pattern=Diagonal%20Stripes&stargazers=1&theme=Dark)
 
 ![license](https://img.shields.io/github/license/rjNemo/meal_planner?style=for-the-badge)
 ![release tag](https://img.shields.io/github/v/release/rjNemo/meal_planner?style=for-the-badge)
