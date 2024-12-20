@@ -15,6 +15,7 @@ const shareRecipe = async (recipe: Recipe) => {
         url,
       });
     } catch (error) {
+      console.error(error);
       alert("Failed to share the recipe.");
     }
   } else {

@@ -14,15 +14,13 @@
     <kbd
       class="hidden md:inline-block kbd kbd-sm"
       :class="{ 'opacity-50': !isFocused }"
+      >⌘</kbd
     >
-      ⌘
-    </kbd>
     <kbd
       class="hidden md:inline-block kbd kbd-sm"
       :class="{ 'opacity-50': !isFocused }"
+      >K</kbd
     >
-      K
-    </kbd>
   </label>
 </template>
 
