@@ -14,7 +14,6 @@ export type Recipe = {
 const mealSchema = z.object({
   idMeal: z.string(),
   strMeal: z.string(),
-  strDrinkAlternate: z.string().nullable(),
   strCategory: z.string(),
   strArea: z.string(),
   strInstructions: z.string(),
@@ -63,8 +62,6 @@ const mealSchema = z.object({
   strMeasure20: z.string().nullish(),
   strSource: z.string().nullish(),
   strImageSource: z.string().nullable(),
-  strCreativeCommonsConfirmed: z.string().nullable(),
-  dateModified: z.string().optional().nullable(),
 });
 
 export const apiResponseSchema = z.object({
