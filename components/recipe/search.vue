@@ -10,7 +10,7 @@
       :autofocus="autofocus"
       @focus="isFocused = true"
       @blur="isFocused = false"
-    >
+    />
     <kbd
       class="hidden md:inline-block kbd kbd-sm"
       :class="{ 'opacity-50': !isFocused }"

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { Recipe } from "~/types/recipe";
-
-const cookbook = [] as Recipe[];
+import { useStorage } from "@vueuse/core";
+const cookbook = useStorage<Recipe[]>("cookbook", [], localStorage);
 </script>
 
 <template>
@@ -16,7 +16,7 @@ const cookbook = [] as Recipe[];
     </div>
     <ul>
       <li v-for="recipe in cookbook" :key="recipe.id">
-        <nuxt-link :to="`/recipes/${recipe.id}`">
+        <nuxt-link :to="`/${recipe.id}`">
           <recipe-card
             :title="recipe.title"
             :picture-url="recipe.pictureUrl"

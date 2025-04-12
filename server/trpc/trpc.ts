@@ -1,4 +1,4 @@
-import { initTRPC , TRPCError } from "@trpc/server";
+import { initTRPC, TRPCError } from "@trpc/server";
 import type { Context } from "~/server/trpc/context";
 // import { authMiddleware } from "~/server/trpc/middleware";
 

@@ -1,7 +1,29 @@
 <script setup lang="ts">
 import type { Recipe } from "~/types/recipe";
 
-defineProps<{ recipe: Recipe }>();
+import { useLocalStorage } from "@vueuse/core";
+const { recipe } = defineProps<{ recipe: Recipe }>();
+
+const cookbook = useLocalStorage<Recipe[]>("cookbook", []);
+
+const likedRecipes = ref(new Set<string>());
+onMounted(() => {
+  likedRecipes.value = new Set(cookbook.value.map((recipe) => recipe.id));
+  console.log("cook", likedRecipes.value);
+});
+
+const toggleLike = (recipeId: string) => {
+  if (likedRecipes.value.has(recipeId)) {
+    likedRecipes.value.delete(recipeId);
+    cookbook.value = cookbook.value.filter((recipe) => recipe.id !== recipeId);
+  } else {
+    likedRecipes.value.add(recipeId);
+    const recipeToAdd = recipe;
+    if (recipeToAdd) {
+      cookbook.value = [...cookbook.value, recipeToAdd];
+    }
+  }
+};
 
 const shareRecipe = async (recipe: Recipe) => {
   const url =
@@ -49,10 +71,23 @@ const shareRecipe = async (recipe: Recipe) => {
       <p class="prose prose-lg max-w-none w-full">
         {{ recipe.instructions }}
       </p>
-      <button class="btn btn-accent mt-4" @click="shareRecipe(recipe)">
-        <icon name="uil:share-alt" class="mr-2 w-6 h-6" />
-        Share Recipe
-      </button>
+      <div class="flex gap-4 mt-4">
+        <button class="btn btn-accent" @click="shareRecipe(recipe)">
+          <icon name="uil:share-alt" class="mr-2 w-6 h-6" />
+          Share Recipe
+        </button>
+        <button
+          class="btn btn-ghost"
+          @click="toggleLike(recipe.id)"
+          :class="{ 'text-red-500': likedRecipes.has(recipe.id) }"
+        >
+          <icon
+            :name="likedRecipes.has(recipe.id) ? 'uil:heart' : 'uil:heart-alt'"
+            class="w-6 h-6"
+          />
+          Like
+        </button>
+      </div>
     </div>
   </div>
 </template>
