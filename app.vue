@@ -3,6 +3,7 @@
     <app-navbar>
       <template #menu>
         <li><nuxt-link to="/categories">Categories</nuxt-link></li>
+        <li><nuxt-link to="/cookbook">Cookbook</nuxt-link></li>
       </template>
     </app-navbar>
     <main class="flex-grow">
