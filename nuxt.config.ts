@@ -6,6 +6,7 @@ export default defineNuxtConfig({
     "@nuxt/eslint",
     "@nuxt/image",
     "@nuxtjs/robots",
+    "@sentry/nuxt/module",
     "@vueuse/nuxt",
     "nuxt-delay-hydration",
     "nuxt-icon",
@@ -57,8 +58,26 @@ export default defineNuxtConfig({
     // The private keys which are only available server-side
     apiUrl: "",
     // Keys within public are also exposed client-side
+    public: {
+      sentry: {
+        dsn: "",
+      },
+    },
   },
 
   ssr: true,
   compatibilityDate: "2024-12-13",
+
+  sentry: {
+    sourceMapsUploadOptions: {
+      org: "ruidy",
+      project: "meal-planner",
+    },
+
+    autoInjectServerSentry: "top-level-import",
+  },
+
+  sourcemap: {
+    client: "hidden",
+  },
 });
