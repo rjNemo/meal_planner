@@ -78,8 +78,8 @@ const shareRecipe = async (recipe: Recipe) => {
         </button>
         <button
           class="btn btn-ghost"
-          @click="toggleLike(recipe.id)"
           :class="{ 'text-red-500': likedRecipes.has(recipe.id) }"
+          @click="toggleLike(recipe.id)"
         >
           <icon
             :name="likedRecipes.has(recipe.id) ? 'uil:heart' : 'uil:heart-alt'"

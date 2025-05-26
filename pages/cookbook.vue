@@ -6,7 +6,6 @@ const cookbook = useStorage<Recipe[]>("cookbook", [], localStorage);
 
 <template>
   <main>
-    <sentry-error-button />
     <div
       v-if="cookbook.length === 0"
       class="flex justify-center items-center min-h-screen"
